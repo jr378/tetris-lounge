@@ -57,8 +57,7 @@ export default function MediaPage() {
           Performance clips and highlights.
         </p>
         <VideoGallery
-          videoDir="/videos/tetris-lounge"
-          prefix="tl"
+          videos={[]}
           accentColor="amber"
         />
       </Section>
@@ -72,8 +71,7 @@ export default function MediaPage() {
           Beatles tribute performances.
         </p>
         <VideoGallery
-          videoDir="/videos/nowhere-men"
-          prefix="nm"
+          videos={[]}
           accentColor="teal"
         />
       </Section>

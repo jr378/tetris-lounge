@@ -1,69 +1,17 @@
-"use client";
-
-import { useState, useEffect } from "react";
+interface Video {
+  youtubeId: string;
+  title: string;
+}
 
 interface VideoGalleryProps {
-  videoDir: string;
-  prefix: string;
+  videos: Video[];
   accentColor?: "amber" | "teal";
 }
 
 export function VideoGallery({
-  videoDir,
-  prefix,
+  videos,
   accentColor = "amber",
 }: VideoGalleryProps) {
-  const [videos, setVideos] = useState<string[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    let cancelled = false;
-    const controller = new AbortController();
-
-    const checkVideos = async () => {
-      const found: string[] = [];
-      for (let i = 1; i <= 20; i++) {
-        if (cancelled) return;
-        const num = String(i).padStart(2, "0");
-        const vidPath = `${videoDir}/${prefix}-${num}.mp4`;
-        try {
-          const res = await fetch(vidPath, {
-            method: "HEAD",
-            signal: controller.signal,
-          });
-          if (res.ok) {
-            found.push(vidPath);
-          }
-        } catch {
-          if (cancelled) return;
-        }
-      }
-      if (!cancelled) {
-        setVideos(found);
-        setLoading(false);
-      }
-    };
-    checkVideos();
-
-    return () => {
-      cancelled = true;
-      controller.abort();
-    };
-  }, [videoDir, prefix]);
-
-  if (loading) {
-    return (
-      <div className="grid md:grid-cols-2 gap-6">
-        {Array.from({ length: 2 }, (_, i) => (
-          <div
-            key={`skeleton-${i}`}
-            className="aspect-video rounded-xl bg-charcoal/10 animate-pulse"
-          />
-        ))}
-      </div>
-    );
-  }
-
   if (videos.length === 0) {
     const borderColor =
       accentColor === "amber"
@@ -89,30 +37,21 @@ export function VideoGallery({
           />
         </svg>
         <p className="text-warm-gray font-medium mb-1">Videos coming soon</p>
-        <p className="text-warm-gray/60 text-sm">
-          Add MP4 files to{" "}
-          <code className="text-xs bg-charcoal/10 px-1.5 py-0.5 rounded">
-            {videoDir}/
-          </code>{" "}
-          to populate this section.
-        </p>
       </div>
     );
   }
 
   return (
     <div className="grid md:grid-cols-2 gap-6">
-      {videos.map((src, i) => (
-        <div key={src} className="rounded-xl overflow-hidden">
-          <video
-            controls
-            preload="metadata"
-            className="w-full aspect-video bg-black rounded-xl"
-            aria-label={`Video ${i + 1}`}
-          >
-            <source src={src} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+      {videos.map((video) => (
+        <div key={video.youtubeId} className="rounded-xl overflow-hidden">
+          <iframe
+            className="w-full aspect-video rounded-xl"
+            src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}`}
+            title={video.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
         </div>
       ))}
     </div>

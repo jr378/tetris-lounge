@@ -11,11 +11,12 @@ interface Song {
 interface SongListProps {
   songs: Song[];
   accentColor?: "amber" | "teal";
+  dark?: boolean;
 }
 
 type SortMode = "title" | "artist";
 
-export function SongList({ songs, accentColor = "amber" }: SongListProps) {
+export function SongList({ songs, accentColor = "amber", dark = false }: SongListProps) {
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState<SortMode>("title");
 
@@ -56,13 +57,25 @@ export function SongList({ songs, accentColor = "amber" }: SongListProps) {
       ? "border-tetris-accent text-tetris-accent"
       : "border-nowhere-accent text-nowhere-accent";
 
+  // Colors that adapt to dark/light background
+  const titleColor = dark ? "text-cream" : "text-charcoal";
+  const artistColor = dark ? "text-cream/60" : "text-warm-gray";
+  const notesColor = dark ? "text-cream/40" : "text-warm-gray/70";
+  const countColor = dark ? "text-cream/50" : "text-warm-gray";
+  const emptyColor = dark ? "text-cream/50" : "text-warm-gray";
+  const borderColor = dark ? "border-cream/10" : "border-charcoal/10";
+  const inputBg = dark
+    ? "bg-white/10 text-cream placeholder:text-cream/40 border-cream/20"
+    : "bg-cream text-charcoal placeholder:text-warm-gray/60 border-charcoal/20";
+  const inactiveBtnBg = dark ? "hover:bg-white/5" : "hover:bg-charcoal/5";
+
   return (
     <div>
       {/* Controls */}
       <div className="flex flex-col sm:flex-row gap-3 mb-6">
         <div className="relative flex-1">
           <svg
-            className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-warm-gray"
+            className={`absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 ${dark ? "text-cream/40" : "text-warm-gray"}`}
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={2}
@@ -80,7 +93,7 @@ export function SongList({ songs, accentColor = "amber" }: SongListProps) {
             placeholder="Search songs or artists…"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className={`w-full pl-10 pr-4 py-2.5 rounded-lg border border-charcoal/20 bg-cream text-charcoal placeholder:text-warm-gray/60 focus:outline-none focus:ring-2 ${accentRing} transition-shadow text-sm`}
+            className={`w-full pl-10 pr-4 py-2.5 rounded-lg border ${inputBg} focus:outline-none focus:ring-2 ${accentRing} transition-shadow text-sm`}
             aria-label="Search songs"
           />
         </div>
@@ -90,7 +103,7 @@ export function SongList({ songs, accentColor = "amber" }: SongListProps) {
             className={`px-4 py-2.5 rounded-lg text-sm font-medium border transition-colors ${
               sortBy === "title"
                 ? `${accentBg} border-transparent`
-                : `${accentBorder} bg-transparent hover:bg-charcoal/5`
+                : `${accentBorder} bg-transparent ${inactiveBtnBg}`
             }`}
             aria-pressed={sortBy === "title"}
           >
@@ -101,7 +114,7 @@ export function SongList({ songs, accentColor = "amber" }: SongListProps) {
             className={`px-4 py-2.5 rounded-lg text-sm font-medium border transition-colors ${
               sortBy === "artist"
                 ? `${accentBg} border-transparent`
-                : `${accentBorder} bg-transparent hover:bg-charcoal/5`
+                : `${accentBorder} bg-transparent ${inactiveBtnBg}`
             }`}
             aria-pressed={sortBy === "artist"}
           >
@@ -111,14 +124,14 @@ export function SongList({ songs, accentColor = "amber" }: SongListProps) {
       </div>
 
       {/* Count */}
-      <p className="text-sm text-warm-gray mb-4">
+      <p className={`text-sm ${countColor} mb-4`}>
         {filtered.length} {filtered.length === 1 ? "song" : "songs"}
         {search && ` matching "${search}"`}
       </p>
 
       {/* Song grid */}
       {filtered.length === 0 ? (
-        <p className="text-warm-gray text-center py-8">
+        <p className={`${emptyColor} text-center py-8`}>
           No songs found. Try a different search.
         </p>
       ) : (
@@ -126,22 +139,22 @@ export function SongList({ songs, accentColor = "amber" }: SongListProps) {
           {filtered.map((song, i) => (
             <div
               key={`${song.title}-${song.artist}-${i}`}
-              className="flex items-baseline justify-between py-2.5 border-b border-charcoal/10 group"
+              className={`flex items-baseline justify-between py-2.5 border-b ${borderColor} group`}
             >
               <div className="min-w-0 flex-1">
-                <span className="font-medium text-charcoal">
+                <span className={`font-medium ${titleColor}`}>
                   {song.title}
                 </span>
                 {song.notes && (
                   <span
-                    className="ml-1.5 text-xs text-warm-gray/70 italic"
+                    className={`ml-1.5 text-xs ${notesColor} italic`}
                     title={song.notes}
                   >
                     {song.notes}
                   </span>
                 )}
               </div>
-              <span className="text-sm text-warm-gray ml-3 shrink-0">
+              <span className={`text-sm ${artistColor} ml-3 shrink-0`}>
                 {song.artist || "—"}
               </span>
             </div>

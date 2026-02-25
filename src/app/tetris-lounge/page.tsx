@@ -61,7 +61,7 @@ export default function TetrisLoungePage() {
         <p className="text-cream/60 mb-8">
           {songs.length} songs and counting. Search by title or artist.
         </p>
-        <SongList songs={songs} accentColor="amber" />
+        <SongList songs={songs} accentColor="amber" dark />
       </Section>
 
       {/* Gallery */}

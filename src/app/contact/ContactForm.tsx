@@ -21,7 +21,7 @@ const initialState: FormState = {
 };
 
 // TODO: Replace with actual booking email address
-const BOOKING_EMAIL = "booking@example.com";
+const BOOKING_EMAIL = "thenowheremenatl@gmail.com";
 
 export function ContactForm() {
   const [form, setForm] = useState<FormState>(initialState);

@@ -20,10 +20,13 @@ const initialState: FormState = {
   message: "",
 };
 
+// TODO: Replace with actual booking email address
+const BOOKING_EMAIL = "booking@example.com";
+
 export function ContactForm() {
   const [form, setForm] = useState<FormState>(initialState);
   const [status, setStatus] = useState<
-    "idle" | "sending" | "sent" | "error"
+    "idle" | "sending" | "sent" | "fallback" | "error"
   >("idle");
 
   const handleChange = (
@@ -49,14 +52,12 @@ export function ContactForm() {
         setStatus("sent");
         setForm(initialState);
       } else {
-        // Fallback to mailto
         fallbackMailto();
-        setStatus("sent");
+        setStatus("fallback");
       }
     } catch {
-      // Fallback to mailto
       fallbackMailto();
-      setStatus("sent");
+      setStatus("fallback");
     }
   };
 
@@ -65,9 +66,9 @@ export function ContactForm() {
       `Booking Inquiry — ${form.act || "Tetris Lounge / Nowhere Men"}`
     );
     const body = encodeURIComponent(
-      `Name: ${form.name}\nEmail: ${form.email}\nEvent Date: ${form.eventDate}\nLocation: ${form.location}\nAct: ${form.act}\n\n${form.message}`
+      `Name: ${form.name}\nEmail: ${form.email}\nEvent Date: ${form.eventDate || "Not specified"}\nLocation: ${form.location || "Not specified"}\nAct: ${form.act || "Either/Both"}\n\n${form.message}`
     );
-    window.open(`mailto:?subject=${subject}&body=${body}`, "_self");
+    window.location.href = `mailto:${BOOKING_EMAIL}?subject=${subject}&body=${body}`;
   };
 
   const inputClasses =
@@ -91,7 +92,7 @@ export function ContactForm() {
           />
         </svg>
         <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold mb-2">
-          Message Sent
+          Inquiry Received
         </h2>
         <p className="text-warm-gray mb-6">
           Thanks for reaching out. We&apos;ll be in touch.
@@ -106,8 +107,65 @@ export function ContactForm() {
     );
   }
 
+  if (status === "fallback") {
+    return (
+      <div className="text-center py-12">
+        <svg
+          className="w-16 h-16 mx-auto mb-4 text-accent"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
+          />
+        </svg>
+        <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold mb-2">
+          Opening Your Email Client
+        </h2>
+        <p className="text-warm-gray mb-6">
+          Your email app should have opened with the inquiry details
+          pre-filled. If it didn&apos;t, you can email us directly at{" "}
+          <a
+            href={`mailto:${BOOKING_EMAIL}`}
+            className="text-accent hover:text-accent-hover underline"
+          >
+            {BOOKING_EMAIL}
+          </a>
+          .
+        </p>
+        <button
+          onClick={() => setStatus("idle")}
+          className="text-accent hover:text-accent-hover font-medium text-sm transition-colors"
+        >
+          Try the form again
+        </button>
+      </div>
+    );
+  }
+
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+      {status === "error" && (
+        <div
+          className="p-4 rounded-lg bg-red-50 border border-red-200 text-red-800 text-sm"
+          role="alert"
+        >
+          Something went wrong. Please try again, or email us directly at{" "}
+          <a
+            href={`mailto:${BOOKING_EMAIL}`}
+            className="underline font-medium"
+          >
+            {BOOKING_EMAIL}
+          </a>
+          .
+        </div>
+      )}
+
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
           <label

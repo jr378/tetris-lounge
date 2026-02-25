@@ -24,12 +24,14 @@ interface ContactPayload {
   message: string;
 }
 
+const MAX_MESSAGE_LENGTH = 5000;
+
 export async function POST(request: NextRequest) {
   try {
     const body: ContactPayload = await request.json();
 
     // Basic validation
-    if (!body.name || !body.email || !body.message) {
+    if (!body.name?.trim() || !body.email?.trim() || !body.message?.trim()) {
       return NextResponse.json(
         { error: "Name, email, and message are required." },
         { status: 400 }
@@ -44,21 +46,23 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Length check
+    if (body.message.length > MAX_MESSAGE_LENGTH) {
+      return NextResponse.json(
+        { error: `Message must be under ${MAX_MESSAGE_LENGTH} characters.` },
+        { status: 400 }
+      );
+    }
+
     // Log the submission (replace with email service in production)
-    console.log("=== New Booking Inquiry ===");
-    console.log(`Name: ${body.name}`);
-    console.log(`Email: ${body.email}`);
-    console.log(`Event Date: ${body.eventDate || "Not specified"}`);
-    console.log(`Location: ${body.location || "Not specified"}`);
-    console.log(`Act: ${body.act || "Either/Both"}`);
-    console.log(`Message: ${body.message}`);
-    console.log("===========================");
+    console.log("[Contact] New booking inquiry from:", body.email);
 
     return NextResponse.json(
       { success: true, message: "Inquiry received." },
       { status: 200 }
     );
-  } catch {
+  } catch (error) {
+    console.error("[Contact] Failed to process inquiry:", error);
     return NextResponse.json(
       { error: "Invalid request." },
       { status: 400 }

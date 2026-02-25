@@ -20,33 +20,46 @@ export function Gallery({
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Try to load images by checking common filenames
+    let cancelled = false;
+    const controller = new AbortController();
+
     const checkImages = async () => {
       const found: string[] = [];
       for (let i = 1; i <= 20; i++) {
+        if (cancelled) return;
         const num = String(i).padStart(2, "0");
-        const path = `${imageDir}/${prefix}-${num}.jpg`;
+        const imgPath = `${imageDir}/${prefix}-${num}.jpg`;
         try {
-          const res = await fetch(path, { method: "HEAD" });
+          const res = await fetch(imgPath, {
+            method: "HEAD",
+            signal: controller.signal,
+          });
           if (res.ok) {
-            found.push(path);
+            found.push(imgPath);
           }
         } catch {
-          // Image doesn't exist, continue
+          if (cancelled) return;
         }
       }
-      setImages(found);
-      setLoading(false);
+      if (!cancelled) {
+        setImages(found);
+        setLoading(false);
+      }
     };
     checkImages();
+
+    return () => {
+      cancelled = true;
+      controller.abort();
+    };
   }, [imageDir, prefix]);
 
   if (loading) {
     return (
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-        {[...Array(6)].map((_, i) => (
+        {Array.from({ length: 6 }, (_, i) => (
           <div
-            key={i}
+            key={`skeleton-${i}`}
             className="aspect-[4/3] rounded-lg bg-charcoal/10 animate-pulse"
           />
         ))}
@@ -80,7 +93,11 @@ export function Gallery({
         </svg>
         <p className="text-warm-gray font-medium mb-1">Photos coming soon</p>
         <p className="text-warm-gray/60 text-sm">
-          Add images to <code className="text-xs bg-charcoal/10 px-1.5 py-0.5 rounded">{imageDir}/</code> to populate this gallery.
+          Add images to{" "}
+          <code className="text-xs bg-charcoal/10 px-1.5 py-0.5 rounded">
+            {imageDir}/
+          </code>{" "}
+          to populate this gallery.
         </p>
       </div>
     );
@@ -97,6 +114,7 @@ export function Gallery({
             src={src}
             alt={`${alt} photo ${i + 1}`}
             fill
+            loading={i < 6 ? "eager" : "lazy"}
             className="object-cover group-hover:scale-105 transition-transform duration-500"
             sizes="(max-width: 768px) 50vw, 33vw"
           />

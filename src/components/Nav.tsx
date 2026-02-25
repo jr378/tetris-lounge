@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 const links = [
   { href: "/", label: "Home" },
@@ -20,10 +20,34 @@ export function Nav() {
   const isTetris = pathname === "/tetris-lounge";
   const isNowhere = pathname === "/nowhere-men";
 
+  const closeMenu = useCallback(() => setOpen(false), []);
+
+  // Close on ESC key
+  useEffect(() => {
+    if (!open) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeMenu();
+    };
+    document.addEventListener("keydown", handleKeyDown);
+
+    // Lock scroll while menu is open
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [open, closeMenu]);
+
+  // Close menu on route change
+  useEffect(() => {
+    closeMenu();
+  }, [pathname, closeMenu]);
+
   return (
     <nav
       className="sticky top-0 z-40 bg-charcoal/95 backdrop-blur-sm border-b border-white/10"
-      role="navigation"
       aria-label="Main navigation"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -32,6 +56,7 @@ export function Nav() {
           <Link
             href="/"
             className="font-[family-name:var(--font-display)] text-cream font-bold text-lg tracking-tight hover:text-accent transition-colors"
+            onClick={closeMenu}
           >
             TL{" "}
             <span className="text-warm-gray font-normal">/</span>{" "}
@@ -47,7 +72,8 @@ export function Nav() {
 
               let activeColor = "text-accent";
               if (isTetrisLink && isActive) activeColor = "text-tetris-accent";
-              if (isNowhereLink && isActive) activeColor = "text-nowhere-accent";
+              if (isNowhereLink && isActive)
+                activeColor = "text-nowhere-accent";
 
               return (
                 <Link
@@ -72,7 +98,7 @@ export function Nav() {
             onClick={() => setOpen(!open)}
             aria-expanded={open}
             aria-controls="mobile-menu"
-            aria-label="Toggle navigation menu"
+            aria-label={open ? "Close navigation menu" : "Open navigation menu"}
           >
             <svg
               className="w-6 h-6"
@@ -116,7 +142,7 @@ export function Nav() {
                       : "text-cream/70 hover:text-cream hover:bg-white/5"
                   }`}
                   aria-current={isActive ? "page" : undefined}
-                  onClick={() => setOpen(false)}
+                  onClick={closeMenu}
                 >
                   {link.label}
                 </Link>

@@ -129,36 +129,72 @@ export function SongList({ songs, accentColor = "amber", dark = false }: SongLis
         {search && ` matching "${search}"`}
       </p>
 
-      {/* Song grid */}
+      {/* Song grid — flows vertically down each column */}
       {filtered.length === 0 ? (
         <p className={`${emptyColor} text-center py-8`}>
           No songs found. Try a different search.
         </p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1">
-          {filtered.map((song, i) => (
-            <div
-              key={`${song.title}-${song.artist}-${i}`}
-              className={`flex items-baseline justify-between py-2.5 border-b ${borderColor} group`}
-            >
-              <div className="min-w-0 flex-1">
-                <span className={`font-medium ${titleColor}`}>
-                  {song.title}
-                </span>
-                {song.notes && (
-                  <span
-                    className={`ml-1.5 text-xs ${notesColor} italic`}
-                    title={song.notes}
-                  >
-                    {song.notes}
-                  </span>
-                )}
-              </div>
-              <span className={`text-sm ${artistColor} ml-3 shrink-0`}>
-                {song.artist || "—"}
-              </span>
-            </div>
-          ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8">
+          {(() => {
+            const mid = Math.ceil(filtered.length / 2);
+            const leftCol = filtered.slice(0, mid);
+            const rightCol = filtered.slice(mid);
+            return (
+              <>
+                <div>
+                  {leftCol.map((song, i) => (
+                    <div
+                      key={`${song.title}-${song.artist}-${i}`}
+                      className={`flex items-baseline justify-between py-2.5 border-b ${borderColor}`}
+                    >
+                      <div className="min-w-0 flex-1">
+                        <span className={`font-medium ${titleColor}`}>
+                          {song.title}
+                        </span>
+                        {song.notes && (
+                          <span
+                            className={`ml-1.5 text-xs ${notesColor} italic`}
+                            title={song.notes}
+                          >
+                            {song.notes}
+                          </span>
+                        )}
+                      </div>
+                      <span className={`text-sm ${artistColor} ml-3 shrink-0`}>
+                        {song.artist || "—"}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                <div>
+                  {rightCol.map((song, i) => (
+                    <div
+                      key={`${song.title}-${song.artist}-${i}-r`}
+                      className={`flex items-baseline justify-between py-2.5 border-b ${borderColor}`}
+                    >
+                      <div className="min-w-0 flex-1">
+                        <span className={`font-medium ${titleColor}`}>
+                          {song.title}
+                        </span>
+                        {song.notes && (
+                          <span
+                            className={`ml-1.5 text-xs ${notesColor} italic`}
+                            title={song.notes}
+                          >
+                            {song.notes}
+                          </span>
+                        )}
+                      </div>
+                      <span className={`text-sm ${artistColor} ml-3 shrink-0`}>
+                        {song.artist || "—"}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </>
+            );
+          })()}
         </div>
       )}
     </div>

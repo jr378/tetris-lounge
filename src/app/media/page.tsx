@@ -71,7 +71,14 @@ export default function MediaPage() {
           Beatles tribute performances.
         </p>
         <VideoGallery
-          videos={[]}
+          videos={[
+            { youtubeId: "DqcM1xIXRQc", title: "We Can Work It Out" },
+            { youtubeId: "3QjqXBrRgkk", title: "Golden Slumbers" },
+            { youtubeId: "qKSFjA6J4ak", title: "While My Guitar Gently Weeps" },
+            { youtubeId: "2JIe5-j3A5A", title: "Got To Get You Into My Life" },
+            { youtubeId: "HutmRZnRN50", title: "Nowhere Man" },
+            { youtubeId: "F-OVuhXJGvM", title: "The End" },
+          ]}
           accentColor="teal"
         />
       </Section>

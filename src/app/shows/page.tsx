@@ -1,0 +1,131 @@
+import type { Metadata } from "next";
+import { Hero } from "@/components/Hero";
+import { Section } from "@/components/Section";
+import { CTAButton } from "@/components/CTAButton";
+import shows from "@/data/shows.json";
+
+export const metadata: Metadata = {
+  title: "Shows",
+  description:
+    "See upcoming shows and public dates for Tetris Lounge and Nowhere Men. Contact us to book the band for your next event.",
+};
+
+interface Show {
+  date: string;
+  venue: string;
+  location: string;
+  act?: string;
+  time?: string;
+  ticketUrl?: string;
+  notes?: string;
+}
+
+export default function ShowsPage() {
+  const typedShows = shows as Show[];
+
+  return (
+    <>
+      <Hero
+        variant="default"
+        subtitle="Live Dates"
+        title="Shows"
+        description="Catch us live. Public shows are listed below — for private events, get in touch."
+      />
+
+      <Section>
+        {typedShows.length === 0 ? (
+          <div className="text-center py-12">
+            <svg
+              className="w-16 h-16 mx-auto mb-6 text-warm-gray/30"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1}
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"
+              />
+            </svg>
+            <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold mb-3">
+              No Public Dates Posted
+            </h2>
+            <p className="text-warm-gray text-lg max-w-md mx-auto mb-8">
+              We&apos;re always playing — just not always publicly listed.
+              Contact us for availability.
+            </p>
+            <CTAButton href="/contact">Check Availability</CTAButton>
+          </div>
+        ) : (
+          <div className="max-w-3xl mx-auto">
+            <div className="space-y-4">
+              {typedShows.map((show, i) => (
+                <article
+                  key={i}
+                  className="flex flex-col sm:flex-row sm:items-center gap-4 p-6 rounded-xl border border-charcoal/10 bg-cream hover:shadow-md transition-shadow"
+                >
+                  <div className="shrink-0 text-center sm:text-left sm:w-24">
+                    <time className="font-[family-name:var(--font-display)] text-lg font-bold text-charcoal">
+                      {show.date}
+                    </time>
+                    {show.time && (
+                      <p className="text-xs text-warm-gray">{show.time}</p>
+                    )}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-charcoal">
+                      {show.venue}
+                    </h3>
+                    <p className="text-warm-gray text-sm">{show.location}</p>
+                    {show.act && (
+                      <span
+                        className={`inline-block mt-1 text-xs px-2 py-0.5 rounded-full ${
+                          show.act.toLowerCase().includes("nowhere")
+                            ? "bg-nowhere-accent/10 text-nowhere-accent"
+                            : "bg-tetris-accent/10 text-tetris-accent"
+                        }`}
+                      >
+                        {show.act}
+                      </span>
+                    )}
+                    {show.notes && (
+                      <p className="text-warm-gray/70 text-xs mt-1">
+                        {show.notes}
+                      </p>
+                    )}
+                  </div>
+                  {show.ticketUrl && (
+                    <a
+                      href={show.ticketUrl}
+                      className="inline-flex items-center gap-1 text-sm font-medium text-accent hover:text-accent-hover transition-colors"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Tickets
+                      <svg
+                        className="w-3.5 h-3.5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={2}
+                        stroke="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+                        />
+                      </svg>
+                    </a>
+                  )}
+                </article>
+              ))}
+            </div>
+          </div>
+        )}
+      </Section>
+    </>
+  );
+}

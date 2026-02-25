@@ -27,6 +27,8 @@ export default function TetrisLoungePage() {
         description="The 60s, 70s, and 80s — performed live with energy, feel, and respect for the originals. Rock, soul, funk, new wave, and everything in between."
         ctaText="Book Tetris Lounge"
         ctaHref="/contact"
+        logoSrc="/images/tetris-lounge/Tetris Lounge Logo.png"
+        logoAlt="Tetris Lounge logo"
       />
 
       {/* Great For */}

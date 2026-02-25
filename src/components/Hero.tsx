@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { CTAButton } from "./CTAButton";
 
 interface HeroProps {
@@ -7,6 +8,8 @@ interface HeroProps {
   ctaText?: string;
   ctaHref?: string;
   variant?: "home" | "tetris" | "nowhere" | "default";
+  logoSrc?: string;
+  logoAlt?: string;
 }
 
 export function Hero({
@@ -16,6 +19,8 @@ export function Hero({
   ctaText,
   ctaHref,
   variant = "default",
+  logoSrc,
+  logoAlt,
 }: HeroProps) {
   const bgClasses: Record<string, string> = {
     home: "bg-charcoal",
@@ -49,6 +54,17 @@ export function Hero({
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24 relative">
+        {logoSrc && (
+          <div className="mb-6">
+            <Image
+              src={logoSrc}
+              alt={logoAlt || title}
+              width={160}
+              height={160}
+              className={`${variant === "tetris" ? "rounded-full" : "rounded-lg"}`}
+            />
+          </div>
+        )}
         {subtitle && (
           <p
             className={`${accentClasses[variant]} font-[family-name:var(--font-display)] text-sm sm:text-base uppercase tracking-[0.2em] mb-4`}

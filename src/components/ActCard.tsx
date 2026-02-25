@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 interface ActCardProps {
   title: string;
@@ -6,6 +7,8 @@ interface ActCardProps {
   description: string;
   href: string;
   accentColor: "amber" | "teal";
+  logoSrc?: string;
+  logoAlt?: string;
 }
 
 export function ActCard({
@@ -14,6 +17,8 @@ export function ActCard({
   description,
   href,
   accentColor,
+  logoSrc,
+  logoAlt,
 }: ActCardProps) {
   const borderColor =
     accentColor === "amber" ? "border-tetris-accent" : "border-nowhere-accent";
@@ -29,6 +34,17 @@ export function ActCard({
       href={href}
       className={`group block p-8 rounded-xl border-2 ${borderColor} ${hoverBg} bg-cream transition-all duration-300 hover:shadow-lg`}
     >
+      {logoSrc && (
+        <div className="mb-4">
+          <Image
+            src={logoSrc}
+            alt={logoAlt || title}
+            width={80}
+            height={80}
+            className={`${accentColor === "amber" ? "rounded-full" : "rounded"}`}
+          />
+        </div>
+      )}
       <p
         className={`${tagColor} font-[family-name:var(--font-display)] text-xs uppercase tracking-[0.2em] mb-2`}
       >

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useCallback } from "react";
 
@@ -55,12 +56,24 @@ export function Nav() {
           {/* Logo */}
           <Link
             href="/"
-            className="font-[family-name:var(--font-display)] text-cream font-bold text-lg tracking-tight hover:text-accent transition-colors"
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
             onClick={closeMenu}
           >
-            TL{" "}
-            <span className="text-warm-gray font-normal">/</span>{" "}
-            NM
+            <Image
+              src="/images/tetris-lounge/Tetris Lounge Logo.png"
+              alt="Tetris Lounge"
+              width={36}
+              height={36}
+              className="rounded-full"
+            />
+            <span className="text-warm-gray/50 text-sm font-light">/</span>
+            <Image
+              src="/images/nowhere-men/NoWhere Men Logo.jpg"
+              alt="Nowhere Men"
+              width={36}
+              height={36}
+              className="rounded"
+            />
           </Link>
 
           {/* Desktop nav */}

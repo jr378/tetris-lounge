@@ -27,6 +27,8 @@ export default function NowhereManPage() {
         description="Faithful, carefully arranged covers of the Beatles catalog — from the early hits through the studio masterpieces. Including later-era songs the Beatles themselves never performed live."
         ctaText="Book Nowhere Men"
         ctaHref="/contact"
+        logoSrc="/images/nowhere-men/NoWhere Men Logo.jpg"
+        logoAlt="The Nowhere Men logo"
       />
 
       {/* Positioning */}

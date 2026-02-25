@@ -45,6 +45,8 @@ export default function Home() {
             description="The best of the 60s, 70s, and 80s. From Steely Dan to Led Zeppelin, Talking Heads to Prince — a deep setlist that keeps the crowd moving all night."
             href="/tetris-lounge"
             accentColor="amber"
+            logoSrc="/images/tetris-lounge/Tetris Lounge Logo.png"
+            logoAlt="Tetris Lounge logo"
           />
           <ActCard
             title="Nowhere Men"
@@ -52,6 +54,8 @@ export default function Home() {
             description="High-fidelity Beatles covers performed with care and precision — including later-era songs the Beatles themselves never performed live."
             href="/nowhere-men"
             accentColor="teal"
+            logoSrc="/images/nowhere-men/NoWhere Men Logo.jpg"
+            logoAlt="The Nowhere Men logo"
           />
         </div>
       </Section>

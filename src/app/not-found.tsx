@@ -1,5 +1,6 @@
 import { Section } from "@/components/Section";
 import { CTAButton } from "@/components/CTAButton";
+import { notFound } from "@/content";
 
 export default function NotFound() {
   return (
@@ -9,13 +10,12 @@ export default function NotFound() {
           404
         </p>
         <h1 className="font-[family-name:var(--font-display)] text-3xl font-bold mb-3">
-          Page Not Found
+          {notFound.heading}
         </h1>
         <p className="text-warm-gray text-lg max-w-md mx-auto mb-8">
-          Looks like this page took an unexpected solo. Let&apos;s get you
-          back to the main stage.
+          {notFound.description}
         </p>
-        <CTAButton href="/">Back to Home</CTAButton>
+        <CTAButton href="/">{notFound.buttonText}</CTAButton>
       </div>
     </Section>
   );

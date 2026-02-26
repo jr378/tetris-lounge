@@ -4,15 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useCallback } from "react";
-
-const links = [
-  { href: "/", label: "Home" },
-  { href: "/tetris-lounge", label: "Tetris Lounge" },
-  { href: "/nowhere-men", label: "Nowhere Men" },
-  { href: "/shows", label: "Shows" },
-  { href: "/media", label: "Media" },
-  { href: "/contact", label: "Contact" },
-];
+import { nav } from "@/content";
 
 export function Nav() {
   const pathname = usePathname();
@@ -82,7 +74,7 @@ export function Nav() {
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-1">
-            {links.map((link) => {
+            {nav.links.map((link) => {
               const isActive = pathname === link.href;
               const isTetrisLink = link.href === "/tetris-lounge";
               const isNowhereLink = link.href === "/nowhere-men";
@@ -147,7 +139,7 @@ export function Nav() {
       {open && (
         <div id="mobile-menu" className="md:hidden border-t border-white/10">
           <div className="px-4 py-3 space-y-1">
-            {links.map((link) => {
+            {nav.links.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link

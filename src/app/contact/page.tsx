@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { Section } from "@/components/Section";
 import { ContactForm } from "./ContactForm";
+import { contact } from "@/content";
 
 export const metadata: Metadata = {
-  title: "Contact & Booking",
-  description:
-    "Book Tetris Lounge or Nowhere Men for your next event. Fill out our booking form and we'll be in touch.",
+  title: contact.meta.title,
+  description: contact.meta.description,
 };
 
 export default function ContactPage() {
@@ -14,9 +14,9 @@ export default function ContactPage() {
     <>
       <Hero
         variant="default"
-        subtitle="Get in Touch"
-        title="Book the Band"
-        description="Interested in Tetris Lounge, Nowhere Men, or both? Fill out the form below and we'll get back to you."
+        subtitle={contact.hero.subtitle}
+        title={contact.hero.title}
+        description={contact.hero.description}
       />
 
       <Section>

@@ -5,15 +5,14 @@ import { SongList } from "@/components/SongList";
 import { Gallery } from "@/components/Gallery";
 import { CTAButton } from "@/components/CTAButton";
 import songs from "@/data/songlists.tetris.json";
+import { tetrisLounge } from "@/content";
 
 export const metadata: Metadata = {
-  title: "Tetris Lounge — Classic Rock Covers from the 60s, 70s & 80s",
-  description:
-    "Tetris Lounge plays classic rock covers spanning the 60s, 70s, and 80s — from Steely Dan and Led Zeppelin to Talking Heads and Prince. Browse our full setlist and book us for your next event.",
+  title: tetrisLounge.meta.title,
+  description: tetrisLounge.meta.description,
   openGraph: {
-    title: "Tetris Lounge — Classic Rock Covers",
-    description:
-      "The best of the 60s, 70s, and 80s performed live. Browse our setlist of 75+ songs.",
+    title: tetrisLounge.meta.ogTitle,
+    description: tetrisLounge.meta.ogDescription,
   },
 };
 
@@ -22,10 +21,10 @@ export default function TetrisLoungePage() {
     <>
       <Hero
         variant="tetris"
-        subtitle="Classic Rock Covers"
-        title="Tetris Lounge"
-        description="The 60s, 70s, and 80s — performed live with energy, feel, and respect for the originals. Rock, soul, funk, new wave, and everything in between."
-        ctaText="Book Tetris Lounge"
+        subtitle={tetrisLounge.hero.subtitle}
+        title={tetrisLounge.hero.title}
+        description={tetrisLounge.hero.description}
+        ctaText={tetrisLounge.hero.ctaText}
         ctaHref="/contact"
         logoSrc="/images/tetris-lounge/Tetris Lounge Logo.png"
         logoAlt="Tetris Lounge logo"
@@ -35,17 +34,10 @@ export default function TetrisLoungePage() {
       <Section>
         <div className="max-w-3xl mx-auto">
           <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl font-bold mb-6">
-            A Great Fit For
+            {tetrisLounge.greatFit.heading}
           </h2>
           <div className="grid sm:grid-cols-2 gap-4">
-            {[
-              "Bars & restaurants",
-              "Private parties & celebrations",
-              "Corporate events",
-              "Outdoor festivals & concerts",
-              "Community events",
-              "Fundraisers & benefits",
-            ].map((item) => (
+            {tetrisLounge.greatFit.items.map((item) => (
               <div key={item} className="flex items-center gap-3">
                 <span className="w-2 h-2 rounded-full bg-tetris-accent shrink-0" />
                 <span className="text-charcoal">{item}</span>
@@ -58,10 +50,10 @@ export default function TetrisLoungePage() {
       {/* Song List */}
       <Section dark>
         <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-2">
-          The Setlist
+          {tetrisLounge.setlist.heading}
         </h2>
         <p className="text-cream/60 mb-8">
-          {songs.length} songs and counting. Search by title or artist.
+          {songs.length} {tetrisLounge.setlist.description}
         </p>
         <SongList songs={songs} accentColor="amber" dark />
       </Section>
@@ -69,7 +61,7 @@ export default function TetrisLoungePage() {
       {/* Gallery */}
       <Section>
         <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-8">
-          Photos
+          {tetrisLounge.photos.heading}
         </h2>
         <Gallery
           imageDir="/images/tetris-lounge"
@@ -83,13 +75,12 @@ export default function TetrisLoungePage() {
       <Section dark>
         <div className="text-center">
           <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-4">
-            Book Tetris Lounge
+            {tetrisLounge.cta.heading}
           </h2>
           <p className="text-cream/60 text-lg max-w-xl mx-auto mb-8">
-            Bring the classics to your next event. Get in touch and let&apos;s
-            find the right setlist for your crowd.
+            {tetrisLounge.cta.description}
           </p>
-          <CTAButton href="/contact">Check Availability</CTAButton>
+          <CTAButton href="/contact">{tetrisLounge.cta.buttonText}</CTAButton>
         </div>
       </Section>
     </>

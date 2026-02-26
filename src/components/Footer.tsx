@@ -1,13 +1,5 @@
 import Link from "next/link";
-
-const members = [
-  "Dave Deckebach — Keyboard",
-  "Kelly Ferguson — Guitar & Saxophone",
-  "John Boyden — Drums",
-  "David Kinard — Bass",
-  "Jack Reed — Guitar",
-  "Jim Emshoff — Keyboard",
-];
+import { band, footer } from "@/content";
 
 export function Footer() {
   return (
@@ -17,22 +9,23 @@ export function Footer() {
           {/* Brand */}
           <div>
             <h2 className="font-[family-name:var(--font-display)] text-cream text-xl font-bold mb-2">
-              Tetris Lounge / Nowhere Men
+              {band.name}
             </h2>
             <p className="text-sm leading-relaxed">
-              Two acts, one band. Classic rock covers and a high-fidelity
-              Beatles tribute.
+              {footer.description}
             </p>
           </div>
 
           {/* Members */}
           <div>
             <h3 className="text-cream font-semibold text-sm uppercase tracking-wider mb-3">
-              The Band
+              {footer.bandHeading}
             </h3>
             <ul className="space-y-1 text-sm">
-              {members.map((m) => (
-                <li key={m}>{m}</li>
+              {band.members.map((m) => (
+                <li key={m.name}>
+                  {m.name} &mdash; {m.role}
+                </li>
               ))}
             </ul>
           </div>
@@ -40,66 +33,56 @@ export function Footer() {
           {/* Links & Socials */}
           <div>
             <h3 className="text-cream font-semibold text-sm uppercase tracking-wider mb-3">
-              Quick Links
+              {footer.linksHeading}
             </h3>
             <ul className="space-y-1 text-sm">
-              <li>
-                <Link
-                  href="/contact"
-                  className="hover:text-cream transition-colors"
-                >
-                  Book Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/shows"
-                  className="hover:text-cream transition-colors"
-                >
-                  Upcoming Shows
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/media"
-                  className="hover:text-cream transition-colors"
-                >
-                  Photos & Video
-                </Link>
-              </li>
+              {footer.quickLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="hover:text-cream transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
 
             {/* Social links */}
             <h3 className="text-cream font-semibold text-sm uppercase tracking-wider mt-6 mb-3">
-              Follow Us
+              {footer.socialHeading}
             </h3>
             <ul className="space-y-1 text-sm">
-              <li>
-                <a
-                  href="https://www.facebook.com/tetrislounge"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-cream transition-colors"
-                >
-                  Tetris Lounge on Facebook
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.facebook.com/profile.php?id=100090113956795"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-cream transition-colors"
-                >
-                  Nowhere Men on Facebook
-                </a>
-              </li>
+              {band.social.tetrisFacebook && (
+                <li>
+                  <a
+                    href={band.social.tetrisFacebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-cream transition-colors"
+                  >
+                    Tetris Lounge on Facebook
+                  </a>
+                </li>
+              )}
+              {band.social.nowhereFacebook && (
+                <li>
+                  <a
+                    href={band.social.nowhereFacebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-cream transition-colors"
+                  >
+                    Nowhere Men on Facebook
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
         </div>
 
         <div className="border-t border-white/10 mt-8 pt-6 text-xs text-center text-cream/40">
-          &copy; {new Date().getFullYear()} Tetris Lounge / Nowhere Men. All
+          &copy; {new Date().getFullYear()} {band.name}. All
           rights reserved.
         </div>
       </div>

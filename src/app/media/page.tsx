@@ -3,11 +3,11 @@ import { Hero } from "@/components/Hero";
 import { Section } from "@/components/Section";
 import { Gallery } from "@/components/Gallery";
 import { VideoGallery } from "@/components/VideoGallery";
+import { media } from "@/content";
 
 export const metadata: Metadata = {
-  title: "Media",
-  description:
-    "Photos and videos of Tetris Lounge and Nowhere Men. See the band in action and get a feel for the live experience.",
+  title: media.meta.title,
+  description: media.meta.description,
 };
 
 export default function MediaPage() {
@@ -15,17 +15,17 @@ export default function MediaPage() {
     <>
       <Hero
         variant="default"
-        subtitle="Photos & Video"
-        title="Media"
-        description="See the band in action. Browse photos from shows and events."
+        subtitle={media.hero.subtitle}
+        title={media.hero.title}
+        description={media.hero.description}
       />
 
       {/* Tetris Lounge Gallery */}
       <Section>
         <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-2">
-          Tetris Lounge
+          {media.tetrisPhotos.heading}
         </h2>
-        <p className="text-warm-gray mb-8">Classic rock covers, live on stage.</p>
+        <p className="text-warm-gray mb-8">{media.tetrisPhotos.description}</p>
         <Gallery
           imageDir="/images/tetris-lounge"
           prefix="tl"
@@ -37,9 +37,9 @@ export default function MediaPage() {
       {/* Nowhere Men Gallery */}
       <Section dark>
         <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-2">
-          Nowhere Men
+          {media.nowherePhotos.heading}
         </h2>
-        <p className="text-cream/60 mb-8">The Beatles tribute experience.</p>
+        <p className="text-cream/60 mb-8">{media.nowherePhotos.description}</p>
         <Gallery
           imageDir="/images/nowhere-men"
           prefix="nm"
@@ -51,13 +51,13 @@ export default function MediaPage() {
       {/* Tetris Lounge Videos */}
       <Section>
         <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-2">
-          Tetris Lounge Videos
+          {media.tetrisVideos.heading}
         </h2>
         <p className="text-warm-gray mb-8">
-          Performance clips and highlights.
+          {media.tetrisVideos.description}
         </p>
         <VideoGallery
-          videos={[]}
+          videos={media.tetrisVideos.videos}
           accentColor="amber"
         />
       </Section>
@@ -65,19 +65,13 @@ export default function MediaPage() {
       {/* Nowhere Men Videos */}
       <Section dark>
         <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-2">
-          Nowhere Men Videos
+          {media.nowhereVideos.heading}
         </h2>
         <p className="text-cream/60 mb-8">
-          Beatles tribute performances.
+          {media.nowhereVideos.description}
         </p>
         <VideoGallery
-          videos={[
-            { youtubeId: "3QjqXBrRgkk", title: "Golden Slumbers" },
-            { youtubeId: "qKSFjA6J4ak", title: "While My Guitar Gently Weeps" },
-            { youtubeId: "2JIe5-j3A5A", title: "Got To Get You Into My Life" },
-            { youtubeId: "HutmRZnRN50", title: "Nowhere Man" },
-            { youtubeId: "F-OVuhXJGvM", title: "The End" },
-          ]}
+          videos={media.nowhereVideos.videos}
           accentColor="teal"
         />
       </Section>

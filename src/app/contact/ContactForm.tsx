@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { band, contact } from "@/content";
 
 interface FormState {
   name: string;
@@ -19,8 +20,6 @@ const initialState: FormState = {
   act: "",
   message: "",
 };
-
-const BOOKING_EMAIL = "thenowheremenatl@gmail.com";
 
 export function ContactForm() {
   const [form, setForm] = useState<FormState>(initialState);
@@ -62,12 +61,12 @@ export function ContactForm() {
 
   const fallbackMailto = () => {
     const subject = encodeURIComponent(
-      `Booking Inquiry — ${form.act || "Tetris Lounge / Nowhere Men"}`
+      `Booking Inquiry — ${form.act || band.name}`
     );
     const body = encodeURIComponent(
       `Name: ${form.name}\nEmail: ${form.email}\nEvent Date: ${form.eventDate || "Not specified"}\nLocation: ${form.location || "Not specified"}\nAct: ${form.act || "Either/Both"}\n\n${form.message}`
     );
-    window.location.href = `mailto:${BOOKING_EMAIL}?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${band.email}?subject=${subject}&body=${body}`;
   };
 
   const inputClasses =
@@ -91,16 +90,16 @@ export function ContactForm() {
           />
         </svg>
         <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold mb-2">
-          Inquiry Received
+          {contact.form.successHeading}
         </h2>
         <p className="text-warm-gray mb-6">
-          Thanks for reaching out. We&apos;ll be in touch.
+          {contact.form.successMessage}
         </p>
         <button
           onClick={() => setStatus("idle")}
           className="text-accent hover:text-accent-hover font-medium text-sm transition-colors"
         >
-          Send another inquiry
+          {contact.form.successRetry}
         </button>
       </div>
     );
@@ -124,16 +123,15 @@ export function ContactForm() {
           />
         </svg>
         <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold mb-2">
-          Opening Your Email Client
+          {contact.form.fallbackHeading}
         </h2>
         <p className="text-warm-gray mb-6">
-          Your email app should have opened with the inquiry details
-          pre-filled. If it didn&apos;t, you can email us directly at{" "}
+          {contact.form.fallbackMessage}{" "}
           <a
-            href={`mailto:${BOOKING_EMAIL}`}
+            href={`mailto:${band.email}`}
             className="text-accent hover:text-accent-hover underline"
           >
-            {BOOKING_EMAIL}
+            {band.email}
           </a>
           .
         </p>
@@ -141,7 +139,7 @@ export function ContactForm() {
           onClick={() => setStatus("idle")}
           className="text-accent hover:text-accent-hover font-medium text-sm transition-colors"
         >
-          Try the form again
+          {contact.form.fallbackRetry}
         </button>
       </div>
     );
@@ -154,12 +152,12 @@ export function ContactForm() {
           className="p-4 rounded-lg bg-red-50 border border-red-200 text-red-800 text-sm"
           role="alert"
         >
-          Something went wrong. Please try again, or email us directly at{" "}
+          {contact.form.errorMessage}{" "}
           <a
-            href={`mailto:${BOOKING_EMAIL}`}
+            href={`mailto:${band.email}`}
             className="underline font-medium"
           >
-            {BOOKING_EMAIL}
+            {band.email}
           </a>
           .
         </div>
@@ -285,11 +283,11 @@ export function ContactForm() {
         disabled={status === "sending"}
         className="w-full sm:w-auto px-8 py-3 rounded-lg bg-accent hover:bg-accent-hover text-charcoal font-semibold text-sm tracking-wide transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {status === "sending" ? "Sending…" : "Send Inquiry"}
+        {status === "sending" ? contact.form.sendingButton : contact.form.sendButton}
       </button>
 
       <p className="text-xs text-warm-gray/60">
-        Your information is used only to respond to your inquiry.
+        {contact.form.privacyNote}
       </p>
     </form>
   );

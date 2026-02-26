@@ -3,21 +3,20 @@ import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
+import { band, seo } from "@/content";
 
 export const metadata: Metadata = {
   title: {
-    default: "Tetris Lounge / Nowhere Men — Two Acts, One Band",
-    template: "%s | Tetris Lounge / Nowhere Men",
+    default: seo.siteTitle,
+    template: seo.titleTemplate,
   },
-  description:
-    "Tetris Lounge delivers classic rock covers from the 60s, 70s, and 80s. Nowhere Men is a high-fidelity Beatles tribute featuring songs the Beatles never played live. Two acts, one incredible band.",
+  description: seo.siteDescription,
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "Tetris Lounge / Nowhere Men",
-    title: "Tetris Lounge / Nowhere Men — Two Acts, One Band",
-    description:
-      "Classic rock covers and a high-fidelity Beatles tribute. Two acts, one incredible band available for your next event.",
+    siteName: band.name,
+    title: seo.siteTitle,
+    description: seo.ogDescription,
   },
 };
 

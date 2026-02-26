@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { Section } from "@/components/Section";
 import { CTAButton } from "@/components/CTAButton";
-import shows from "@/data/shows.json";
+import showData from "@/data/shows.json";
+import { shows } from "@/content";
 
 export const metadata: Metadata = {
-  title: "Shows",
-  description:
-    "See upcoming shows and public dates for Tetris Lounge and Nowhere Men. Contact us to book the band for your next event.",
+  title: shows.meta.title,
+  description: shows.meta.description,
 };
 
 interface Show {
@@ -21,15 +21,15 @@ interface Show {
 }
 
 export default function ShowsPage() {
-  const typedShows = shows as Show[];
+  const typedShows = showData as Show[];
 
   return (
     <>
       <Hero
         variant="default"
-        subtitle="Live Dates"
-        title="Shows"
-        description="Catch us live. Public shows are listed below — for private events, get in touch."
+        subtitle={shows.hero.subtitle}
+        title={shows.hero.title}
+        description={shows.hero.description}
       />
 
       <Section>
@@ -50,13 +50,12 @@ export default function ShowsPage() {
               />
             </svg>
             <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold mb-3">
-              No Public Dates Posted
+              {shows.empty.heading}
             </h2>
             <p className="text-warm-gray text-lg max-w-md mx-auto mb-8">
-              We&apos;re always playing — just not always publicly listed.
-              Contact us for availability.
+              {shows.empty.description}
             </p>
-            <CTAButton href="/contact">Check Availability</CTAButton>
+            <CTAButton href="/contact">{shows.empty.buttonText}</CTAButton>
           </div>
         ) : (
           <div className="max-w-3xl mx-auto">

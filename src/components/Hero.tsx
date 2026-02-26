@@ -56,13 +56,25 @@ export function Hero({
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24 relative">
         {logoSrc && (
           <div className="mb-6">
-            <Image
-              src={logoSrc}
-              alt={logoAlt || title}
-              width={160}
-              height={160}
-              className={`${variant === "tetris" ? "rounded-full" : "rounded-lg"}`}
-            />
+            {variant === "tetris" ? (
+              <div className="w-36 h-36 rounded-full overflow-hidden">
+                <Image
+                  src={logoSrc}
+                  alt={logoAlt || title}
+                  width={160}
+                  height={160}
+                  className="w-full h-full object-cover scale-[1.35]"
+                />
+              </div>
+            ) : (
+              <Image
+                src={logoSrc}
+                alt={logoAlt || title}
+                width={160}
+                height={160}
+                className="rounded-lg"
+              />
+            )}
           </div>
         )}
         {subtitle && (

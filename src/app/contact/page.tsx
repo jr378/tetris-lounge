@@ -19,6 +19,23 @@ export default function ContactPage() {
         description={contact.hero.description}
       />
 
+      {/* Great Fit For */}
+      <Section>
+        <div className="max-w-3xl mx-auto">
+          <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl font-bold mb-6">
+            {contact.greatFit.heading}
+          </h2>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {contact.greatFit.items.map((item) => (
+              <div key={item} className="flex items-center gap-3">
+                <span className="w-2 h-2 rounded-full bg-accent shrink-0" />
+                <span className="text-charcoal">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
       <Section>
         <div className="max-w-2xl mx-auto">
           <ContactForm />

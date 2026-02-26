@@ -48,7 +48,6 @@ export const nav = {
     { href: "/", label: "Home" },
     { href: "/tetris-lounge", label: "Tetris Lounge" },
     { href: "/nowhere-men", label: "Nowhere Men" },
-    { href: "/shows", label: "Shows" },
     { href: "/media", label: "Media" },
     { href: "/contact", label: "Contact" },
   ],
@@ -114,7 +113,6 @@ export const home = {
     description:
       "Whether it's a private event, festival, or venue night, we'll bring the right show to your stage.",
     primaryCta: "Check Availability",
-    secondaryCta: "View Shows",
   },
 };
 
@@ -420,7 +418,6 @@ export const footer = {
   socialHeading: "Follow Us",
   quickLinks: [
     { href: "/contact", label: "Book Us" },
-    { href: "/shows", label: "Upcoming Shows" },
     { href: "/media", label: "Photos & Video" },
   ],
 };

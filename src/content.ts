@@ -68,11 +68,11 @@ export const home = {
   twoShows: {
     heading: "Two Shows. One Band.",
     description:
-      "Whether you want a high-energy classic rock night or an immersive Beatles experience, we deliver both — with the same tight, versatile group of musicians.",
+      "Whether you want a high-energy classic rock night or an immersive Beatles experience, we deliver both — with the same versatile group of musicians.",
     tetris: {
       tagline: "Classic Rock Covers",
       description:
-        "The best of the 60s, 70s, and 80s. From Steely Dan to Led Zeppelin, Talking Heads to Prince, Tetris Lounge offers a deep setlist that keeps the crowd moving all night.",
+        "The best of the 60s, 70s, and 80s. From Steely Dan to Led Zeppelin, Talking Heads to Prince, Tetris Lounge offers a deep setlist that keeps the crowd moving.",
     },
     nowhere: {
       tagline: "Beatles Tribute",
@@ -93,7 +93,7 @@ export const home = {
     nowhere: {
       heading: "Nowhere Men",
       description:
-        "The full Beatles catalog — from early hits like Love Me Do and I Want To Hold Your Hand to Abbey Road deep cuts and the complete B-side medley.",
+        "The full Beatles catalog, from early hits like Love Me Do and I Want To Hold Your Hand to Abbey Road deep cuts and the complete B-side medley.",
     },
   },
 

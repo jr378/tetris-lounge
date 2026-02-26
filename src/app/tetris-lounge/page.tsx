@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { Section } from "@/components/Section";
 import { SongList } from "@/components/SongList";
-import { Gallery } from "@/components/Gallery";
 import { CTAButton } from "@/components/CTAButton";
 import songs from "@/data/songlists.tetris.json";
 import { tetrisLounge } from "@/content";
@@ -30,14 +29,20 @@ export default function TetrisLoungePage() {
         logoAlt="Tetris Lounge logo"
       />
 
-      {/* Great For */}
+      {/* Positioning */}
       <Section>
         <div className="max-w-3xl mx-auto">
           <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl font-bold mb-6">
-            {tetrisLounge.greatFit.heading}
+            {tetrisLounge.positioning.heading}
           </h2>
-          <div className="grid sm:grid-cols-2 gap-4">
-            {tetrisLounge.greatFit.items.map((item) => (
+          <div className="space-y-4 text-warm-gray leading-relaxed">
+            {tetrisLounge.positioning.paragraphs.map((p, i) => (
+              <p key={i} dangerouslySetInnerHTML={{ __html: p }} />
+            ))}
+          </div>
+
+          <div className="mt-8 grid sm:grid-cols-2 gap-4">
+            {tetrisLounge.positioning.features.map((item) => (
               <div key={item} className="flex items-center gap-3">
                 <span className="w-2 h-2 rounded-full bg-tetris-accent shrink-0" />
                 <span className="text-charcoal">{item}</span>
@@ -56,18 +61,6 @@ export default function TetrisLoungePage() {
           {songs.length} {tetrisLounge.setlist.description}
         </p>
         <SongList songs={songs} accentColor="amber" dark />
-      </Section>
-
-      {/* Gallery */}
-      <Section>
-        <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-8">
-          {tetrisLounge.photos.heading}
-        </h2>
-        <Gallery
-          images={tetrisLounge.photos.images}
-          alt="Tetris Lounge"
-          accentColor="amber"
-        />
       </Section>
 
       {/* CTA */}

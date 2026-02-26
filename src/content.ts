@@ -138,14 +138,19 @@ export const tetrisLounge = {
     ctaText: "Book Tetris Lounge",
   },
 
-  greatFit: {
-    heading: "A Great Fit For",
-    items: [
-      "Private parties & celebrations",
-      "Fundraisers & benefits",
-      "Outdoor festivals & concerts",
-      "Bars & restaurants",
-      "Corporate events",
+  positioning: {
+    heading: "Classic Rock, Performed Live",
+    paragraphs: [
+      "From Steely Dan to Led Zeppelin, Talking Heads to Prince — Tetris Lounge delivers a deep, curated setlist that spans the best of the 60s, 70s, and 80s. Every song is arranged with energy, feel, and respect for the originals.",
+      "Whether it's a laid-back evening or a high-energy party, the band brings rock, soul, funk, new wave, and everything in between — tailored to your event and your crowd.",
+    ],
+    features: [
+      "Deep, curated setlist",
+      "Rock, soul, funk & new wave",
+      "Songs from the 60s, 70s & 80s",
+      "High-energy live performances",
+      "Tailored sets for any event",
+      "Tight, versatile musicianship",
     ],
   },
 
@@ -367,6 +372,17 @@ export const contact = {
     title: "Book the Band",
     description:
       "Interested in Tetris Lounge, Nowhere Men, or both? Fill out the form below and we'll get back to you.",
+  },
+
+  greatFit: {
+    heading: "A Great Fit For",
+    items: [
+      "Private parties & celebrations",
+      "Fundraisers & benefits",
+      "Outdoor festivals & concerts",
+      "Bars & restaurants",
+      "Corporate events",
+    ],
   },
 
   form: {

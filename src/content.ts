@@ -273,7 +273,10 @@ export const media = {
   tetrisVideos: {
     heading: "Tetris Lounge Videos",
     description: "Performance clips and highlights.",
-    videos: [] as { youtubeId: string; title: string }[],
+    videos: [
+      { youtubeId: "i9wT--wWbg0", title: "Take Me To The River" },
+      { youtubeId: "zUKSy5ViM0M", title: "One Of These Nights" },
+    ],
   },
 
   nowhereVideos: {

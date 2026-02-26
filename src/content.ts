@@ -88,7 +88,7 @@ export const home = {
     tetris: {
       heading: "Tetris Lounge",
       description:
-        "Rock, soul, funk, new wave, and more. Artists include Neil Young, Steely Dan, Talking Heads, Prince, The Doors, Sly & The Family Stone, Led Zeppelin, and many more.",
+        "Rock, soul, funk, new wave, and more. Artists include Neil Young, Steely Dan, Talking Heads, Prince, The Doors, Sly & The Family Stone, Led Zeppelin, and more.",
     },
     nowhere: {
       heading: "Nowhere Men",

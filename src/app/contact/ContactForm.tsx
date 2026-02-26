@@ -20,7 +20,6 @@ const initialState: FormState = {
   message: "",
 };
 
-// TODO: Replace with actual booking email address
 const BOOKING_EMAIL = "thenowheremenatl@gmail.com";
 
 export function ContactForm() {

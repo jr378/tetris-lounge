@@ -69,30 +69,32 @@ export function Footer() {
               </li>
             </ul>
 
-            {/* Social placeholders */}
-            <div className="mt-4 flex gap-3">
-              <span
-                className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs text-cream/50"
-                title="Facebook (coming soon)"
-                aria-label="Facebook placeholder"
-              >
-                FB
-              </span>
-              <span
-                className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs text-cream/50"
-                title="Instagram (coming soon)"
-                aria-label="Instagram placeholder"
-              >
-                IG
-              </span>
-              <span
-                className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-xs text-cream/50"
-                title="YouTube (coming soon)"
-                aria-label="YouTube placeholder"
-              >
-                YT
-              </span>
-            </div>
+            {/* Social links */}
+            <h3 className="text-cream font-semibold text-sm uppercase tracking-wider mt-6 mb-3">
+              Follow Us
+            </h3>
+            <ul className="space-y-1 text-sm">
+              <li>
+                <a
+                  href="https://www.facebook.com/tetrislounge"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-cream transition-colors"
+                >
+                  Tetris Lounge on Facebook
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.facebook.com/profile.php?id=100090113956795"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-cream transition-colors"
+                >
+                  Nowhere Men on Facebook
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 

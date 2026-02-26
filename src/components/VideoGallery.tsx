@@ -44,14 +44,21 @@ export function VideoGallery({
   return (
     <div className="grid md:grid-cols-2 gap-6">
       {videos.map((video) => (
-        <div key={video.youtubeId} className="rounded-xl overflow-hidden">
-          <iframe
-            className="w-full aspect-video rounded-xl"
-            src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}`}
-            title={video.title}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
+        <div key={video.youtubeId}>
+          <div className="rounded-xl overflow-hidden">
+            <iframe
+              className="w-full aspect-video rounded-xl"
+              src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}`}
+              title={video.title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+          <p className={`mt-2 text-sm font-medium ${
+            accentColor === "amber" ? "text-charcoal" : "text-cream/80"
+          }`}>
+            {video.title}
+          </p>
         </div>
       ))}
     </div>

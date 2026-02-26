@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // TODO: Replace with your actual domain
   const baseUrl = "https://tetrislounge.com";
 
   return [

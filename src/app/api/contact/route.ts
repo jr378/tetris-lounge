@@ -54,12 +54,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Log the submission (replace with email service in production)
+    // Log the submission for debugging
     console.log("[Contact] New booking inquiry from:", body.email);
 
+    // No email service configured yet — return 503 so the client
+    // falls back to mailto and the inquiry still reaches you.
+    // When you add Resend/SendGrid, replace this block with send logic.
     return NextResponse.json(
-      { success: true, message: "Inquiry received." },
-      { status: 200 }
+      { error: "Email service not configured." },
+      { status: 503 }
     );
   } catch (error) {
     console.error("[Contact] Failed to process inquiry:", error);

@@ -126,43 +126,17 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Media Strip Placeholder */}
+      {/* On Stage */}
       <Section dark>
-        <div className="text-center mb-8">
+        <div className="text-center">
           <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-4">
             On Stage
           </h2>
+          <p className="text-cream/70 text-lg max-w-2xl mx-auto mb-8">
+            See the band in action — performance clips, photos, and more.
+          </p>
+          <CTAButton href="/media">Photos &amp; Video</CTAButton>
         </div>
-        <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
-          {[...Array(6)].map((_, i) => (
-            <div
-              key={i}
-              className="aspect-square rounded-lg bg-white/5 flex items-center justify-center"
-            >
-              <svg
-                className="w-8 h-8 text-cream/20"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1}
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0 0 22.5 18.75V5.25A2.25 2.25 0 0 0 20.25 3H3.75A2.25 2.25 0 0 0 1.5 5.25v13.5A2.25 2.25 0 0 0 3.75 21Z"
-                />
-              </svg>
-            </div>
-          ))}
-        </div>
-        <p className="text-center text-cream/40 text-sm mt-4">
-          Photos coming soon — check back or visit our{" "}
-          <a href="/media" className="text-cream/60 underline hover:text-cream transition-colors">
-            Media
-          </a>{" "}
-          page.
-        </p>
       </Section>
 
       {/* Final CTA */}

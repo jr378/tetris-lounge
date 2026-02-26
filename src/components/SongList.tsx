@@ -143,9 +143,9 @@ export function SongList({ songs, accentColor = "amber", dark = false }: SongLis
             return (
               <>
                 <div>
-                  {leftCol.map((song, i) => (
+                  {leftCol.map((song) => (
                     <div
-                      key={`${song.title}-${song.artist}-${i}`}
+                      key={`${song.title}|${song.artist}`}
                       className={`flex items-baseline justify-between py-2.5 border-b ${borderColor}`}
                     >
                       <div className="min-w-0 flex-1">
@@ -168,9 +168,9 @@ export function SongList({ songs, accentColor = "amber", dark = false }: SongLis
                   ))}
                 </div>
                 <div>
-                  {rightCol.map((song, i) => (
+                  {rightCol.map((song) => (
                     <div
-                      key={`${song.title}-${song.artist}-${i}-r`}
+                      key={`${song.title}|${song.artist}|r`}
                       className={`flex items-baseline justify-between py-2.5 border-b ${borderColor}`}
                     >
                       <div className="min-w-0 flex-1">

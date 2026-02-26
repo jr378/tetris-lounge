@@ -61,9 +61,9 @@ export default function ShowsPage() {
         ) : (
           <div className="max-w-3xl mx-auto">
             <div className="space-y-4">
-              {typedShows.map((show, i) => (
+              {typedShows.map((show) => (
                 <article
-                  key={i}
+                  key={`${show.date}-${show.venue}`}
                   className="flex flex-col sm:flex-row sm:items-center gap-4 p-6 rounded-xl border border-charcoal/10 bg-cream hover:shadow-md transition-shadow"
                 >
                   <div className="shrink-0 text-center sm:text-left sm:w-24">

@@ -65,6 +65,8 @@ export function Nav() {
               width={36}
               height={36}
               className="rounded-full"
+              priority
+              sizes="36px"
             />
             <span className="text-warm-gray/50 text-sm font-light">/</span>
             <Image
@@ -73,6 +75,8 @@ export function Nav() {
               width={36}
               height={36}
               className="rounded"
+              priority
+              sizes="36px"
             />
           </Link>
 

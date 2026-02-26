@@ -47,8 +47,8 @@ export function Hero({
           style={{
             background:
               variant === "nowhere"
-                ? "radial-gradient(circle, #5a8a8a 0%, transparent 70%)"
-                : "radial-gradient(circle, #c8913a 0%, transparent 70%)",
+                ? "radial-gradient(circle, #64a8a8 0%, transparent 70%)"
+                : "radial-gradient(circle, #daa852 0%, transparent 70%)",
           }}
         />
       </div>

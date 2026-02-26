@@ -1,8 +1,9 @@
 import { Hero } from "@/components/Hero";
 import { Section } from "@/components/Section";
 import { ActCard } from "@/components/ActCard";
+import { MeetTheBand } from "@/components/MeetTheBand";
 import { CTAButton } from "@/components/CTAButton";
-import { band, home } from "@/content";
+import { band, home, nowhereMen } from "@/content";
 
 export default function Home() {
   return (
@@ -91,24 +92,15 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
-          {band.members.map((member) => (
-            <div key={member.name} className="text-center">
-              <div className="w-20 h-20 mx-auto mb-3 rounded-full bg-charcoal/10 flex items-center justify-center">
-                <span className="text-warm-gray/50 text-2xl font-[family-name:var(--font-display)] font-bold">
-                  {member.name
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")}
-                </span>
-              </div>
-              <p className="font-semibold text-charcoal text-sm">
-                {member.name}
-              </p>
-              <p className="text-warm-gray text-xs">{member.role}</p>
-            </div>
-          ))}
-        </div>
+        <MeetTheBand
+          members={nowhereMen.meetTheBand.members.map((m) => ({
+            ...m,
+            // Use the shared band.members for roles (consistent across the site)
+            role:
+              band.members.find((bm) => bm.name === m.name)?.role ?? m.role,
+          }))}
+          accentColor="teal"
+        />
       </Section>
 
       {/* On Stage */}

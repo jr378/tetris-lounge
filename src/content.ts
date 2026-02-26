@@ -203,6 +203,47 @@ export const nowhereMen = {
     ],
   },
 
+  meetTheBand: {
+    heading: "Meet the Band",
+    description:
+      "The musicians behind the music.",
+    members: [
+      {
+        name: "Dave Deckebach",
+        role: "Keyboard",
+        photo: "/images/nowhere-men/Dave Deckebach.jpg",
+      },
+      {
+        name: "Kelly Ferguson",
+        role: "Guitar & Saxophone",
+      },
+      {
+        name: "John Boyden",
+        role: "Drums",
+        photo: "/images/nowhere-men/John Boyden.jpg",
+      },
+      {
+        name: "David Kinard",
+        role: "Bass",
+        photo: "/images/nowhere-men/David Kinard.jpg",
+      },
+      {
+        name: "Jack Reed",
+        role: "Guitar",
+        photo: "/images/nowhere-men/Jack Reed.jpg",
+      },
+      {
+        name: "Jim Emshoff",
+        role: "Keyboard",
+        photo: "/images/nowhere-men/Jim Emshoff.jpg",
+      },
+    ],
+    groupPhoto: {
+      src: "/images/nowhere-men/Nowhere Men Fender's Alley.jpg",
+      alt: "Nowhere Men performing at Fender's Alley",
+    },
+  },
+
   gallery: {
     heading: "Gallery",
   },

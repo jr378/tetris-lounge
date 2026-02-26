@@ -36,13 +36,25 @@ export function ActCard({
     >
       {logoSrc && (
         <div className="mb-4">
-          <Image
-            src={logoSrc}
-            alt={logoAlt || title}
-            width={80}
-            height={80}
-            className={`${accentColor === "amber" ? "rounded-full" : "rounded"}`}
-          />
+          {accentColor === "amber" ? (
+            <div className="w-20 h-20 rounded-full overflow-hidden">
+              <Image
+                src={logoSrc}
+                alt={logoAlt || title}
+                width={80}
+                height={80}
+                className="w-full h-full object-cover scale-[1.35]"
+              />
+            </div>
+          ) : (
+            <Image
+              src={logoSrc}
+              alt={logoAlt || title}
+              width={80}
+              height={80}
+              className="rounded"
+            />
+          )}
         </div>
       )}
       <p

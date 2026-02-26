@@ -36,7 +36,7 @@ function MemberCard({
   return (
     <div className="text-center group">
       <div
-        className={`relative w-36 h-36 sm:w-44 sm:h-44 mx-auto mb-4 rounded-full overflow-hidden border-2 ${borderColor}`}
+        className={`relative w-44 h-44 sm:w-56 sm:h-56 mx-auto rounded-full overflow-hidden border-2 ${borderColor}`}
       >
         {member.photo && !imgError ? (
           <Image
@@ -44,7 +44,7 @@ function MemberCard({
             alt={member.name}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-500"
-            sizes="(max-width: 640px) 144px, 176px"
+            sizes="(max-width: 640px) 176px, 224px"
             onError={() => setImgError(true)}
           />
         ) : (
@@ -55,8 +55,6 @@ function MemberCard({
           </div>
         )}
       </div>
-      <p className="font-semibold text-sm sm:text-base">{member.name}</p>
-      <p className="text-warm-gray text-xs sm:text-sm">{member.role}</p>
     </div>
   );
 }

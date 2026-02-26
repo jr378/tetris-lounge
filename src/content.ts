@@ -160,6 +160,8 @@ export const tetrisLounge = {
     images: [
       "/images/tetris-lounge/Tetris Lounge Downtown 1.jpg",
       "/images/tetris-lounge/Tetris Lounge Downtown 2.jpg",
+      "/images/tetris-lounge/TL Pool Party.jpg",
+      "/images/tetris-lounge/TL Halfway Crooks.jpg",
     ],
   },
 
@@ -252,6 +254,7 @@ export const nowhereMen = {
     heading: "Gallery",
     images: [
       "/images/nowhere-men/Nowhere Men Fender's Alley.jpg",
+      "/images/nowhere-men/Fenders Alley 2.jpg",
     ],
   },
 
@@ -314,6 +317,8 @@ export const media = {
     images: [
       "/images/tetris-lounge/Tetris Lounge Downtown 1.jpg",
       "/images/tetris-lounge/Tetris Lounge Downtown 2.jpg",
+      "/images/tetris-lounge/TL Pool Party.jpg",
+      "/images/tetris-lounge/TL Halfway Crooks.jpg",
     ],
   },
 
@@ -322,6 +327,7 @@ export const media = {
     description: "The Beatles tribute experience.",
     images: [
       "/images/nowhere-men/Nowhere Men Fender's Alley.jpg",
+      "/images/nowhere-men/Fenders Alley 2.jpg",
     ],
   },
 

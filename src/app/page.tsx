@@ -1,9 +1,9 @@
 import { Hero } from "@/components/Hero";
 import { Section } from "@/components/Section";
 import { ActCard } from "@/components/ActCard";
-import { MeetTheBand } from "@/components/MeetTheBand";
+
 import { CTAButton } from "@/components/CTAButton";
-import { band, home, nowhereMen } from "@/content";
+import { home } from "@/content";
 
 export default function Home() {
   return (
@@ -79,28 +79,6 @@ export default function Home() {
             </p>
           </div>
         </div>
-      </Section>
-
-      {/* Meet the Band */}
-      <Section>
-        <div className="text-center mb-10">
-          <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-4">
-            {home.meetTheBand.heading}
-          </h2>
-          <p className="text-warm-gray text-lg max-w-2xl mx-auto">
-            {home.meetTheBand.description}
-          </p>
-        </div>
-
-        <MeetTheBand
-          members={nowhereMen.meetTheBand.members.map((m) => ({
-            ...m,
-            // Use the shared band.members for roles (consistent across the site)
-            role:
-              band.members.find((bm) => bm.name === m.name)?.role ?? m.role,
-          }))}
-          accentColor="teal"
-        />
       </Section>
 
       {/* On Stage */}

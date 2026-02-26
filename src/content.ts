@@ -61,7 +61,7 @@ export const home = {
     subtitle: "Two Acts, One Band",
     title: "Tetris Lounge / Nowhere Men",
     description:
-      "From timeless rock anthems to pitch-perfect Beatles harmonies — we bring two distinct live experiences to your stage.",
+      "From timeless rock anthems to pitch-perfect Beatles harmonies, we bring two distinct live experiences to your stage.",
     ctaText: "Check Availability",
   },
 
@@ -72,12 +72,12 @@ export const home = {
     tetris: {
       tagline: "Classic Rock Covers",
       description:
-        "The best of the 60s, 70s, and 80s. From Steely Dan to Led Zeppelin, Talking Heads to Prince — a deep setlist that keeps the crowd moving all night.",
+        "The best of the 60s, 70s, and 80s. From Steely Dan to Led Zeppelin, Talking Heads to Prince, Tetris Lounge offers a deep setlist that keeps the crowd moving all night.",
     },
     nowhere: {
       tagline: "Beatles Tribute",
       description:
-        "High-fidelity Beatles covers performed with care and precision — including later-era songs the Beatles themselves never performed live.",
+        "High-fidelity Beatles covers performed with precision, including later-era songs the Beatles themselves never performed live.",
     },
   },
 
@@ -88,12 +88,12 @@ export const home = {
     tetris: {
       heading: "Tetris Lounge",
       description:
-        "Rock, soul, funk, new wave, and more. Artists include Neil Young, Steely Dan, Talking Heads, Prince, The Doors, Sly & The Family Stone, Led Zeppelin, and many others.",
+        "Rock, soul, funk, new wave, and more. Artists include Neil Young, Steely Dan, Talking Heads, Prince, The Doors, Sly & The Family Stone, Led Zeppelin, and many more.",
     },
     nowhere: {
       heading: "Nowhere Men",
       description:
-        "The full Beatles catalog — from early hits like Love Me Do and I Want To Hold Your Hand to Abbey Road deep cuts and the complete Side B medley.",
+        "The full Beatles catalog — from early hits like Love Me Do and I Want To Hold Your Hand to Abbey Road deep cuts and the complete B-side medley.",
     },
   },
 
@@ -112,7 +112,7 @@ export const home = {
   cta: {
     heading: "Ready to Book?",
     description:
-      "Whether it's a private event, festival, or venue night — let's talk about bringing the right show to your stage.",
+      "Whether it's a private event, festival, or venue night, we'll bring the right show to your stage.",
     primaryCta: "Check Availability",
     secondaryCta: "View Shows",
   },
@@ -141,12 +141,11 @@ export const tetrisLounge = {
   greatFit: {
     heading: "A Great Fit For",
     items: [
-      "Bars & restaurants",
       "Private parties & celebrations",
-      "Corporate events",
-      "Outdoor festivals & concerts",
-      "Community events",
       "Fundraisers & benefits",
+      "Outdoor festivals & concerts",
+      "Bars & restaurants",
+      "Corporate events",
     ],
   },
 
@@ -163,7 +162,7 @@ export const tetrisLounge = {
   cta: {
     heading: "Book Tetris Lounge",
     description:
-      "Bring the classics to your next event. Get in touch and let's find the right setlist for your crowd.",
+      "Bring the classics to your next event. Get in touch and let's find the right setlist for your party.",
     buttonText: "Check Availability",
   },
 };
@@ -191,14 +190,14 @@ export const nowhereMen = {
   positioning: {
     heading: "The Beatles, Performed Live",
     paragraphs: [
-      "The Beatles stopped touring in 1966 — which means some of their greatest music was never performed on stage. Nowhere Men brings those songs to life alongside the beloved early hits, delivering the full breadth of the catalog in a single show.",
+      "The Beatles stopped touring in 1966 — which means some of their greatest music was never performed on stage. The Nowhere Men bring those songs to life alongside the beloved early hits, delivering the full breadth of the catalog in a single show.",
       'From <em>Love Me Do</em> to <em>A Day In The Life</em>, from the energy of <em>Back In The U.S.S.R.</em> to the beauty of <em>Here Comes The Sun</em> — every song is performed with care, tight harmonies, and attention to the arrangements that made them timeless.',
     ],
     features: [
       "High-fidelity arrangements",
       "Full-catalog coverage",
       "Later-era songs performed live",
-      "Abbey Road Side B medley",
+      "Abbey Road B-side medley",
       "Tight vocal harmonies",
       "Perfect for themed events",
     ],

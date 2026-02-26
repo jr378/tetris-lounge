@@ -322,7 +322,6 @@ export const media = {
       "/images/tetris-lounge/Tetris Lounge Downtown 1.jpg",
       "/images/tetris-lounge/Tetris Lounge Downtown 2.jpg",
       "/images/tetris-lounge/TL pool party.jpg",
-      "/images/tetris-lounge/Halfway Crooks.jpg",
     ],
   },
 

@@ -157,6 +157,10 @@ export const tetrisLounge = {
 
   photos: {
     heading: "Photos",
+    images: [
+      "/images/tetris-lounge/Tetris Lounge Downtown 1.jpg",
+      "/images/tetris-lounge/Tetris Lounge Downtown 2.jpg",
+    ],
   },
 
   cta: {
@@ -246,6 +250,9 @@ export const nowhereMen = {
 
   gallery: {
     heading: "Gallery",
+    images: [
+      "/images/nowhere-men/Nowhere Men Fender's Alley.jpg",
+    ],
   },
 
   setlist: {
@@ -304,11 +311,18 @@ export const media = {
   tetrisPhotos: {
     heading: "Tetris Lounge",
     description: "Classic rock covers, live on stage.",
+    images: [
+      "/images/tetris-lounge/Tetris Lounge Downtown 1.jpg",
+      "/images/tetris-lounge/Tetris Lounge Downtown 2.jpg",
+    ],
   },
 
   nowherePhotos: {
     heading: "Nowhere Men",
     description: "The Beatles tribute experience.",
+    images: [
+      "/images/nowhere-men/Nowhere Men Fender's Alley.jpg",
+    ],
   },
 
   tetrisVideos: {

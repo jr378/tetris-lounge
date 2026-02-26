@@ -27,8 +27,7 @@ export default function MediaPage() {
         </h2>
         <p className="text-warm-gray mb-8">{media.tetrisPhotos.description}</p>
         <Gallery
-          imageDir="/images/tetris-lounge"
-          prefix="tl"
+          images={media.tetrisPhotos.images}
           alt="Tetris Lounge"
           accentColor="amber"
         />
@@ -41,8 +40,7 @@ export default function MediaPage() {
         </h2>
         <p className="text-cream/60 mb-8">{media.nowherePhotos.description}</p>
         <Gallery
-          imageDir="/images/nowhere-men"
-          prefix="nm"
+          images={media.nowherePhotos.images}
           alt="Nowhere Men"
           accentColor="teal"
         />

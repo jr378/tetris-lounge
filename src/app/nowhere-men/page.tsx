@@ -60,8 +60,7 @@ export default function NowhereManPage() {
           {nowhereMen.gallery.heading}
         </h2>
         <Gallery
-          imageDir="/images/nowhere-men"
-          prefix="nm"
+          images={nowhereMen.gallery.images}
           alt="Nowhere Men"
           accentColor="teal"
         />

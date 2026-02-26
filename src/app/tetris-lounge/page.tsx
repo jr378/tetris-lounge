@@ -64,8 +64,7 @@ export default function TetrisLoungePage() {
           {tetrisLounge.photos.heading}
         </h2>
         <Gallery
-          imageDir="/images/tetris-lounge"
-          prefix="tl"
+          images={tetrisLounge.photos.images}
           alt="Tetris Lounge"
           accentColor="amber"
         />

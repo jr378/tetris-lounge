@@ -82,12 +82,12 @@ export default function Home() {
       </Section>
 
       {/* On Stage */}
-      <Section dark>
+      <Section>
         <div className="text-center">
           <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-4">
             {home.onStage.heading}
           </h2>
-          <p className="text-cream/70 text-lg max-w-2xl mx-auto mb-8">
+          <p className="text-warm-gray text-lg max-w-2xl mx-auto mb-8">
             {home.onStage.description}
           </p>
           <CTAButton href="/media">{home.onStage.ctaText}</CTAButton>
@@ -95,12 +95,12 @@ export default function Home() {
       </Section>
 
       {/* Final CTA */}
-      <Section>
+      <Section dark>
         <div className="text-center">
           <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-4">
             {home.cta.heading}
           </h2>
-          <p className="text-warm-gray text-lg max-w-xl mx-auto mb-8">
+          <p className="text-cream/70 text-lg max-w-xl mx-auto mb-8">
             {home.cta.description}
           </p>
           <CTAButton href="/contact">{home.cta.primaryCta}</CTAButton>

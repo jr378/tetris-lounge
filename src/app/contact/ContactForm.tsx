@@ -23,9 +23,7 @@ const initialState: FormState = {
 
 export function ContactForm() {
   const [form, setForm] = useState<FormState>(initialState);
-  const [status, setStatus] = useState<
-    "idle" | "sending" | "sent" | "fallback" | "error"
-  >("idle");
+  const [status, setStatus] = useState<"idle" | "submitted">("idle");
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -35,31 +33,8 @@ export function ContactForm() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus("sending");
-
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-
-      if (res.ok) {
-        setStatus("sent");
-        setForm(initialState);
-      } else {
-        fallbackMailto();
-        setStatus("fallback");
-      }
-    } catch {
-      fallbackMailto();
-      setStatus("fallback");
-    }
-  };
-
-  const fallbackMailto = () => {
     const subject = encodeURIComponent(
       `Booking Inquiry — ${form.act || band.name}`
     );
@@ -67,45 +42,13 @@ export function ContactForm() {
       `Name: ${form.name}\nEmail: ${form.email}\nEvent Date: ${form.eventDate || "Not specified"}\nLocation: ${form.location || "Not specified"}\nAct: ${form.act || "Either/Both"}\n\n${form.message}`
     );
     window.location.href = `mailto:${band.email}?subject=${subject}&body=${body}`;
+    setStatus("submitted");
   };
 
   const inputClasses =
     "w-full px-4 py-3 rounded-lg border border-charcoal/20 bg-cream text-charcoal placeholder:text-warm-gray/50 focus:outline-none focus:ring-2 focus:ring-accent transition-shadow text-sm";
 
-  if (status === "sent") {
-    return (
-      <div className="text-center py-12">
-        <svg
-          className="w-16 h-16 mx-auto mb-4 text-accent"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          aria-hidden="true"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-          />
-        </svg>
-        <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold mb-2">
-          {contact.form.successHeading}
-        </h2>
-        <p className="text-warm-gray mb-6">
-          {contact.form.successMessage}
-        </p>
-        <button
-          onClick={() => setStatus("idle")}
-          className="text-accent hover:text-accent-hover font-medium text-sm transition-colors"
-        >
-          {contact.form.successRetry}
-        </button>
-      </div>
-    );
-  }
-
-  if (status === "fallback") {
+  if (status === "submitted") {
     return (
       <div className="text-center py-12">
         <svg
@@ -146,22 +89,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5" noValidate>
-      {status === "error" && (
-        <div
-          className="p-4 rounded-lg bg-red-50 border border-red-200 text-red-800 text-sm"
-          role="alert"
-        >
-          {contact.form.errorMessage}{" "}
-          <a
-            href={`mailto:${band.email}`}
-            className="underline font-medium"
-          >
-            {band.email}
-          </a>
-          .
-        </div>
-      )}
+    <form onSubmit={handleSubmit} className="space-y-5">
 
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
@@ -280,10 +208,9 @@ export function ContactForm() {
 
       <button
         type="submit"
-        disabled={status === "sending"}
-        className="w-full sm:w-auto px-8 py-3 rounded-lg bg-accent hover:bg-accent-hover text-charcoal font-semibold text-sm tracking-wide transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-cream disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full sm:w-auto px-8 py-3 rounded-lg bg-accent hover:bg-accent-hover text-charcoal font-semibold text-sm tracking-wide transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-cream"
       >
-        {status === "sending" ? contact.form.sendingButton : contact.form.sendButton}
+        {contact.form.sendButton}
       </button>
 
       <p className="text-xs text-warm-gray/60">

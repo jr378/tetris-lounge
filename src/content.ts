@@ -161,7 +161,6 @@ export const tetrisLounge = {
   photos: {
     heading: "Photos",
     images: [
-      "/images/tetris-lounge/Tetris Lounge Downtown 1.jpg",
       "/images/tetris-lounge/Tetris Lounge Downtown 2.jpg",
       "/images/tetris-lounge/TL pool party.jpg"
     ],
@@ -317,7 +316,6 @@ export const media = {
     heading: "Tetris Lounge",
     description: "Classic rock covers, live on stage.",
     images: [
-      "/images/tetris-lounge/Tetris Lounge Downtown 1.jpg",
       "/images/tetris-lounge/Tetris Lounge Downtown 2.jpg",
       "/images/tetris-lounge/TL pool party.jpg",
     ],

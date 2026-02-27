@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  --color-cream: #f4f6fb;
-  --color-cream-dark: #e8ecf4;
-  --color-charcoal: #2e4458;
-  --color-charcoal-light: #445e74;
-  --color-warm-gray: #8696a6;
+  --color-cream: #f5f2ec;
+  --color-cream-dark: #ebe7df;
+  --color-charcoal: #334d62;
+  --color-charcoal-light: #4d6580;
+  --color-warm-gray: #8d9bab;
   --color-accent: #e0b058;
   --color-accent-hover: #d0a050;
   --color-accent-light: #eaca72;

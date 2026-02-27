@@ -103,12 +103,7 @@ export default function Home() {
           <p className="text-warm-gray text-lg max-w-xl mx-auto mb-8">
             {home.cta.description}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CTAButton href="/contact">{home.cta.primaryCta}</CTAButton>
-            <CTAButton href="/shows" variant="outline">
-              {home.cta.secondaryCta}
-            </CTAButton>
-          </div>
+          <CTAButton href="/contact">{home.cta.primaryCta}</CTAButton>
         </div>
       </Section>
     </>

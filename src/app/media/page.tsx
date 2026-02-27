@@ -19,31 +19,31 @@ export default function MediaPage() {
         description={media.hero.description}
       />
 
-      {/* Tetris Lounge Videos */}
-      <Section>
-        <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-2">
-          {media.tetrisVideos.heading}
-        </h2>
-        <p className="text-warm-gray mb-8">
-          {media.tetrisVideos.description}
-        </p>
-        <VideoGallery
-          videos={media.tetrisVideos.videos}
-          accentColor="amber"
-        />
-      </Section>
-
       {/* Nowhere Men Videos */}
-      <Section dark>
+      <Section>
         <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-2">
           {media.nowhereVideos.heading}
         </h2>
-        <p className="text-cream/60 mb-8">
+        <p className="text-warm-gray mb-8">
           {media.nowhereVideos.description}
         </p>
         <VideoGallery
           videos={media.nowhereVideos.videos}
           accentColor="teal"
+        />
+      </Section>
+
+      {/* Tetris Lounge Videos */}
+      <Section dark>
+        <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-2">
+          {media.tetrisVideos.heading}
+        </h2>
+        <p className="text-cream/60 mb-8">
+          {media.tetrisVideos.description}
+        </p>
+        <VideoGallery
+          videos={media.tetrisVideos.videos}
+          accentColor="amber"
         />
       </Section>
     </>

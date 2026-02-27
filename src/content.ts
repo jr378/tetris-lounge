@@ -351,7 +351,7 @@ export const contact = {
   },
 
   greatFit: {
-    heading: "A Great Fit For",
+    heading: "A great fit for:",
     items: [
       "Private parties & celebrations",
       "Fundraisers & benefits",

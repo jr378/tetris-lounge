@@ -105,7 +105,7 @@ export const home = {
     heading: "On Stage",
     description:
       "See the band in action — performance clips, photos, and more.",
-    ctaText: "Photos & Video",
+    ctaText: "Videos",
   },
 
   cta: {

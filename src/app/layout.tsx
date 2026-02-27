@@ -6,6 +6,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { band, seo } from "@/content";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://tetrislounge.com"),
   title: {
     default: seo.siteTitle,
     template: seo.titleTemplate,

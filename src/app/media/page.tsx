@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { Section } from "@/components/Section";
-import { Gallery } from "@/components/Gallery";
 import { VideoGallery } from "@/components/VideoGallery";
 import { media } from "@/content";
 
@@ -44,32 +43,6 @@ export default function MediaPage() {
         </p>
         <VideoGallery
           videos={media.nowhereVideos.videos}
-          accentColor="teal"
-        />
-      </Section>
-
-      {/* Tetris Lounge Gallery */}
-      <Section>
-        <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-2">
-          {media.tetrisPhotos.heading}
-        </h2>
-        <p className="text-warm-gray mb-8">{media.tetrisPhotos.description}</p>
-        <Gallery
-          images={media.tetrisPhotos.images}
-          alt="Tetris Lounge"
-          accentColor="amber"
-        />
-      </Section>
-
-      {/* Nowhere Men Gallery */}
-      <Section dark>
-        <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-2">
-          {media.nowherePhotos.heading}
-        </h2>
-        <p className="text-cream/60 mb-8">{media.nowherePhotos.description}</p>
-        <Gallery
-          images={media.nowherePhotos.images}
-          alt="Nowhere Men"
           accentColor="teal"
         />
       </Section>

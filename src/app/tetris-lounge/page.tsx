@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { Section } from "@/components/Section";
 import { SongList } from "@/components/SongList";
+import { Gallery } from "@/components/Gallery";
 import { CTAButton } from "@/components/CTAButton";
 import songs from "@/data/songlists.tetris.json";
 import { tetrisLounge } from "@/content";
@@ -61,6 +62,18 @@ export default function TetrisLoungePage() {
           {songs.length} {tetrisLounge.setlist.description}
         </p>
         <SongList songs={songs} accentColor="amber" dark />
+      </Section>
+
+      {/* Photos */}
+      <Section>
+        <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-8">
+          {tetrisLounge.photos.heading}
+        </h2>
+        <Gallery
+          images={tetrisLounge.photos.images}
+          alt="Tetris Lounge"
+          accentColor="amber"
+        />
       </Section>
 
       {/* CTA */}

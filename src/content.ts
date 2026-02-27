@@ -303,31 +303,13 @@ export const media = {
   meta: {
     title: "Media",
     description:
-      "Photos and videos of Tetris Lounge and Nowhere Men. See the band in action and get a feel for the live experience.",
+      "Videos of Tetris Lounge and Nowhere Men. See the band in action and get a feel for the live experience.",
   },
 
   hero: {
-    subtitle: "Photos & Video",
+    subtitle: "Video",
     title: "Media",
-    description: "See the band in action. Browse photos from shows and events.",
-  },
-
-  tetrisPhotos: {
-    heading: "Tetris Lounge",
-    description: "Classic rock covers, live on stage.",
-    images: [
-      "/images/tetris-lounge/Tetris Lounge Downtown 2.jpg",
-      "/images/tetris-lounge/TL pool party.jpg",
-    ],
-  },
-
-  nowherePhotos: {
-    heading: "Nowhere Men",
-    description: "The Beatles tribute experience.",
-    images: [
-      "/images/nowhere-men/Nowhere Men Fender's Alley.jpg",
-      "/images/nowhere-men/Fender's Alley 2.jpg",
-    ],
+    description: "See the band in action. Watch performance clips and highlights.",
   },
 
   tetrisVideos: {
@@ -414,7 +396,7 @@ export const footer = {
   socialHeading: "Follow Us",
   quickLinks: [
     { href: "/contact", label: "Book Us" },
-    { href: "/media", label: "Photos & Video" },
+    { href: "/media", label: "Video" },
   ],
 };
 

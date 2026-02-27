@@ -19,9 +19,9 @@ export default function ContactPage() {
         description={contact.hero.description}
       />
 
-      {/* Great Fit For */}
       <Section>
-        <div className="max-w-3xl mx-auto">
+        {/* Great Fit For */}
+        <div className="max-w-3xl mx-auto mb-16">
           <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl font-bold mb-6">
             {contact.greatFit.heading}
           </h2>
@@ -34,9 +34,8 @@ export default function ContactPage() {
             ))}
           </div>
         </div>
-      </Section>
 
-      <Section>
+        {/* Contact Form */}
         <div className="max-w-2xl mx-auto">
           <ContactForm />
         </div>

@@ -41,15 +41,6 @@ export default function NowhereManPage() {
               <p key={i} dangerouslySetInnerHTML={{ __html: p }} />
             ))}
           </div>
-
-          <div className="mt-8 grid sm:grid-cols-2 gap-4">
-            {nowhereMen.positioning.features.map((item) => (
-              <div key={item} className="flex items-center gap-3">
-                <span className="w-2 h-2 rounded-full bg-brass shrink-0" />
-                <span className="text-text">{item}</span>
-              </div>
-            ))}
-          </div>
         </div>
       </Section>
 

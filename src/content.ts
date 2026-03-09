@@ -49,6 +49,7 @@ export const nav = {
     { href: "/tetris-lounge", label: "Tetris Lounge" },
     { href: "/nowhere-men", label: "Nowhere Men" },
     { href: "/media", label: "Media" },
+    { href: "/epk", label: "EPK" },
     { href: "/contact", label: "Contact" },
   ],
 };
@@ -377,6 +378,53 @@ export const contact = {
   },
 };
 
+// ─── EPK Page ──────────────────────────────────────────────
+
+export const epk = {
+  meta: {
+    title: "Electronic Press Kit",
+    description:
+      "Press kit for Tetris Lounge and Nowhere Men. Two acts, one band — classic rock covers and a high-fidelity Beatles tribute available for booking.",
+  },
+
+  hero: {
+    subtitle: "Press Kit",
+    title: "Electronic Press Kit",
+    description: "Two acts. One band.",
+  },
+
+  tetris: {
+    tagline: "Classic Rock Covers",
+    description:
+      "Tetris Lounge delivers a deep, curated setlist spanning the best of the 60s, 70s, and 80s — from Steely Dan and Led Zeppelin to Talking Heads and Prince. Every set is tailored to the event.",
+    greatFor: [
+      "Venue nights & bar gigs",
+      "Outdoor festivals",
+      "Private parties & celebrations",
+      "Corporate events",
+    ],
+  },
+
+  nowhere: {
+    tagline: "High-Fidelity Beatles Tribute",
+    description:
+      "Nowhere Men performs faithful, carefully arranged Beatles covers spanning the full catalog — including later-era songs the Beatles themselves never performed live. Tight harmonies, studio-quality arrangements.",
+    greatFor: [
+      "Themed events & tribute nights",
+      "Fundraisers & benefits",
+      "Weddings & receptions",
+      "Concert series",
+    ],
+  },
+
+  cta: {
+    heading: "Book the Band",
+    description:
+      "Interested in bringing Tetris Lounge, Nowhere Men, or both to your next event? Get in touch.",
+    buttonText: "Check Availability",
+  },
+};
+
 // ─── 404 Page ──────────────────────────────────────────────
 
 export const notFound = {
@@ -396,6 +444,7 @@ export const footer = {
   socialHeading: "Follow Us",
   quickLinks: [
     { href: "/contact", label: "Book Us" },
+    { href: "/epk", label: "Press Kit" },
     { href: "/media", label: "Video" },
   ],
 };

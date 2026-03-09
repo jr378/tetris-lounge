@@ -5,6 +5,8 @@ import { SongList } from "@/components/SongList";
 import { Gallery } from "@/components/Gallery";
 import { CTAButton } from "@/components/CTAButton";
 import songs from "@/data/songlists.nowhere.json";
+import { ActCrossLink } from "@/components/ActCrossLink";
+import { DownloadPdfButton } from "@/components/DownloadPdfButton";
 import { nowhereMen } from "@/content";
 
 export const metadata: Metadata = {
@@ -19,6 +21,7 @@ export const metadata: Metadata = {
 export default function NowhereManPage() {
   return (
     <>
+      <ActCrossLink currentAct="nowhere" />
       <Hero
         variant="nowhere"
         subtitle={nowhereMen.hero.subtitle}
@@ -46,9 +49,12 @@ export default function NowhereManPage() {
 
       {/* Song List */}
       <Section dark>
-        <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-2">
-          {nowhereMen.setlist.heading}
-        </h2>
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-2">
+          <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold">
+            {nowhereMen.setlist.heading}
+          </h2>
+          <DownloadPdfButton href="/print/nowhere-men" dark />
+        </div>
         <p className="text-muted-on-ink mb-8">
           {songs.length} {nowhereMen.setlist.description}
         </p>

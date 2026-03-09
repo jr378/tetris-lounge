@@ -7,10 +7,10 @@
   --color-cream: #f5f0e6;
   --color-surface: #fbf7ef;
 
-  /* ── Accent (Vintage Oxblood) ── */
-  --color-accent: #8b2f2f;
-  --color-accent-hover: #742626;
-  --color-accent-soft: rgba(139, 47, 47, 0.12);
+  /* ── Accent (Burnt Orange / Rust) ── */
+  --color-accent: #b35a2a;
+  --color-accent-hover: #964a22;
+  --color-accent-soft: rgba(179, 90, 42, 0.12);
 
   /* ── Text ── */
   --color-text: #1a2430;

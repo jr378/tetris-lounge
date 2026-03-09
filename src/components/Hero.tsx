@@ -34,7 +34,7 @@ export function Hero({
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full"
           style={{
-            background: "radial-gradient(circle, #8b2f2f 0%, transparent 70%)",
+            background: "radial-gradient(circle, #b35a2a 0%, transparent 70%)",
           }}
         />
       </div>

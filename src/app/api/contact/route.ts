@@ -18,7 +18,12 @@ import { NextRequest, NextResponse } from "next/server";
 interface ContactPayload {
   name: string;
   email: string;
+  phone?: string;
+  eventType?: string;
   eventDate?: string;
+  startTime?: string;
+  setLength?: string;
+  attendance?: string;
   location?: string;
   act?: string;
   message: string;

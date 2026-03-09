@@ -19,6 +19,9 @@ export const metadata: Metadata = {
     title: seo.siteTitle,
     description: seo.ogDescription,
   },
+  other: {
+    "theme-color": "#0E1A24",
+  },
 };
 
 export default function RootLayout({

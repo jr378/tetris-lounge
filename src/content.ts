@@ -67,7 +67,7 @@ export const home = {
   twoShows: {
     heading: "Two Shows. One Band.",
     description:
-      "Whether you want a classic rock night or an immersive Beatles experience, we can deliver both.",
+      "Whether you want a night of soulful classic rock or an immersive Beatles experience, we can deliver both.",
     tetris: {
       tagline: "Classic Rock Covers",
       description:
@@ -92,7 +92,7 @@ export const home = {
     nowhere: {
       heading: "Nowhere Men",
       description:
-        "The full Beatles catalog, from early hits like I Want To Hold Your Hand to Abbey Road deep cuts and the complete B-side medley.",
+        "The full Beatles catalog, from early hits like I Want To Hold Your Hand to pyschedelic Sgt. Pepper's and Abbey Road deep cuts.",
     },
   },
 

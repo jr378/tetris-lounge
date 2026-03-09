@@ -60,14 +60,14 @@ export const home = {
     subtitle: "Two Acts, One Band",
     title: "Tetris Lounge / Nowhere Men",
     description:
-      "From timeless rock anthems to pitch-perfect Beatles harmonies, we bring two distinct live experiences to your stage.",
+      "From timeless rock anthems to epic Beatles anthems, we bring two distinct live experiences to your stage.",
     ctaText: "Check Availability",
   },
 
   twoShows: {
     heading: "Two Shows. One Band.",
     description:
-      "Whether you want a high-energy classic rock night or an immersive Beatles experience, we deliver both — with the same versatile group of musicians.",
+      "Whether you want a classic rock night or an immersive Beatles experience, we can deliver both.",
     tetris: {
       tagline: "Classic Rock Covers",
       description:
@@ -83,7 +83,7 @@ export const home = {
   whatWePlay: {
     heading: "What We Play",
     description:
-      "Over 125 songs across both acts, carefully arranged and rehearsed. Every set is tailored to the occasion.",
+      "Over 100 songs across both acts, carefully arranged and rehearsed.",
     tetris: {
       heading: "Tetris Lounge",
       description:
@@ -92,7 +92,7 @@ export const home = {
     nowhere: {
       heading: "Nowhere Men",
       description:
-        "The full Beatles catalog, from early hits like Love Me Do and I Want To Hold Your Hand to Abbey Road deep cuts and the complete B-side medley.",
+        "The full Beatles catalog, from early hits like I Want To Hold Your Hand to Abbey Road deep cuts and the complete B-side medley.",
     },
   },
 
@@ -132,14 +132,14 @@ export const tetrisLounge = {
     subtitle: "Classic Rock Covers",
     title: "Tetris Lounge",
     description:
-      "The 60s, 70s, and 80s — performed live with energy, feel, and respect for the originals. Rock, soul, funk, new wave, and everything in between.",
+      "The 60s, 70s, and 80s — performed live with energy and respect for the originals. Rock, soul, funk, new wave, and everything in between.",
     ctaText: "Book Tetris Lounge",
   },
 
   positioning: {
     heading: "Classic Rock, Performed Live",
     paragraphs: [
-      "From Steely Dan to Led Zeppelin, Talking Heads to Prince — Tetris Lounge delivers a deep, curated setlist that spans the best of the 60s, 70s, and 80s. Every song is arranged with energy, feel, and respect for the originals.",
+      "From Steely Dan to Led Zeppelin, Talking Heads to Prince — Tetris Lounge delivers a curated setlist that spans the best of the 60s, 70s, and 80s. Every song is arranged with energy and respect for the originals.",
       "Whether it's a laid-back evening or a high-energy party, the band brings rock, soul, funk, new wave, and everything in between — tailored to your event and your crowd.",
     ],
     features: [

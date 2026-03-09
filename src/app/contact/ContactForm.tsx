@@ -46,13 +46,13 @@ export function ContactForm() {
   };
 
   const inputClasses =
-    "w-full px-4 py-3 rounded-lg border border-border bg-surface text-text placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-brass transition-shadow text-sm";
+    "w-full px-4 py-3 rounded-lg border border-border bg-surface text-text placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-accent transition-shadow text-sm";
 
   if (status === "submitted") {
     return (
       <div className="text-center py-12">
         <svg
-          className="w-16 h-16 mx-auto mb-4 text-brass"
+          className="w-16 h-16 mx-auto mb-4 text-accent"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
@@ -72,7 +72,7 @@ export function ContactForm() {
           {contact.form.fallbackMessage}{" "}
           <a
             href={`mailto:${band.email}`}
-            className="text-ink hover:text-brass underline"
+            className="text-ink hover:text-accent underline"
           >
             {band.email}
           </a>
@@ -80,7 +80,7 @@ export function ContactForm() {
         </p>
         <button
           onClick={() => setStatus("idle")}
-          className="text-brass hover:text-brass-hover font-medium text-sm transition-colors"
+          className="text-accent hover:text-accent-hover font-medium text-sm transition-colors"
         >
           {contact.form.fallbackRetry}
         </button>
@@ -97,7 +97,7 @@ export function ContactForm() {
             htmlFor="name"
             className="block text-sm font-medium text-text mb-1.5"
           >
-            Name <span className="text-brass">*</span>
+            Name <span className="text-accent">*</span>
           </label>
           <input
             type="text"
@@ -115,7 +115,7 @@ export function ContactForm() {
             htmlFor="email"
             className="block text-sm font-medium text-text mb-1.5"
           >
-            Email <span className="text-brass">*</span>
+            Email <span className="text-accent">*</span>
           </label>
           <input
             type="email"
@@ -192,7 +192,7 @@ export function ContactForm() {
           htmlFor="message"
           className="block text-sm font-medium text-text mb-1.5"
         >
-          Message <span className="text-brass">*</span>
+          Message <span className="text-accent">*</span>
         </label>
         <textarea
           id="message"
@@ -208,7 +208,7 @@ export function ContactForm() {
 
       <button
         type="submit"
-        className="w-full sm:w-auto px-8 py-3 rounded-lg bg-brass hover:bg-brass-hover text-ink font-semibold text-sm tracking-wide transition-colors focus:outline-none focus:ring-2 focus:ring-brass focus:ring-offset-2 focus:ring-offset-cream"
+        className="w-full sm:w-auto px-8 py-3 rounded-xl bg-accent hover:bg-accent-hover text-text-on-ink font-semibold text-sm tracking-wide transition-all border border-white/[0.12] shadow-sm hover:shadow-md hover:-translate-y-px focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-cream"
       >
         {contact.form.sendButton}
       </button>

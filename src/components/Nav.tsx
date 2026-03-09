@@ -78,17 +78,17 @@ export function Nav() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                  className={`relative px-3 py-2 text-sm font-medium transition-colors ${
                     isActive
-                      ? "text-text-on-ink bg-text-on-ink/[0.08]"
-                      : "text-text-on-ink/70 hover:text-text-on-ink hover:bg-text-on-ink/[0.05]"
+                      ? "text-text-on-ink"
+                      : "text-text-on-ink/70 hover:text-text-on-ink"
                   }`}
                   aria-current={isActive ? "page" : undefined}
                 >
                   {link.label}
                   {isActive && (
                     <span
-                      className="absolute bottom-0 left-3 right-3 h-0.5 bg-brass rounded-full"
+                      className="absolute bottom-0 left-3 right-3 h-0.5 bg-accent rounded-full"
                       aria-hidden="true"
                     />
                   )}
@@ -141,10 +141,10 @@ export function Nav() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`block px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                  className={`relative block px-3 py-2 text-sm font-medium transition-colors border-l-2 ${
                     isActive
-                      ? "text-brass bg-text-on-ink/[0.08]"
-                      : "text-text-on-ink/70 hover:text-text-on-ink hover:bg-text-on-ink/[0.05]"
+                      ? "text-text-on-ink border-accent"
+                      : "text-text-on-ink/70 hover:text-text-on-ink border-transparent"
                   }`}
                   aria-current={isActive ? "page" : undefined}
                   onClick={closeMenu}

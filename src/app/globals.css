@@ -7,9 +7,10 @@
   --color-cream: #f5f0e6;
   --color-surface: #fbf7ef;
 
-  /* ── Accent ── */
-  --color-brass: #c8a24a;
-  --color-brass-hover: #b18b33;
+  /* ── Accent (Vintage Oxblood) ── */
+  --color-accent: #8b2f2f;
+  --color-accent-hover: #742626;
+  --color-accent-soft: rgba(139, 47, 47, 0.12);
 
   /* ── Text ── */
   --color-text: #1a2430;

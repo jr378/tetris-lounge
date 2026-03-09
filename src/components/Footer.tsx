@@ -40,7 +40,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="hover:text-brass transition-colors"
+                    className="hover:text-accent transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -59,7 +59,7 @@ export function Footer() {
                     href={band.social.tetrisFacebook}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-brass transition-colors"
+                    className="hover:text-accent transition-colors"
                   >
                     Tetris Lounge on Facebook
                   </a>
@@ -71,7 +71,7 @@ export function Footer() {
                     href={band.social.nowhereFacebook}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-brass transition-colors"
+                    className="hover:text-accent transition-colors"
                   >
                     Nowhere Men on Facebook
                   </a>

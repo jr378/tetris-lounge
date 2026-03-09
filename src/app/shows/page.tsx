@@ -79,7 +79,7 @@ export default function ShowsPage() {
                     </h3>
                     <p className="text-muted text-sm">{show.location}</p>
                     {show.act && (
-                      <span className="inline-block mt-1 text-xs px-2 py-0.5 rounded-full bg-brass/10 text-brass">
+                      <span className="inline-block mt-1 text-xs px-2 py-0.5 rounded-full bg-accent-soft text-accent">
                         {show.act}
                       </span>
                     )}
@@ -92,7 +92,7 @@ export default function ShowsPage() {
                   {show.ticketUrl && (
                     <a
                       href={show.ticketUrl}
-                      className="inline-flex items-center gap-1 text-sm font-medium text-brass hover:text-brass-hover transition-colors"
+                      className="inline-flex items-center gap-1 text-sm font-medium text-accent hover:text-accent-hover transition-colors"
                       target="_blank"
                       rel="noopener noreferrer"
                     >

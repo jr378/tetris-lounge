@@ -34,7 +34,7 @@ export function Hero({
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full"
           style={{
-            background: "radial-gradient(circle, #c8a24a 0%, transparent 70%)",
+            background: "radial-gradient(circle, #8b2f2f 0%, transparent 70%)",
           }}
         />
       </div>
@@ -64,7 +64,7 @@ export function Hero({
           </div>
         )}
         {subtitle && (
-          <p className="text-brass font-[family-name:var(--font-display)] text-sm sm:text-base uppercase tracking-[0.2em] mb-4">
+          <p className="text-accent font-[family-name:var(--font-display)] text-sm sm:text-base uppercase tracking-[0.2em] mb-4">
             {subtitle}
           </p>
         )}

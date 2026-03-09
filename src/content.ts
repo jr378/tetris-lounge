@@ -104,7 +104,7 @@ export const home = {
   onStage: {
     heading: "On Stage",
     description:
-      "See the band in action — performance clips, photos, and more.",
+      "See the band in action",
     ctaText: "Videos",
   },
 
@@ -309,7 +309,7 @@ export const media = {
   hero: {
     subtitle: "Video",
     title: "Media",
-    description: "See the band in action. Watch performance clips and highlights.",
+    description: "See the band in action.",
   },
 
   tetrisVideos: {

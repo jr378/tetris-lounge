@@ -79,7 +79,7 @@ export function SongList({ songs, dark = false }: SongListProps) {
             placeholder="Search songs or artists…"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className={`w-full pl-10 pr-4 py-2.5 rounded-lg border ${inputBg} focus:outline-none focus:ring-2 focus:ring-brass transition-shadow text-sm`}
+            className={`w-full pl-10 pr-4 py-2.5 rounded-lg border ${inputBg} focus:outline-none focus:ring-2 focus:ring-accent transition-shadow text-sm`}
             aria-label="Search songs"
           />
         </div>
@@ -88,8 +88,8 @@ export function SongList({ songs, dark = false }: SongListProps) {
             onClick={() => setSortBy("title")}
             className={`px-4 py-2.5 rounded-lg text-sm font-medium border transition-colors ${
               sortBy === "title"
-                ? "bg-brass text-ink border-transparent"
-                : `border-brass text-brass bg-transparent ${inactiveBtnBg}`
+                ? "bg-accent text-text-on-ink border-transparent"
+                : `border-accent text-accent bg-transparent ${inactiveBtnBg}`
             }`}
             aria-pressed={sortBy === "title"}
           >
@@ -99,8 +99,8 @@ export function SongList({ songs, dark = false }: SongListProps) {
             onClick={() => setSortBy("artist")}
             className={`px-4 py-2.5 rounded-lg text-sm font-medium border transition-colors ${
               sortBy === "artist"
-                ? "bg-brass text-ink border-transparent"
-                : `border-brass text-brass bg-transparent ${inactiveBtnBg}`
+                ? "bg-accent text-text-on-ink border-transparent"
+                : `border-accent text-accent bg-transparent ${inactiveBtnBg}`
             }`}
             aria-pressed={sortBy === "artist"}
           >

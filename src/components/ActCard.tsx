@@ -6,7 +6,7 @@ interface ActCardProps {
   tagline: string;
   description: string;
   href: string;
-  accentColor: "amber" | "teal";
+  logoShape: "round" | "square";
   logoSrc?: string;
   logoAlt?: string;
 }
@@ -16,7 +16,7 @@ export function ActCard({
   tagline,
   description,
   href,
-  accentColor,
+  logoShape,
   logoSrc,
   logoAlt,
 }: ActCardProps) {
@@ -27,7 +27,7 @@ export function ActCard({
     >
       {logoSrc && (
         <div className="mb-4">
-          {accentColor === "amber" ? (
+          {logoShape === "round" ? (
             <div className="w-20 h-20 rounded-full overflow-hidden">
               <Image
                 src={logoSrc}
@@ -48,14 +48,14 @@ export function ActCard({
           )}
         </div>
       )}
-      <p className="text-brass font-[family-name:var(--font-display)] text-xs uppercase tracking-[0.2em] mb-2">
+      <p className="text-accent font-[family-name:var(--font-display)] text-xs uppercase tracking-[0.2em] mb-2">
         {tagline}
       </p>
       <h3 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl font-bold mb-3 text-text group-hover:translate-x-1 transition-transform">
         {title}
       </h3>
       <p className="text-muted leading-relaxed mb-4">{description}</p>
-      <span className="text-brass text-sm font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+      <span className="text-accent text-sm font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">
         Explore
         <svg
           className="w-4 h-4"

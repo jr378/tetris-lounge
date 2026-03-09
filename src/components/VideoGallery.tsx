@@ -5,7 +5,8 @@ interface Video {
 
 interface VideoGalleryProps {
   videos: Video[];
-  accentColor?: "amber" | "teal";
+  /** @deprecated No longer used — kept for backwards compatibility */
+  accentColor?: string;
   dark?: boolean;
 }
 

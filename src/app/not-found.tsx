@@ -6,7 +6,7 @@ export default function NotFound() {
   return (
     <Section>
       <div className="text-center py-12">
-        <p className="text-brass font-[family-name:var(--font-display)] text-6xl font-bold mb-4">
+        <p className="text-accent font-[family-name:var(--font-display)] text-6xl font-bold mb-4">
           404
         </p>
         <h1 className="font-[family-name:var(--font-display)] text-3xl font-bold mb-3">

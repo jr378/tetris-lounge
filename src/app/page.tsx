@@ -35,7 +35,7 @@ export default function Home() {
             tagline={home.twoShows.tetris.tagline}
             description={home.twoShows.tetris.description}
             href="/tetris-lounge"
-            accentColor="amber"
+            logoShape="round"
             logoSrc="/images/tetris-lounge/Tetris Lounge Logo.png"
             logoAlt="Tetris Lounge logo"
           />
@@ -44,7 +44,7 @@ export default function Home() {
             tagline={home.twoShows.nowhere.tagline}
             description={home.twoShows.nowhere.description}
             href="/nowhere-men"
-            accentColor="teal"
+            logoShape="square"
             logoSrc="/images/nowhere-men/NoWhere Men Logo.jpg"
             logoAlt="The Nowhere Men logo"
           />
@@ -63,7 +63,7 @@ export default function Home() {
         </div>
         <div className="grid sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
           <div>
-            <h3 className="text-brass font-[family-name:var(--font-display)] text-lg font-semibold mb-3">
+            <h3 className="text-accent font-[family-name:var(--font-display)] text-lg font-semibold mb-3">
               {home.whatWePlay.tetris.heading}
             </h3>
             <p className="text-muted-on-ink text-sm leading-relaxed">
@@ -71,7 +71,7 @@ export default function Home() {
             </p>
           </div>
           <div>
-            <h3 className="text-brass font-[family-name:var(--font-display)] text-lg font-semibold mb-3">
+            <h3 className="text-accent font-[family-name:var(--font-display)] text-lg font-semibold mb-3">
               {home.whatWePlay.nowhere.heading}
             </h3>
             <p className="text-muted-on-ink text-sm leading-relaxed">

@@ -11,33 +11,19 @@ interface BandMember {
 
 interface MeetTheBandProps {
   members: BandMember[];
-  accentColor?: "amber" | "teal";
   groupPhoto?: { src: string; alt: string };
 }
 
-function MemberCard({
-  member,
-  accentColor,
-}: {
-  member: BandMember;
-  accentColor: "amber" | "teal";
-}) {
+function MemberCard({ member }: { member: BandMember }) {
   const [imgError, setImgError] = useState(false);
   const initials = member.name
     .split(" ")
     .map((n) => n[0])
     .join("");
 
-  const borderColor =
-    accentColor === "amber"
-      ? "border-tetris-accent/40"
-      : "border-nowhere-accent/40";
-
   return (
     <div className="text-center group">
-      <div
-        className={`relative w-44 h-44 sm:w-56 sm:h-56 mx-auto rounded-full overflow-hidden border-2 ${borderColor}`}
-      >
+      <div className="relative w-44 h-44 sm:w-56 sm:h-56 mx-auto rounded-full overflow-hidden border border-border">
         {member.photo && !imgError ? (
           <Image
             src={member.photo}
@@ -48,8 +34,8 @@ function MemberCard({
             onError={() => setImgError(true)}
           />
         ) : (
-          <div className="w-full h-full bg-charcoal/10 flex items-center justify-center">
-            <span className="text-warm-gray/50 text-3xl font-[family-name:var(--font-display)] font-bold">
+          <div className="w-full h-full bg-ink/10 flex items-center justify-center">
+            <span className="text-muted/50 text-3xl font-[family-name:var(--font-display)] font-bold">
               {initials}
             </span>
           </div>
@@ -61,7 +47,6 @@ function MemberCard({
 
 export function MeetTheBand({
   members,
-  accentColor = "teal",
   groupPhoto,
 }: MeetTheBandProps) {
   return (
@@ -71,7 +56,6 @@ export function MeetTheBand({
           <MemberCard
             key={member.name}
             member={member}
-            accentColor={accentColor}
           />
         ))}
       </div>

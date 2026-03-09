@@ -36,7 +36,7 @@ export default function ShowsPage() {
         {typedShows.length === 0 ? (
           <div className="text-center py-12">
             <svg
-              className="w-16 h-16 mx-auto mb-6 text-warm-gray/30"
+              className="w-16 h-16 mx-auto mb-6 text-muted/30"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1}
@@ -52,7 +52,7 @@ export default function ShowsPage() {
             <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold mb-3">
               {shows.empty.heading}
             </h2>
-            <p className="text-warm-gray text-lg max-w-md mx-auto mb-8">
+            <p className="text-muted text-lg max-w-md mx-auto mb-8">
               {shows.empty.description}
             </p>
             <CTAButton href="/contact">{shows.empty.buttonText}</CTAButton>
@@ -63,34 +63,28 @@ export default function ShowsPage() {
               {typedShows.map((show) => (
                 <article
                   key={`${show.date}-${show.venue}`}
-                  className="flex flex-col sm:flex-row sm:items-center gap-4 p-6 rounded-xl border border-charcoal/10 bg-cream hover:shadow-md transition-shadow"
+                  className="flex flex-col sm:flex-row sm:items-center gap-4 p-6 rounded-xl border border-border bg-surface hover:shadow-md hover:border-ink/[0.22] transition-all"
                 >
                   <div className="shrink-0 text-center sm:text-left sm:w-24">
-                    <time className="font-[family-name:var(--font-display)] text-lg font-bold text-charcoal">
+                    <time className="font-[family-name:var(--font-display)] text-lg font-bold text-text">
                       {show.date}
                     </time>
                     {show.time && (
-                      <p className="text-xs text-warm-gray">{show.time}</p>
+                      <p className="text-xs text-muted">{show.time}</p>
                     )}
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-semibold text-charcoal">
+                    <h3 className="font-semibold text-text">
                       {show.venue}
                     </h3>
-                    <p className="text-warm-gray text-sm">{show.location}</p>
+                    <p className="text-muted text-sm">{show.location}</p>
                     {show.act && (
-                      <span
-                        className={`inline-block mt-1 text-xs px-2 py-0.5 rounded-full ${
-                          show.act.toLowerCase().includes("nowhere")
-                            ? "bg-nowhere-accent/10 text-nowhere-accent"
-                            : "bg-tetris-accent/10 text-tetris-accent"
-                        }`}
-                      >
+                      <span className="inline-block mt-1 text-xs px-2 py-0.5 rounded-full bg-brass/10 text-brass">
                         {show.act}
                       </span>
                     )}
                     {show.notes && (
-                      <p className="text-warm-gray/70 text-xs mt-1">
+                      <p className="text-muted/70 text-xs mt-1">
                         {show.notes}
                       </p>
                     )}
@@ -98,7 +92,7 @@ export default function ShowsPage() {
                   {show.ticketUrl && (
                     <a
                       href={show.ticketUrl}
-                      className="inline-flex items-center gap-1 text-sm font-medium text-accent hover:text-accent-hover transition-colors"
+                      className="inline-flex items-center gap-1 text-sm font-medium text-brass hover:text-brass-hover transition-colors"
                       target="_blank"
                       rel="noopener noreferrer"
                     >

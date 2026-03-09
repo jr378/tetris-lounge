@@ -6,13 +6,13 @@ export default function NotFound() {
   return (
     <Section>
       <div className="text-center py-12">
-        <p className="text-accent font-[family-name:var(--font-display)] text-6xl font-bold mb-4">
+        <p className="text-brass font-[family-name:var(--font-display)] text-6xl font-bold mb-4">
           404
         </p>
         <h1 className="font-[family-name:var(--font-display)] text-3xl font-bold mb-3">
           {notFound.heading}
         </h1>
-        <p className="text-warm-gray text-lg max-w-md mx-auto mb-8">
+        <p className="text-muted text-lg max-w-md mx-auto mb-8">
           {notFound.description}
         </p>
         <CTAButton href="/">{notFound.buttonText}</CTAButton>

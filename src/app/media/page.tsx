@@ -24,12 +24,11 @@ export default function MediaPage() {
         <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-2">
           {media.nowhereVideos.heading}
         </h2>
-        <p className="text-warm-gray mb-8">
+        <p className="text-muted mb-8">
           {media.nowhereVideos.description}
         </p>
         <VideoGallery
           videos={media.nowhereVideos.videos}
-          accentColor="teal"
         />
       </Section>
 
@@ -38,12 +37,12 @@ export default function MediaPage() {
         <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-2">
           {media.tetrisVideos.heading}
         </h2>
-        <p className="text-cream/60 mb-8">
+        <p className="text-muted-on-ink mb-8">
           {media.tetrisVideos.description}
         </p>
         <VideoGallery
           videos={media.tetrisVideos.videos}
-          accentColor="amber"
+          dark
         />
       </Section>
     </>

@@ -33,8 +33,8 @@ export default function ContactPage() {
           <div className="grid sm:grid-cols-2 gap-4">
             {contact.greatFit.items.map((item) => (
               <div key={item} className="flex items-center gap-3">
-                <span className="w-2 h-2 rounded-full bg-accent shrink-0" />
-                <span className="text-charcoal">{item}</span>
+                <span className="w-2 h-2 rounded-full bg-brass shrink-0" />
+                <span className="text-text">{item}</span>
               </div>
             ))}
           </div>

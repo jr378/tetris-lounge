@@ -22,38 +22,24 @@ export function Hero({
   logoSrc,
   logoAlt,
 }: HeroProps) {
-  const bgClasses: Record<string, string> = {
-    home: "bg-charcoal",
-    tetris: "bg-charcoal",
-    nowhere: "bg-charcoal",
-    default: "bg-charcoal",
-  };
-
-  const accentClasses: Record<string, string> = {
-    home: "text-accent",
-    tetris: "text-tetris-accent",
-    nowhere: "text-nowhere-accent",
-    default: "text-accent",
-  };
-
   return (
     <section
-      className={`${bgClasses[variant]} text-cream relative overflow-hidden`}
+      className="hero-grain relative overflow-hidden text-text-on-ink"
+      style={{
+        background: "linear-gradient(180deg, #0E1A24 0%, #1C3A4C 100%)",
+      }}
     >
       {/* Subtle decorative element */}
       <div className="absolute inset-0 opacity-5" aria-hidden="true">
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full"
           style={{
-            background:
-              variant === "nowhere"
-                ? "radial-gradient(circle, #6ab2b2 0%, transparent 70%)"
-                : "radial-gradient(circle, #e0b058 0%, transparent 70%)",
+            background: "radial-gradient(circle, #c8a24a 0%, transparent 70%)",
           }}
         />
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24 relative">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24 relative z-10">
         {logoSrc && (
           <div className="mb-6">
             {variant === "tetris" ? (
@@ -78,9 +64,7 @@ export function Hero({
           </div>
         )}
         {subtitle && (
-          <p
-            className={`${accentClasses[variant]} font-[family-name:var(--font-display)] text-sm sm:text-base uppercase tracking-[0.2em] mb-4`}
-          >
+          <p className="text-brass font-[family-name:var(--font-display)] text-sm sm:text-base uppercase tracking-[0.2em] mb-4">
             {subtitle}
           </p>
         )}
@@ -88,12 +72,12 @@ export function Hero({
           {title}
         </h1>
         {description && (
-          <p className="text-cream/70 text-lg sm:text-xl max-w-2xl leading-relaxed mb-8">
+          <p className="text-muted-on-ink text-lg sm:text-xl max-w-2xl leading-relaxed mb-8">
             {description}
           </p>
         )}
         {ctaText && ctaHref && (
-          <CTAButton href={ctaHref} variant={variant === "nowhere" ? "nowhere" : "default"}>
+          <CTAButton href={ctaHref}>
             {ctaText}
           </CTAButton>
         )}

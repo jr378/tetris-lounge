@@ -104,7 +104,7 @@ export const home = {
   onStage: {
     heading: "On Stage",
     description:
-      "See the band in action",
+      "See the band in action.",
     ctaText: "Videos",
   },
 

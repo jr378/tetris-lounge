@@ -36,7 +36,7 @@ export default function TetrisLoungePage() {
           <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl font-bold mb-6">
             {tetrisLounge.positioning.heading}
           </h2>
-          <div className="space-y-4 text-warm-gray leading-relaxed">
+          <div className="space-y-4 text-muted leading-relaxed">
             {tetrisLounge.positioning.paragraphs.map((p, i) => (
               <p key={i} dangerouslySetInnerHTML={{ __html: p }} />
             ))}
@@ -45,8 +45,8 @@ export default function TetrisLoungePage() {
           <div className="mt-8 grid sm:grid-cols-2 gap-4">
             {tetrisLounge.positioning.features.map((item) => (
               <div key={item} className="flex items-center gap-3">
-                <span className="w-2 h-2 rounded-full bg-tetris-accent shrink-0" />
-                <span className="text-charcoal">{item}</span>
+                <span className="w-2 h-2 rounded-full bg-brass shrink-0" />
+                <span className="text-text">{item}</span>
               </div>
             ))}
           </div>
@@ -58,10 +58,10 @@ export default function TetrisLoungePage() {
         <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-2">
           {tetrisLounge.setlist.heading}
         </h2>
-        <p className="text-cream/60 mb-8">
+        <p className="text-muted-on-ink mb-8">
           {songs.length} {tetrisLounge.setlist.description}
         </p>
-        <SongList songs={songs} accentColor="amber" dark />
+        <SongList songs={songs} dark />
       </Section>
 
       {/* Photos */}
@@ -72,7 +72,6 @@ export default function TetrisLoungePage() {
         <Gallery
           images={tetrisLounge.photos.images}
           alt="Tetris Lounge"
-          accentColor="amber"
         />
       </Section>
 
@@ -82,7 +81,7 @@ export default function TetrisLoungePage() {
           <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-4">
             {tetrisLounge.cta.heading}
           </h2>
-          <p className="text-cream/60 text-lg max-w-xl mx-auto mb-8">
+          <p className="text-muted-on-ink text-lg max-w-xl mx-auto mb-8">
             {tetrisLounge.cta.description}
           </p>
           <CTAButton href="/contact">{tetrisLounge.cta.buttonText}</CTAButton>

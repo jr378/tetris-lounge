@@ -46,13 +46,13 @@ export function ContactForm() {
   };
 
   const inputClasses =
-    "w-full px-4 py-3 rounded-lg border border-charcoal/20 bg-cream text-charcoal placeholder:text-warm-gray/50 focus:outline-none focus:ring-2 focus:ring-accent transition-shadow text-sm";
+    "w-full px-4 py-3 rounded-lg border border-border bg-surface text-text placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-brass transition-shadow text-sm";
 
   if (status === "submitted") {
     return (
       <div className="text-center py-12">
         <svg
-          className="w-16 h-16 mx-auto mb-4 text-accent"
+          className="w-16 h-16 mx-auto mb-4 text-brass"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
@@ -68,11 +68,11 @@ export function ContactForm() {
         <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold mb-2">
           {contact.form.fallbackHeading}
         </h2>
-        <p className="text-warm-gray mb-6">
+        <p className="text-muted mb-6">
           {contact.form.fallbackMessage}{" "}
           <a
             href={`mailto:${band.email}`}
-            className="text-accent hover:text-accent-hover underline"
+            className="text-ink hover:text-brass underline"
           >
             {band.email}
           </a>
@@ -80,7 +80,7 @@ export function ContactForm() {
         </p>
         <button
           onClick={() => setStatus("idle")}
-          className="text-accent hover:text-accent-hover font-medium text-sm transition-colors"
+          className="text-brass hover:text-brass-hover font-medium text-sm transition-colors"
         >
           {contact.form.fallbackRetry}
         </button>
@@ -95,9 +95,9 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="name"
-            className="block text-sm font-medium text-charcoal mb-1.5"
+            className="block text-sm font-medium text-text mb-1.5"
           >
-            Name <span className="text-accent">*</span>
+            Name <span className="text-brass">*</span>
           </label>
           <input
             type="text"
@@ -113,9 +113,9 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="email"
-            className="block text-sm font-medium text-charcoal mb-1.5"
+            className="block text-sm font-medium text-text mb-1.5"
           >
-            Email <span className="text-accent">*</span>
+            Email <span className="text-brass">*</span>
           </label>
           <input
             type="email"
@@ -134,7 +134,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="eventDate"
-            className="block text-sm font-medium text-charcoal mb-1.5"
+            className="block text-sm font-medium text-text mb-1.5"
           >
             Event Date
           </label>
@@ -150,7 +150,7 @@ export function ContactForm() {
         <div>
           <label
             htmlFor="location"
-            className="block text-sm font-medium text-charcoal mb-1.5"
+            className="block text-sm font-medium text-text mb-1.5"
           >
             Location
           </label>
@@ -169,7 +169,7 @@ export function ContactForm() {
       <div>
         <label
           htmlFor="act"
-          className="block text-sm font-medium text-charcoal mb-1.5"
+          className="block text-sm font-medium text-text mb-1.5"
         >
           Which act are you interested in?
         </label>
@@ -190,9 +190,9 @@ export function ContactForm() {
       <div>
         <label
           htmlFor="message"
-          className="block text-sm font-medium text-charcoal mb-1.5"
+          className="block text-sm font-medium text-text mb-1.5"
         >
-          Message <span className="text-accent">*</span>
+          Message <span className="text-brass">*</span>
         </label>
         <textarea
           id="message"
@@ -208,12 +208,12 @@ export function ContactForm() {
 
       <button
         type="submit"
-        className="w-full sm:w-auto px-8 py-3 rounded-lg bg-accent hover:bg-accent-hover text-charcoal font-semibold text-sm tracking-wide transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-cream"
+        className="w-full sm:w-auto px-8 py-3 rounded-lg bg-brass hover:bg-brass-hover text-ink font-semibold text-sm tracking-wide transition-colors focus:outline-none focus:ring-2 focus:ring-brass focus:ring-offset-2 focus:ring-offset-cream"
       >
         {contact.form.sendButton}
       </button>
 
-      <p className="text-xs text-warm-gray/60">
+      <p className="text-xs text-muted/60">
         {contact.form.privacyNote}
       </p>
     </form>

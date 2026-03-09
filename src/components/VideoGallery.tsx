@@ -6,24 +6,20 @@ interface Video {
 interface VideoGalleryProps {
   videos: Video[];
   accentColor?: "amber" | "teal";
+  dark?: boolean;
 }
 
 export function VideoGallery({
   videos,
-  accentColor = "amber",
+  dark = false,
 }: VideoGalleryProps) {
   if (videos.length === 0) {
-    const borderColor =
-      accentColor === "amber"
-        ? "border-tetris-accent/30"
-        : "border-nowhere-accent/30";
-
     return (
       <div
-        className={`border-2 border-dashed ${borderColor} rounded-xl p-12 text-center`}
+        className="border-2 border-dashed border-border rounded-xl p-12 text-center"
       >
         <svg
-          className="w-12 h-12 mx-auto mb-4 text-warm-gray/40"
+          className="w-12 h-12 mx-auto mb-4 text-muted/40"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1}
@@ -36,7 +32,7 @@ export function VideoGallery({
             d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z"
           />
         </svg>
-        <p className="text-warm-gray font-medium mb-1">Videos coming soon</p>
+        <p className="text-muted font-medium mb-1">Videos coming soon</p>
       </div>
     );
   }
@@ -55,7 +51,7 @@ export function VideoGallery({
             />
           </div>
           <p className={`mt-2 text-sm font-medium ${
-            accentColor === "amber" ? "text-charcoal" : "text-cream/80"
+            dark ? "text-text-on-ink/80" : "text-text"
           }`}>
             {video.title}
           </p>

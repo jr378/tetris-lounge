@@ -1,19 +1,27 @@
 @import "tailwindcss";
 
 @theme {
-  --color-cream: #f5f2ec;
-  --color-cream-dark: #ebe7df;
-  --color-charcoal: #3d5a72;
-  --color-charcoal-light: #587a96;
-  --color-warm-gray: #8d9bab;
-  --color-accent: #e0b058;
-  --color-accent-hover: #d0a050;
-  --color-accent-light: #eaca72;
-  --color-tetris-accent: #e0b058;
-  --color-tetris-accent-hover: #d0a050;
-  --color-nowhere-accent: #6ab2b2;
-  --color-nowhere-accent-hover: #5a9e9e;
+  /* ── Core ── */
+  --color-ink: #0e1a24;
+  --color-ink2: #142536;
+  --color-cream: #f5f0e6;
+  --color-surface: #fbf7ef;
 
+  /* ── Accent ── */
+  --color-brass: #c8a24a;
+  --color-brass-hover: #b18b33;
+
+  /* ── Text ── */
+  --color-text: #1a2430;
+  --color-muted: #6b7785;
+  --color-text-on-ink: #f3efe6;
+  --color-muted-on-ink: rgba(243, 239, 230, 0.78);
+
+  /* ── Borders ── */
+  --color-border: rgba(14, 26, 36, 0.14);
+  --color-border-on-ink: rgba(243, 239, 230, 0.14);
+
+  /* ── Typography ── */
   --font-display: "Outfit", sans-serif;
   --font-body: "Inter", sans-serif;
 }
@@ -25,7 +33,7 @@ html {
 body {
   font-family: var(--font-body);
   background-color: var(--color-cream);
-  color: var(--color-charcoal);
+  color: var(--color-text);
 }
 
 /* Skip to content link */
@@ -35,8 +43,8 @@ body {
   left: 50%;
   transform: translateX(-50%);
   padding: 0.75rem 1.5rem;
-  background: var(--color-charcoal);
-  color: var(--color-cream);
+  background: var(--color-ink);
+  color: var(--color-text-on-ink);
   border-radius: 0 0 0.5rem 0.5rem;
   z-index: 100;
   transition: top 0.2s;
@@ -46,13 +54,13 @@ body {
   top: 0;
 }
 
-/* Subtle grain overlay */
-.grain-overlay::before {
+/* Hero grain overlay — opt-in via .hero-grain class */
+.hero-grain::before {
   content: "";
-  position: fixed;
+  position: absolute;
   inset: 0;
   opacity: 0.03;
   pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  z-index: 50;
+  z-index: 1;
 }

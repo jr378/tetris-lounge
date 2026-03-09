@@ -15,7 +15,7 @@ export function Section({
     <section
       id={id}
       className={`py-16 sm:py-20 ${
-        dark ? "bg-charcoal text-cream" : "bg-cream"
+        dark ? "bg-ink2 text-text-on-ink" : "bg-cream text-text"
       } ${className}`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">{children}</div>

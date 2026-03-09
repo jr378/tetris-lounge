@@ -41,7 +41,7 @@ export default function RootLayout({
         />
         <JsonLd />
       </head>
-      <body className="grain-overlay min-h-screen flex flex-col">
+      <body className="min-h-screen flex flex-col">
         <a href="#main-content" className="skip-to-content">
           Skip to content
         </a>

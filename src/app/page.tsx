@@ -24,7 +24,7 @@ export default function Home() {
           <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-4">
             {home.twoShows.heading}
           </h2>
-          <p className="text-warm-gray text-lg max-w-2xl mx-auto">
+          <p className="text-muted text-lg max-w-2xl mx-auto">
             {home.twoShows.description}
           </p>
         </div>
@@ -57,24 +57,24 @@ export default function Home() {
           <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-4">
             {home.whatWePlay.heading}
           </h2>
-          <p className="text-cream/70 text-lg max-w-2xl mx-auto">
+          <p className="text-muted-on-ink text-lg max-w-2xl mx-auto">
             {home.whatWePlay.description}
           </p>
         </div>
         <div className="grid sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
           <div>
-            <h3 className="text-accent font-[family-name:var(--font-display)] text-lg font-semibold mb-3">
+            <h3 className="text-brass font-[family-name:var(--font-display)] text-lg font-semibold mb-3">
               {home.whatWePlay.tetris.heading}
             </h3>
-            <p className="text-cream/60 text-sm leading-relaxed">
+            <p className="text-muted-on-ink text-sm leading-relaxed">
               {home.whatWePlay.tetris.description}
             </p>
           </div>
           <div>
-            <h3 className="text-nowhere-accent font-[family-name:var(--font-display)] text-lg font-semibold mb-3">
+            <h3 className="text-brass font-[family-name:var(--font-display)] text-lg font-semibold mb-3">
               {home.whatWePlay.nowhere.heading}
             </h3>
-            <p className="text-cream/60 text-sm leading-relaxed">
+            <p className="text-muted-on-ink text-sm leading-relaxed">
               {home.whatWePlay.nowhere.description}
             </p>
           </div>
@@ -87,7 +87,7 @@ export default function Home() {
           <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-4">
             {home.onStage.heading}
           </h2>
-          <p className="text-warm-gray text-lg max-w-2xl mx-auto mb-8">
+          <p className="text-muted text-lg max-w-2xl mx-auto mb-8">
             {home.onStage.description}
           </p>
           <CTAButton href="/media">{home.onStage.ctaText}</CTAButton>
@@ -100,7 +100,7 @@ export default function Home() {
           <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-4">
             {home.cta.heading}
           </h2>
-          <p className="text-cream/70 text-lg max-w-xl mx-auto mb-8">
+          <p className="text-muted-on-ink text-lg max-w-xl mx-auto mb-8">
             {home.cta.description}
           </p>
           <CTAButton href="/contact">{home.cta.primaryCta}</CTAButton>

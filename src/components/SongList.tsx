@@ -10,13 +10,12 @@ interface Song {
 
 interface SongListProps {
   songs: Song[];
-  accentColor?: "amber" | "teal";
   dark?: boolean;
 }
 
 type SortMode = "title" | "artist";
 
-export function SongList({ songs, accentColor = "amber", dark = false }: SongListProps) {
+export function SongList({ songs, dark = false }: SongListProps) {
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState<SortMode>("title");
 
@@ -44,30 +43,17 @@ export function SongList({ songs, accentColor = "amber", dark = false }: SongLis
     });
   }, [songs, search, sortBy]);
 
-  const accentRing =
-    accentColor === "amber"
-      ? "focus:ring-tetris-accent"
-      : "focus:ring-nowhere-accent";
-  const accentBg =
-    accentColor === "amber"
-      ? "bg-tetris-accent text-charcoal"
-      : "bg-nowhere-accent text-cream";
-  const accentBorder =
-    accentColor === "amber"
-      ? "border-tetris-accent text-tetris-accent"
-      : "border-nowhere-accent text-nowhere-accent";
-
   // Colors that adapt to dark/light background
-  const titleColor = dark ? "text-cream" : "text-charcoal";
-  const artistColor = dark ? "text-cream/60" : "text-warm-gray";
-  const notesColor = dark ? "text-cream/40" : "text-warm-gray/70";
-  const countColor = dark ? "text-cream/50" : "text-warm-gray";
-  const emptyColor = dark ? "text-cream/50" : "text-warm-gray";
-  const borderColor = dark ? "border-cream/10" : "border-charcoal/10";
+  const titleColor = dark ? "text-text-on-ink" : "text-text";
+  const artistColor = dark ? "text-muted-on-ink" : "text-muted";
+  const notesColor = dark ? "text-text-on-ink/40" : "text-muted/70";
+  const countColor = dark ? "text-text-on-ink/50" : "text-muted";
+  const emptyColor = dark ? "text-text-on-ink/50" : "text-muted";
+  const borderColor = dark ? "border-border-on-ink" : "border-border";
   const inputBg = dark
-    ? "bg-white/10 text-cream placeholder:text-cream/40 border-cream/20"
-    : "bg-cream text-charcoal placeholder:text-warm-gray/60 border-charcoal/20";
-  const inactiveBtnBg = dark ? "hover:bg-white/5" : "hover:bg-charcoal/5";
+    ? "bg-white/10 text-text-on-ink placeholder:text-text-on-ink/40 border-border-on-ink"
+    : "bg-cream text-text placeholder:text-muted/60 border-border";
+  const inactiveBtnBg = dark ? "hover:bg-white/5" : "hover:bg-ink/5";
 
   return (
     <div>
@@ -75,7 +61,7 @@ export function SongList({ songs, accentColor = "amber", dark = false }: SongLis
       <div className="flex flex-col sm:flex-row gap-3 mb-6">
         <div className="relative flex-1">
           <svg
-            className={`absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 ${dark ? "text-cream/40" : "text-warm-gray"}`}
+            className={`absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 ${dark ? "text-text-on-ink/40" : "text-muted"}`}
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={2}
@@ -93,7 +79,7 @@ export function SongList({ songs, accentColor = "amber", dark = false }: SongLis
             placeholder="Search songs or artists…"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className={`w-full pl-10 pr-4 py-2.5 rounded-lg border ${inputBg} focus:outline-none focus:ring-2 ${accentRing} transition-shadow text-sm`}
+            className={`w-full pl-10 pr-4 py-2.5 rounded-lg border ${inputBg} focus:outline-none focus:ring-2 focus:ring-brass transition-shadow text-sm`}
             aria-label="Search songs"
           />
         </div>
@@ -102,8 +88,8 @@ export function SongList({ songs, accentColor = "amber", dark = false }: SongLis
             onClick={() => setSortBy("title")}
             className={`px-4 py-2.5 rounded-lg text-sm font-medium border transition-colors ${
               sortBy === "title"
-                ? `${accentBg} border-transparent`
-                : `${accentBorder} bg-transparent ${inactiveBtnBg}`
+                ? "bg-brass text-ink border-transparent"
+                : `border-brass text-brass bg-transparent ${inactiveBtnBg}`
             }`}
             aria-pressed={sortBy === "title"}
           >
@@ -113,8 +99,8 @@ export function SongList({ songs, accentColor = "amber", dark = false }: SongLis
             onClick={() => setSortBy("artist")}
             className={`px-4 py-2.5 rounded-lg text-sm font-medium border transition-colors ${
               sortBy === "artist"
-                ? `${accentBg} border-transparent`
-                : `${accentBorder} bg-transparent ${inactiveBtnBg}`
+                ? "bg-brass text-ink border-transparent"
+                : `border-brass text-brass bg-transparent ${inactiveBtnBg}`
             }`}
             aria-pressed={sortBy === "artist"}
           >

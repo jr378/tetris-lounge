@@ -10,9 +10,6 @@ export function Nav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-  const isTetris = pathname === "/tetris-lounge";
-  const isNowhere = pathname === "/nowhere-men";
-
   const closeMenu = useCallback(() => setOpen(false), []);
 
   // Close on ESC key
@@ -40,7 +37,7 @@ export function Nav() {
 
   return (
     <nav
-      className="sticky top-0 z-40 bg-charcoal/95 backdrop-blur-sm border-b border-white/10"
+      className="sticky top-0 z-40 bg-ink/95 backdrop-blur-sm border-b border-border-on-ink"
       aria-label="Main navigation"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -60,7 +57,7 @@ export function Nav() {
               priority
               sizes="36px"
             />
-            <span className="text-warm-gray/50 text-sm font-light">/</span>
+            <span className="text-muted-on-ink/50 text-sm font-light">/</span>
             <Image
               src="/images/nowhere-men/NoWhere Men Logo.jpg"
               alt="Nowhere Men"
@@ -76,26 +73,25 @@ export function Nav() {
           <div className="hidden md:flex items-center gap-1">
             {nav.links.map((link) => {
               const isActive = pathname === link.href;
-              const isTetrisLink = link.href === "/tetris-lounge";
-              const isNowhereLink = link.href === "/nowhere-men";
-
-              let activeColor = "text-accent";
-              if (isTetrisLink && isActive) activeColor = "text-tetris-accent";
-              if (isNowhereLink && isActive)
-                activeColor = "text-nowhere-accent";
 
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                  className={`relative px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                     isActive
-                      ? `${activeColor} bg-white/10`
-                      : "text-cream/70 hover:text-cream hover:bg-white/5"
+                      ? "text-text-on-ink bg-text-on-ink/[0.08]"
+                      : "text-text-on-ink/70 hover:text-text-on-ink hover:bg-text-on-ink/[0.05]"
                   }`}
                   aria-current={isActive ? "page" : undefined}
                 >
                   {link.label}
+                  {isActive && (
+                    <span
+                      className="absolute bottom-0 left-3 right-3 h-0.5 bg-brass rounded-full"
+                      aria-hidden="true"
+                    />
+                  )}
                 </Link>
               );
             })}
@@ -103,7 +99,7 @@ export function Nav() {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden text-cream/80 hover:text-cream p-2"
+            className="md:hidden text-text-on-ink/80 hover:text-text-on-ink p-2"
             onClick={() => setOpen(!open)}
             aria-expanded={open}
             aria-controls="mobile-menu"
@@ -137,7 +133,7 @@ export function Nav() {
 
       {/* Mobile menu */}
       {open && (
-        <div id="mobile-menu" className="md:hidden border-t border-white/10">
+        <div id="mobile-menu" className="md:hidden border-t border-border-on-ink">
           <div className="px-4 py-3 space-y-1">
             {nav.links.map((link) => {
               const isActive = pathname === link.href;
@@ -147,8 +143,8 @@ export function Nav() {
                   href={link.href}
                   className={`block px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                     isActive
-                      ? "text-accent bg-white/10"
-                      : "text-cream/70 hover:text-cream hover:bg-white/5"
+                      ? "text-brass bg-text-on-ink/[0.08]"
+                      : "text-text-on-ink/70 hover:text-text-on-ink hover:bg-text-on-ink/[0.05]"
                   }`}
                   aria-current={isActive ? "page" : undefined}
                   onClick={closeMenu}
@@ -159,16 +155,6 @@ export function Nav() {
             })}
           </div>
         </div>
-      )}
-
-      {/* Act mode indicator */}
-      {(isTetris || isNowhere) && (
-        <div
-          className={`h-0.5 ${
-            isTetris ? "bg-tetris-accent" : "bg-nowhere-accent"
-          } transition-colors`}
-          aria-hidden="true"
-        />
       )}
     </nav>
   );

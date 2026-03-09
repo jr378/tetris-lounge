@@ -92,7 +92,7 @@ export const home = {
     nowhere: {
       heading: "Nowhere Men",
       description:
-        "The full Beatles catalog, from early hits like I Want To Hold Your Hand to pyschedelic Sgt. Pepper's and Abbey Road deep cuts.",
+        "The full Beatles catalog, from early hits like I Want To Hold Your Hand to psychedelic Sgt. Pepper's and Abbey Road deep cuts.",
     },
   },
 

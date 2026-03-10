@@ -60,7 +60,7 @@ export const home = {
     subtitle: "Two Acts, One Band",
     title: "Tetris Lounge / Nowhere Men",
     description:
-      "From timeless rock anthems to epic Beatles anthems, we bring two distinct live experiences to your stage.",
+      "From timeless rock with Tetris Lounge to epic Beatles anthems with the Nowhere Men, we bring two distinct live experiences to your stage.",
     ctaText: "Check Availability",
   },
 

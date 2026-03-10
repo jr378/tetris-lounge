@@ -2,15 +2,15 @@
 
 @theme {
   /* ── Core ── */
-  --color-ink: #0e1a24;
-  --color-ink2: #142536;
-  --color-cream: #f5f0e6;
-  --color-surface: #fbf7ef;
+  --color-ink: #121417;
+  --color-ink2: #1b1f24;
+  --color-cream: #f5ecdc;
+  --color-surface: #fbf4e8;
 
-  /* ── Accent (Burnt Orange / Rust) ── */
-  --color-accent: #b35a2a;
-  --color-accent-hover: #964a22;
-  --color-accent-soft: rgba(179, 90, 42, 0.12);
+  /* ── Accent (Teal) ── */
+  --color-accent: #2d6f73;
+  --color-accent-hover: #245a5d;
+  --color-accent-soft: rgba(45, 111, 115, 0.12);
 
   /* ── Text ── */
   --color-text: #1a2430;
@@ -19,7 +19,7 @@
   --color-muted-on-ink: rgba(243, 239, 230, 0.78);
 
   /* ── Borders ── */
-  --color-border: rgba(14, 26, 36, 0.14);
+  --color-border: rgba(18, 20, 23, 0.14);
   --color-border-on-ink: rgba(243, 239, 230, 0.14);
 
   /* ── Typography ── */

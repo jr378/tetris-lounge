@@ -26,7 +26,7 @@ export function Hero({
     <section
       className="hero-grain relative overflow-hidden text-text-on-ink"
       style={{
-        background: "linear-gradient(180deg, #0E1A24 0%, #1C3A4C 100%)",
+        background: "linear-gradient(180deg, #121417 0%, #1B1F24 100%)",
       }}
     >
       {/* Subtle decorative element */}
@@ -34,7 +34,7 @@ export function Hero({
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full"
           style={{
-            background: "radial-gradient(circle, #b35a2a 0%, transparent 70%)",
+            background: "radial-gradient(circle, #2d6f73 0%, transparent 70%)",
           }}
         />
       </div>

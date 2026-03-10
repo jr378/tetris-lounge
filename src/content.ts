@@ -101,6 +101,24 @@ export const home = {
     description: "Six musicians with a shared love for the music that matters.",
   },
 
+  testimonials: {
+    heading: "What People Are Saying",
+    items: [
+      {
+        quote: "These guys absolutely killed it at our event. The energy was incredible from start to finish.",
+        name: "Private Event Host",
+      },
+      {
+        quote: "Best Beatles tribute I've heard. The harmonies and arrangements are spot-on — you'd think you were hearing the real thing.",
+        name: "Venue Manager",
+      },
+      {
+        quote: "We've had them back three times now. The crowd loves them every single time.",
+        name: "Festival Organizer",
+      },
+    ],
+  },
+
   onStage: {
     heading: "On Stage",
     description:

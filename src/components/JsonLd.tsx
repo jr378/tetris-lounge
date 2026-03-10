@@ -13,6 +13,8 @@ export function JsonLd() {
     url: "https://tetrislounge.com",
     description: seo.schemaDescription,
     genre: band.genres,
+    email: band.email,
+    image: "https://tetrislounge.com/images/tetris-lounge/Tetris Lounge Logo.webp",
     ...(sameAs.length > 0 && { sameAs }),
     member: band.members.map((m) => ({
       "@type": "Person",

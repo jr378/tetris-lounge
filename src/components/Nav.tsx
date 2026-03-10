@@ -5,7 +5,6 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useCallback } from "react";
 import { nav } from "@/content";
-import { ActSwitcher } from "./ActSwitcher";
 
 export function Nav() {
   const pathname = usePathname();
@@ -69,9 +68,6 @@ export function Nav() {
               sizes="36px"
             />
           </Link>
-
-          {/* Act switcher */}
-          <ActSwitcher />
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-1">

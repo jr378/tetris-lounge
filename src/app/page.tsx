@@ -81,6 +81,28 @@ export default function Home() {
         </div>
       </Section>
 
+      {/* Testimonials */}
+      <Section>
+        <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-10 text-center">
+          {home.testimonials.heading}
+        </h2>
+        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          {home.testimonials.items.map((t) => (
+            <blockquote
+              key={t.name}
+              className="p-6 rounded-xl border border-border bg-surface"
+            >
+              <p className="text-text text-sm leading-relaxed mb-4 italic">
+                &ldquo;{t.quote}&rdquo;
+              </p>
+              <footer className="text-muted text-xs font-medium">
+                — {t.name}
+              </footer>
+            </blockquote>
+          ))}
+        </div>
+      </Section>
+
       {/* On Stage */}
       <Section>
         <div className="text-center">

@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 interface Video {
   youtubeId: string;
   title: string;
@@ -5,20 +9,80 @@ interface Video {
 
 interface VideoGalleryProps {
   videos: Video[];
-  /** @deprecated No longer used — kept for backwards compatibility */
-  accentColor?: string;
   dark?: boolean;
 }
 
-export function VideoGallery({
-  videos,
-  dark = false,
-}: VideoGalleryProps) {
+function VideoFacade({ video, dark }: { video: Video; dark: boolean }) {
+  const [loaded, setLoaded] = useState(false);
+
+  if (loaded) {
+    return (
+      <div>
+        <div className="rounded-xl overflow-hidden">
+          <iframe
+            className="w-full aspect-video rounded-xl"
+            src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}?autoplay=1`}
+            title={video.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+        <p
+          className={`mt-2 text-sm font-medium ${
+            dark ? "text-text-on-ink/80" : "text-text"
+          }`}
+        >
+          {video.title}
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <button
+        type="button"
+        onClick={() => setLoaded(true)}
+        className="relative w-full aspect-video rounded-xl overflow-hidden group cursor-pointer"
+        aria-label={`Play ${video.title}`}
+      >
+        <img
+          src={`https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg`}
+          alt={video.title}
+          className="w-full h-full object-cover"
+          loading="lazy"
+        />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors" />
+        {/* Play button */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-16 h-16 rounded-full bg-accent/90 group-hover:bg-accent flex items-center justify-center transition-colors shadow-lg">
+            <svg
+              className="w-7 h-7 text-white ml-1"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
+        </div>
+      </button>
+      <p
+        className={`mt-2 text-sm font-medium ${
+          dark ? "text-text-on-ink/80" : "text-text"
+        }`}
+      >
+        {video.title}
+      </p>
+    </div>
+  );
+}
+
+export function VideoGallery({ videos, dark = false }: VideoGalleryProps) {
   if (videos.length === 0) {
     return (
-      <div
-        className="border-2 border-dashed border-border rounded-xl p-12 text-center"
-      >
+      <div className="border-2 border-dashed border-border rounded-xl p-12 text-center">
         <svg
           className="w-12 h-12 mx-auto mb-4 text-muted/40"
           fill="none"
@@ -41,22 +105,7 @@ export function VideoGallery({
   return (
     <div className="grid md:grid-cols-2 gap-6">
       {videos.map((video) => (
-        <div key={video.youtubeId}>
-          <div className="rounded-xl overflow-hidden">
-            <iframe
-              className="w-full aspect-video rounded-xl"
-              src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}`}
-              title={video.title}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
-          <p className={`mt-2 text-sm font-medium ${
-            dark ? "text-text-on-ink/80" : "text-text"
-          }`}>
-            {video.title}
-          </p>
-        </div>
+        <VideoFacade key={video.youtubeId} video={video} dark={dark} />
       ))}
     </div>
   );

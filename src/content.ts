@@ -49,7 +49,6 @@ export const nav = {
     { href: "/tetris-lounge", label: "Tetris Lounge" },
     { href: "/nowhere-men", label: "Nowhere Men" },
     { href: "/media", label: "Media" },
-    { href: "/epk", label: "EPK" },
     { href: "/contact", label: "Contact" },
   ],
 };

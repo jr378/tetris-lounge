@@ -1,19 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-
-/**
- * Contact form API route handler.
- *
- * Currently logs submissions to the console. To connect to an email service:
- *
- * 1. Install your preferred email package (e.g., nodemailer, @sendgrid/mail, resend)
- * 2. Set environment variables for API keys
- * 3. Replace the console.log below with your send logic
- *
- * Example with Resend:
- *   import { Resend } from 'resend';
- *   const resend = new Resend(process.env.RESEND_API_KEY);
- *   await resend.emails.send({ from: '...', to: '...', subject, html });
- */
+import { Resend } from "resend";
+import { band } from "@/content";
 
 interface ContactPayload {
   name: string;
@@ -43,7 +30,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Basic email format check
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(body.email)) {
       return NextResponse.json(
         { error: "Please provide a valid email address." },
@@ -51,7 +37,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Length check
     if (body.message.length > MAX_MESSAGE_LENGTH) {
       return NextResponse.json(
         { error: `Message must be under ${MAX_MESSAGE_LENGTH} characters.` },
@@ -59,21 +44,48 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Log the submission for debugging
-    console.log("[Contact] New booking inquiry from:", body.email);
+    // If Resend is not configured, return 503 so the client falls back to mailto
+    if (!process.env.RESEND_API_KEY) {
+      console.log("[Contact] RESEND_API_KEY not set — falling back to mailto");
+      return NextResponse.json(
+        { error: "Email service not configured." },
+        { status: 503 }
+      );
+    }
 
-    // No email service configured yet — return 503 so the client
-    // falls back to mailto and the inquiry still reaches you.
-    // When you add Resend/SendGrid, replace this block with send logic.
-    return NextResponse.json(
-      { error: "Email service not configured." },
-      { status: 503 }
-    );
+    const resend = new Resend(process.env.RESEND_API_KEY);
+
+    const lines = [
+      `Name: ${body.name}`,
+      `Email: ${body.email}`,
+      body.phone && `Phone: ${body.phone}`,
+      body.eventType && `Event Type: ${body.eventType}`,
+      body.eventDate && `Event Date: ${body.eventDate}`,
+      body.startTime && `Start Time: ${body.startTime}`,
+      body.setLength && `Set Length: ${body.setLength}`,
+      body.attendance && `Expected Attendance: ${body.attendance}`,
+      body.location && `Location: ${body.location}`,
+      body.act && `Act: ${body.act}`,
+      "",
+      body.message,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    await resend.emails.send({
+      from: "Tetris Lounge Website <onboarding@resend.dev>",
+      to: band.email,
+      replyTo: body.email,
+      subject: `Booking Inquiry — ${body.act || band.name}`,
+      text: lines,
+    });
+
+    return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("[Contact] Failed to process inquiry:", error);
+    console.error("[Contact] Failed to send email:", error);
     return NextResponse.json(
-      { error: "Invalid request." },
-      { status: 400 }
+      { error: "Failed to send message." },
+      { status: 500 }
     );
   }
 }

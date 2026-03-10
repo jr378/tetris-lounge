@@ -49,7 +49,7 @@ export function Nav() {
             onClick={closeMenu}
           >
             <Image
-              src="/images/tetris-lounge/Tetris Lounge Logo.png"
+              src="/images/tetris-lounge/Tetris Lounge Logo.webp"
               alt="Tetris Lounge"
               width={36}
               height={36}

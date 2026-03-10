@@ -29,7 +29,7 @@ export default function TetrisLoungePage() {
         description={tetrisLounge.hero.description}
         ctaText={tetrisLounge.hero.ctaText}
         ctaHref="/contact"
-        logoSrc="/images/tetris-lounge/Tetris Lounge Logo.png"
+        logoSrc="/images/tetris-lounge/Tetris Lounge Logo.webp"
         logoAlt="Tetris Lounge logo"
       />
 

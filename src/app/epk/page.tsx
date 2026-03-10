@@ -180,6 +180,26 @@ export default function EpkPage() {
         />
       </Section>
 
+      {/* Video */}
+      <Section dark>
+        <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-8 text-center">
+          See Us Live
+        </h2>
+        <div className="max-w-2xl mx-auto aspect-video rounded-xl overflow-hidden">
+          <iframe
+            src="https://www.youtube.com/embed/qKSFjA6J4ak"
+            title="Nowhere Men — While My Guitar Gently Weeps"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full h-full"
+            loading="lazy"
+          />
+        </div>
+        <p className="text-center text-muted-on-ink text-sm mt-4">
+          Nowhere Men — While My Guitar Gently Weeps
+        </p>
+      </Section>
+
       {/* Booking CTA */}
       <Section dark>
         <div className="text-center">

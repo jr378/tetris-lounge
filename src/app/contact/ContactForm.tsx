@@ -33,7 +33,9 @@ const initialState: FormState = {
 
 export function ContactForm() {
   const [form, setForm] = useState<FormState>(initialState);
-  const [status, setStatus] = useState<"idle" | "submitted">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "sending" | "sent" | "error" | "mailto"
+  >("idle");
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -43,8 +45,7 @@ export function ContactForm() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const buildMailto = () => {
     const subject = encodeURIComponent(
       `Booking Inquiry — ${form.act || band.name}`
     );
@@ -65,8 +66,38 @@ export function ContactForm() {
       .filter(Boolean)
       .join("\n");
     const body = encodeURIComponent(lines);
-    window.location.href = `mailto:${band.email}?subject=${subject}&body=${body}`;
-    setStatus("submitted");
+    return `mailto:${band.email}?subject=${subject}&body=${body}`;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("sending");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (res.ok) {
+        setStatus("sent");
+        return;
+      }
+
+      // If email service isn't configured (503), fall back to mailto
+      if (res.status === 503) {
+        window.location.href = buildMailto();
+        setStatus("mailto");
+        return;
+      }
+
+      setStatus("error");
+    } catch {
+      // Network error — fall back to mailto
+      window.location.href = buildMailto();
+      setStatus("mailto");
+    }
   };
 
   const inputClasses =
@@ -74,7 +105,41 @@ export function ContactForm() {
 
   const labelClasses = "block text-sm font-medium text-text mb-1.5";
 
-  if (status === "submitted") {
+  if (status === "sent") {
+    return (
+      <div className="text-center py-12">
+        <svg
+          className="w-16 h-16 mx-auto mb-4 text-accent"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+          />
+        </svg>
+        <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold mb-2">
+          {contact.form.successHeading}
+        </h2>
+        <p className="text-muted mb-6">{contact.form.successMessage}</p>
+        <button
+          onClick={() => {
+            setForm(initialState);
+            setStatus("idle");
+          }}
+          className="text-accent hover:text-accent-hover font-medium text-sm transition-colors"
+        >
+          {contact.form.successRetry}
+        </button>
+      </div>
+    );
+  }
+
+  if (status === "mailto") {
     return (
       <div className="text-center py-12">
         <svg
@@ -119,6 +184,19 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
+      {status === "error" && (
+        <div className="p-4 rounded-lg bg-red-50 border border-red-200 text-red-800 text-sm">
+          {contact.form.errorMessage}{" "}
+          <a
+            href={`mailto:${band.email}`}
+            className="underline font-medium"
+          >
+            {band.email}
+          </a>
+          .
+        </div>
+      )}
+
       {/* Name & Email (required) */}
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
@@ -314,9 +392,12 @@ export function ContactForm() {
 
       <button
         type="submit"
-        className="w-full sm:w-auto px-8 py-3 rounded-xl bg-accent hover:bg-accent-hover text-text-on-ink font-semibold text-sm tracking-wide transition-all border border-white/[0.12] shadow-sm hover:shadow-md hover:-translate-y-px focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-cream"
+        disabled={status === "sending"}
+        className="w-full sm:w-auto px-8 py-3 rounded-xl bg-accent hover:bg-accent-hover text-text-on-ink font-semibold text-sm tracking-wide transition-all border border-white/[0.12] shadow-sm hover:shadow-md hover:-translate-y-px focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-cream disabled:opacity-60 disabled:pointer-events-none"
       >
-        {contact.form.sendButton}
+        {status === "sending"
+          ? contact.form.sendingButton
+          : contact.form.sendButton}
       </button>
 
       <p className="text-xs text-muted/60">

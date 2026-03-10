@@ -55,6 +55,29 @@ body {
   top: 0;
 }
 
+/* ── Print styles ── */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  /* Avoid breaking inside song rows */
+  .grid > div > div {
+    break-inside: avoid;
+  }
+
+  /* Keep header with its content */
+  header {
+    break-after: avoid;
+  }
+
+  /* Page margins */
+  @page {
+    margin: 0.5in;
+  }
+}
+
 /* Hero grain overlay — opt-in via .hero-grain class */
 .hero-grain::before {
   content: "";

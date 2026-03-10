@@ -36,7 +36,7 @@ export default function Home() {
             description={home.twoShows.tetris.description}
             href="/tetris-lounge"
             logoShape="round"
-            logoSrc="/images/tetris-lounge/Tetris Lounge Logo.png"
+            logoSrc="/images/tetris-lounge/Tetris Lounge Logo.webp"
             logoAlt="Tetris Lounge logo"
           />
           <ActCard

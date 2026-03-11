@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 60" fill="none">
+  <!-- Butterfly wing (simplified from Inman Park Festival's monarch butterfly logo) -->
+  <g transform="translate(10,8)">
+    <!-- Left wing -->
+    <path d="M20 22 Q10 8 18 2 Q26 -2 28 10 Z" fill="#D4760A" stroke="#333" stroke-width="0.5"/>
+    <path d="M20 22 Q6 18 4 26 Q6 36 18 32 Z" fill="#E8990A" stroke="#333" stroke-width="0.5"/>
+    <!-- Right wing -->
+    <path d="M24 22 Q34 8 26 2 Q18 -2 16 10 Z" fill="#D4760A" stroke="#333" stroke-width="0.5"/>
+    <path d="M24 22 Q38 18 40 26 Q38 36 26 32 Z" fill="#E8990A" stroke="#333" stroke-width="0.5"/>
+    <!-- Body -->
+    <rect x="21" y="4" width="2" height="30" rx="1" fill="#333"/>
+    <!-- Antennae -->
+    <line x1="22" y1="4" x2="18" y2="0" stroke="#333" stroke-width="0.8"/>
+    <line x1="22" y1="4" x2="26" y2="0" stroke="#333" stroke-width="0.8"/>
+  </g>
+  <!-- Text -->
+  <text x="58" y="24" font-family="serif" font-weight="700" font-size="18" fill="#2C3E2D">INMAN PARK</text>
+  <text x="58" y="44" font-family="serif" font-weight="400" font-size="14" fill="#556270">Festival &amp; Tour of Homes</text>
+</svg>

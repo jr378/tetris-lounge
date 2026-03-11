@@ -5,8 +5,10 @@ import { SongList } from "@/components/SongList";
 import { Gallery } from "@/components/Gallery";
 import { CTAButton } from "@/components/CTAButton";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { SampleSetlist } from "@/components/SampleSetlist";
 import songs from "@/data/songlists.nowhere.json";
 import testimonials from "@/data/testimonials";
+import setlists from "@/data/setlists";
 import { ActCrossLink } from "@/components/ActCrossLink";
 import { DownloadPdfButton } from "@/components/DownloadPdfButton";
 import { nowhereMen } from "@/content";
@@ -14,6 +16,7 @@ import { nowhereMen } from "@/content";
 export const metadata: Metadata = {
   title: nowhereMen.meta.title,
   description: nowhereMen.meta.description,
+  alternates: { canonical: "/nowhere-men" },
   openGraph: {
     title: nowhereMen.meta.ogTitle,
     description: nowhereMen.meta.ogDescription,
@@ -21,6 +24,8 @@ export const metadata: Metadata = {
 };
 
 export default function NowhereManPage() {
+  const nowhereSetlists = setlists.filter((s) => s.act === "nowhere-men");
+
   return (
     <>
       <ActCrossLink currentAct="nowhere" />
@@ -59,6 +64,18 @@ export default function NowhereManPage() {
           label="Endorsements"
           columns={2}
         />
+      </Section>
+
+      {/* Sample Setlists */}
+      <Section id="sample-setlists">
+        <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-8">
+          Sample Setlists
+        </h2>
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl">
+          {nowhereSetlists.map((s) => (
+            <SampleSetlist key={s.id} setlist={s} />
+          ))}
+        </div>
       </Section>
 
       {/* Song List */}

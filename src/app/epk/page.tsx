@@ -6,14 +6,18 @@ import { CTAButton } from "@/components/CTAButton";
 import { Gallery } from "@/components/Gallery";
 import { EpkVideo } from "@/components/EpkVideo";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { VenueLogos } from "@/components/VenueLogos";
+import { SampleSetlist } from "@/components/SampleSetlist";
 import { epk, band, tetrisLounge, nowhereMen } from "@/content";
 import testimonials from "@/data/testimonials";
+import setlists from "@/data/setlists";
 import tetrisSongs from "@/data/songlists.tetris.json";
 import nowhereSongs from "@/data/songlists.nowhere.json";
 
 export const metadata: Metadata = {
   title: epk.meta.title,
   description: epk.meta.description,
+  alternates: { canonical: "/epk" },
 };
 
 const SAMPLE_COUNT = 15;
@@ -21,6 +25,8 @@ const SAMPLE_COUNT = 15;
 export default function EpkPage() {
   const tetrisSample = tetrisSongs.slice(0, SAMPLE_COUNT);
   const nowhereSample = nowhereSongs.slice(0, SAMPLE_COUNT);
+  const nowhereSetlists = setlists.filter((s) => s.act === "nowhere-men");
+  const tetrisSetlists = setlists.filter((s) => s.act === "tetris-lounge");
 
   return (
     <>
@@ -39,14 +45,22 @@ export default function EpkPage() {
         </div>
       </Section>
 
-      {/* Two-Act Summary */}
+      {/* Played At */}
       <Section dark>
+        <p className="text-accent font-[family-name:var(--font-display)] text-xs uppercase tracking-[0.25em] mb-6 text-center">
+          Trusted by Venues &amp; Festivals
+        </p>
+        <VenueLogos />
+      </Section>
+
+      {/* Two-Act Summary */}
+      <Section>
         <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-10 text-center">
           Two Acts
         </h2>
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {/* Tetris Lounge */}
-          <div className="p-6 rounded-xl border border-border bg-surface">
+          <div className="p-6 rounded-xl border border-border bg-surface card-hover">
             <p className="text-accent font-[family-name:var(--font-display)] text-xs uppercase tracking-[0.2em] mb-2">
               {epk.tetris.tagline}
             </p>
@@ -73,7 +87,7 @@ export default function EpkPage() {
           </div>
 
           {/* Nowhere Men */}
-          <div className="p-6 rounded-xl border border-border bg-surface">
+          <div className="p-6 rounded-xl border border-border bg-surface card-hover">
             <p className="text-accent font-[family-name:var(--font-display)] text-xs uppercase tracking-[0.2em] mb-2">
               {epk.nowhere.tagline}
             </p>
@@ -97,6 +111,37 @@ export default function EpkPage() {
                 </li>
               ))}
             </ul>
+          </div>
+        </div>
+      </Section>
+
+      {/* Sample Setlists */}
+      <Section dark>
+        <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-10 text-center">
+          Sample Setlists
+        </h2>
+        <div className="max-w-4xl mx-auto space-y-10">
+          {/* Nowhere Men */}
+          <div>
+            <h3 className="font-[family-name:var(--font-display)] text-xl font-semibold mb-4">
+              Nowhere Men
+            </h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              {nowhereSetlists.map((s) => (
+                <SampleSetlist key={s.id} setlist={s} />
+              ))}
+            </div>
+          </div>
+          {/* Tetris Lounge */}
+          <div>
+            <h3 className="font-[family-name:var(--font-display)] text-xl font-semibold mb-4">
+              Tetris Lounge
+            </h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              {tetrisSetlists.map((s) => (
+                <SampleSetlist key={s.id} setlist={s} />
+              ))}
+            </div>
           </div>
         </div>
       </Section>

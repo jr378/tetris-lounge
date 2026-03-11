@@ -95,39 +95,56 @@ export function Nav() {
                 </Link>
               );
             })}
+
+            {/* Book Us CTA — desktop */}
+            <Link
+              href="/contact"
+              className="ml-3 inline-flex items-center gap-1.5 px-4 py-1.5 rounded-lg text-sm font-semibold bg-accent text-text-on-ink hover:bg-accent-hover transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-cream"
+            >
+              Book Us
+            </Link>
           </div>
 
-          {/* Mobile menu button */}
-          <button
-            className="md:hidden text-text/80 hover:text-text p-2"
-            onClick={() => setOpen(!open)}
-            aria-expanded={open}
-            aria-controls="mobile-menu"
-            aria-label={open ? "Close navigation menu" : "Open navigation menu"}
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              aria-hidden="true"
+          {/* Mobile: Book Us + hamburger */}
+          <div className="flex md:hidden items-center gap-2">
+            <Link
+              href="/contact"
+              className="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-semibold bg-accent text-text-on-ink hover:bg-accent-hover transition-colors"
+              onClick={closeMenu}
             >
-              {open ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                />
-              )}
-            </svg>
-          </button>
+              Book Us
+            </Link>
+            <button
+              className="text-text/80 hover:text-text p-2"
+              onClick={() => setOpen(!open)}
+              aria-expanded={open}
+              aria-controls="mobile-menu"
+              aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                {open ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
 

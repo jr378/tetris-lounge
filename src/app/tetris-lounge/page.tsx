@@ -4,7 +4,9 @@ import { Section } from "@/components/Section";
 import { SongList } from "@/components/SongList";
 import { Gallery } from "@/components/Gallery";
 import { CTAButton } from "@/components/CTAButton";
+import { SampleSetlist } from "@/components/SampleSetlist";
 import songs from "@/data/songlists.tetris.json";
+import setlists from "@/data/setlists";
 import { ActCrossLink } from "@/components/ActCrossLink";
 import { DownloadPdfButton } from "@/components/DownloadPdfButton";
 import { tetrisLounge } from "@/content";
@@ -12,6 +14,7 @@ import { tetrisLounge } from "@/content";
 export const metadata: Metadata = {
   title: tetrisLounge.meta.title,
   description: tetrisLounge.meta.description,
+  alternates: { canonical: "/tetris-lounge" },
   openGraph: {
     title: tetrisLounge.meta.ogTitle,
     description: tetrisLounge.meta.ogDescription,
@@ -19,6 +22,8 @@ export const metadata: Metadata = {
 };
 
 export default function TetrisLoungePage() {
+  const tetrisSetlists = setlists.filter((s) => s.act === "tetris-lounge");
+
   return (
     <>
       <ActCrossLink currentAct="tetris" />
@@ -47,22 +52,34 @@ export default function TetrisLoungePage() {
         </div>
       </Section>
 
+      {/* Sample Setlists */}
+      <Section dark id="sample-setlists">
+        <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-8">
+          Sample Setlists
+        </h2>
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl">
+          {tetrisSetlists.map((s) => (
+            <SampleSetlist key={s.id} setlist={s} />
+          ))}
+        </div>
+      </Section>
+
       {/* Song List */}
-      <Section dark>
+      <Section>
         <div className="flex flex-wrap items-center justify-between gap-4 mb-2">
           <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold">
             {tetrisLounge.setlist.heading}
           </h2>
-          <DownloadPdfButton href="/print/tetris-lounge" dark />
+          <DownloadPdfButton href="/print/tetris-lounge" />
         </div>
         <p className="text-muted mb-8">
           {songs.length} {tetrisLounge.setlist.description}
         </p>
-        <SongList songs={songs} dark />
+        <SongList songs={songs} />
       </Section>
 
       {/* Photos */}
-      <Section>
+      <Section dark>
         <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-8">
           {tetrisLounge.photos.heading}
         </h2>
@@ -73,7 +90,7 @@ export default function TetrisLoungePage() {
       </Section>
 
       {/* CTA */}
-      <Section dark>
+      <Section>
         <div className="text-center">
           <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-4">
             {tetrisLounge.cta.heading}

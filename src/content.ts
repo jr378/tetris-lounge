@@ -48,8 +48,8 @@ export const nav = {
     { href: "/", label: "Home" },
     { href: "/tetris-lounge", label: "Tetris Lounge" },
     { href: "/nowhere-men", label: "Nowhere Men" },
+    { href: "/shows", label: "Shows" },
     { href: "/media", label: "Media" },
-    { href: "/contact", label: "Contact" },
   ],
 };
 
@@ -138,7 +138,7 @@ export const home = {
 
 export const tetrisLounge = {
   meta: {
-    title: "Tetris Lounge — Classic Rock Covers from the 60s, 70s & 80s",
+    title: "Tetris Lounge | Classic Rock Covers (60s–80s)",
     description:
       "Tetris Lounge plays classic rock covers spanning the 60s, 70s, and 80s — from Steely Dan and Led Zeppelin to Talking Heads and Prince. Browse our full setlist and book us for your next event.",
     ogTitle: "Tetris Lounge — Classic Rock Covers",
@@ -196,10 +196,10 @@ export const tetrisLounge = {
 
 export const nowhereMen = {
   meta: {
-    title: "Nowhere Men — High-Fidelity Beatles Tribute",
+    title: "Nowhere Men | Beatles Tribute",
     description:
       "Nowhere Men is a high-fidelity Beatles tribute act performing faithful covers of the full Beatles catalog — including later-era songs the Beatles themselves never performed live. Browse our setlist and book the experience.",
-    ogTitle: "Nowhere Men — High-Fidelity Beatles Tribute",
+    ogTitle: "Nowhere Men | Beatles Tribute",
     ogDescription:
       "Faithful Beatles covers including songs the Beatles never played live. 50+ songs from the full catalog.",
   },
@@ -470,12 +470,12 @@ export const footer = {
 // ─── SEO / Schema.org ──────────────────────────────────────
 
 export const seo = {
-  siteTitle: "Tetris Lounge / Nowhere Men — Two Acts, One Band",
+  siteTitle: "Tetris Lounge / Nowhere Men | Atlanta Cover Band + Beatles Tribute",
   titleTemplate: "%s | Tetris Lounge / Nowhere Men",
   siteDescription:
-    "Tetris Lounge delivers classic rock covers from the 60s, 70s, and 80s. Nowhere Men is a high-fidelity Beatles tribute featuring songs the Beatles never played live. Two acts, one incredible band.",
+    "Tetris Lounge delivers classic rock covers from the 60s, 70s, and 80s. Nowhere Men is a high-fidelity Beatles tribute featuring songs the Beatles never played live. Two acts, one incredible band based in Atlanta, GA.",
   ogDescription:
     "Classic rock covers and a high-fidelity Beatles tribute. Two acts, one incredible band available for your next event.",
   schemaDescription:
-    "Two acts, one band. Tetris Lounge performs classic rock covers from the 60s, 70s, and 80s. Nowhere Men is a high-fidelity Beatles tribute act.",
+    "Two acts, one band. Tetris Lounge performs classic rock covers from the 60s, 70s, and 80s. Nowhere Men is a high-fidelity Beatles tribute act. Based in Atlanta, GA.",
 };

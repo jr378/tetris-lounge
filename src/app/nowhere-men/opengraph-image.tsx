@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Nowhere Men — High-Fidelity Beatles Tribute";
+export const alt = "Nowhere Men | Beatles Tribute";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

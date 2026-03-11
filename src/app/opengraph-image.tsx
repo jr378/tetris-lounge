@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Tetris Lounge / Nowhere Men — Two Acts, One Band";
+export const alt = "Tetris Lounge / Nowhere Men | Atlanta Cover Band + Beatles Tribute";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -46,7 +46,7 @@ export default function OgImage() {
             marginBottom: 8,
           }}
         >
-          Two acts, one band
+          Two acts, one band · Atlanta, GA
         </div>
         <div
           style={{

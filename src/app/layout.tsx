@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     template: seo.titleTemplate,
   },
   description: seo.siteDescription,
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "en_US",

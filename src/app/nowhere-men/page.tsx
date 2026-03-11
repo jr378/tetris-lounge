@@ -33,8 +33,6 @@ export default function NowhereManPage() {
         ctaHref="/contact"
         logoSrc="/images/nowhere-men/NoWhere Men Logo.jpg"
         logoAlt="The Nowhere Men logo"
-        imageSrc="/images/nowhere-men/nowhere-men-band-2025.jpg"
-        imageAlt="The band standing together in front of a brick wall"
       />
 
       {/* Positioning */}

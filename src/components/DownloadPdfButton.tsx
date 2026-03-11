@@ -1,11 +1,8 @@
-"use client";
-
 interface DownloadPdfButtonProps {
   href: string;
-  dark?: boolean;
 }
 
-export function DownloadPdfButton({ href, dark = false }: DownloadPdfButtonProps) {
+export function DownloadPdfButton({ href }: DownloadPdfButtonProps) {
   return (
     <a
       href={href}

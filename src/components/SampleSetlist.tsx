@@ -2,8 +2,6 @@ import type { Setlist } from "@/data/setlists";
 
 interface SampleSetlistProps {
   setlist: Setlist;
-  /** Collapsed by default (for EPK accordion style) */
-  collapsed?: boolean;
 }
 
 export function SampleSetlist({ setlist }: SampleSetlistProps) {

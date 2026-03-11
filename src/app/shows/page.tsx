@@ -67,7 +67,7 @@ export default function ShowsPage() {
                   className="flex flex-col sm:flex-row sm:items-center gap-4 p-6 rounded-xl border border-border bg-surface hover:shadow-md hover:border-ink/[0.22] transition-all"
                 >
                   <div className="shrink-0 text-center sm:text-left sm:w-24">
-                    <time className="font-[family-name:var(--font-display)] text-lg font-bold text-text">
+                    <time dateTime={show.date} className="font-[family-name:var(--font-display)] text-lg font-bold text-text">
                       {show.date}
                     </time>
                     {show.time && (

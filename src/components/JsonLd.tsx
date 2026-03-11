@@ -14,7 +14,7 @@ export function JsonLd() {
     description: seo.schemaDescription,
     genre: band.genres,
     email: band.email,
-    image: "https://tetrislounge.com/images/tetris-lounge/Tetris Lounge Logo.webp",
+    image: "https://tetrislounge.com/images/tetris-lounge/Tetris%20Lounge%20Logo.webp",
     location: {
       "@type": "Place",
       name: "Atlanta, GA",

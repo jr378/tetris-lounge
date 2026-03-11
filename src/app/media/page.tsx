@@ -7,6 +7,7 @@ import { media } from "@/content";
 export const metadata: Metadata = {
   title: media.meta.title,
   description: media.meta.description,
+  alternates: { canonical: "/media" },
 };
 
 export default function MediaPage() {
@@ -42,7 +43,6 @@ export default function MediaPage() {
         </p>
         <VideoGallery
           videos={media.tetrisVideos.videos}
-          dark
         />
       </Section>
     </>

@@ -9,10 +9,9 @@ interface Video {
 
 interface VideoGalleryProps {
   videos: Video[];
-  dark?: boolean;
 }
 
-function VideoFacade({ video, dark }: { video: Video; dark: boolean }) {
+function VideoFacade({ video }: { video: Video }) {
   const [loaded, setLoaded] = useState(false);
 
   if (loaded) {
@@ -71,7 +70,7 @@ function VideoFacade({ video, dark }: { video: Video; dark: boolean }) {
   );
 }
 
-export function VideoGallery({ videos, dark = false }: VideoGalleryProps) {
+export function VideoGallery({ videos }: VideoGalleryProps) {
   if (videos.length === 0) {
     return (
       <div className="border-2 border-dashed border-border rounded-xl p-12 text-center">
@@ -97,7 +96,7 @@ export function VideoGallery({ videos, dark = false }: VideoGalleryProps) {
   return (
     <div className="grid md:grid-cols-2 gap-6">
       {videos.map((video) => (
-        <VideoFacade key={video.youtubeId} video={video} dark={dark} />
+        <VideoFacade key={video.youtubeId} video={video} />
       ))}
     </div>
   );

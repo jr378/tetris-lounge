@@ -91,7 +91,7 @@ export function TestimonialCard({ testimonial, rotate = 0 }: TestimonialCardProp
       {t.fullImagePath && (
         <LetterLightbox
           src={t.fullImagePath}
-          alt={`Testimonial letter from ${t.sourceName}, ${t.sourceOrg}`}
+          alt={`Testimonial letter from ${t.sourceName}${t.sourceOrg ? `, ${t.sourceOrg}` : ""}`}
           open={lightboxOpen}
           onClose={() => setLightboxOpen(false)}
         />

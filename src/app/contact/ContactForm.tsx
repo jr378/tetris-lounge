@@ -185,7 +185,7 @@ export function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       {status === "error" && (
-        <div className="p-4 rounded-lg bg-red-50 border border-red-200 text-red-800 text-sm">
+        <div role="alert" className="p-4 rounded-lg bg-red-50 border border-red-200 text-red-800 text-sm">
           {contact.form.errorMessage}{" "}
           <a
             href={`mailto:${band.email}`}
@@ -383,6 +383,7 @@ export function ContactForm() {
           name="message"
           required
           rows={4}
+          maxLength={5000}
           value={form.message}
           onChange={handleChange}
           className={inputClasses}

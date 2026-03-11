@@ -1,7 +1,9 @@
 import { Hero } from "@/components/Hero";
 import { ActCard } from "@/components/ActCard";
 import { CTAButton } from "@/components/CTAButton";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { home } from "@/content";
+import testimonials from "@/data/testimonials";
 
 export default function Home() {
   return (
@@ -103,39 +105,10 @@ export default function Home() {
       {/* ── What People Are Saying ── */}
       <section className="bg-cream py-16 sm:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-10">
-            <p className="text-accent font-[family-name:var(--font-display)] text-xs uppercase tracking-[0.25em] mb-3">
-              Reviews
-            </p>
-            <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold text-text">
-              {home.testimonials.heading}
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {home.testimonials.items.map((t, i) => (
-              <blockquote
-                key={t.name}
-                className="relative p-6 rounded-xl border border-border bg-surface shadow-sm"
-                style={{
-                  transform: `rotate(${i === 0 ? -0.3 : i === 2 ? 0.3 : 0}deg)`,
-                }}
-              >
-                <span
-                  className="absolute top-2 left-3 text-6xl font-serif text-text/[0.06] leading-none select-none pointer-events-none"
-                  aria-hidden="true"
-                >
-                  &ldquo;
-                </span>
-                <p className="relative text-text text-sm leading-relaxed mb-4 italic">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <hr className="border-border mb-3" />
-                <footer className="text-muted text-xs font-medium uppercase tracking-wider">
-                  {t.name}
-                </footer>
-              </blockquote>
-            ))}
-          </div>
+          <TestimonialsSection
+            testimonials={testimonials}
+            heading={home.testimonials.heading}
+          />
         </div>
       </section>
 

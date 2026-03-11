@@ -16,7 +16,7 @@
   --color-text: #1a2430;
   --color-muted: #6b7785;
   --color-text-on-ink: #f3efe6;
-  --color-muted-on-ink: rgba(243, 239, 230, 0.78);
+  --color-muted-on-ink: rgba(243, 239, 230, 0.85);
 
   /* ── Borders ── */
   --color-border: rgba(18, 20, 23, 0.14);

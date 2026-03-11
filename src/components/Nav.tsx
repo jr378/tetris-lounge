@@ -37,7 +37,7 @@ export function Nav() {
 
   return (
     <nav
-      className="sticky top-0 z-40 bg-ink/95 backdrop-blur-sm border-b border-border-on-ink"
+      className="sticky top-0 z-40 bg-ink/90 backdrop-blur-sm border-b border-border-on-ink/50"
       aria-label="Main navigation"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">

@@ -29,12 +29,12 @@ export function Hero({
         background: "linear-gradient(180deg, #121417 0%, #1B1F24 100%)",
       }}
     >
-      {/* Subtle decorative element */}
-      <div className="absolute inset-0 opacity-5" aria-hidden="true">
+      {/* Subtle parchment spotlight behind headline */}
+      <div className="absolute inset-0" aria-hidden="true">
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full"
           style={{
-            background: "radial-gradient(circle, #2d6f73 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(245,236,220,0.1) 0%, transparent 65%)",
           }}
         />
       </div>

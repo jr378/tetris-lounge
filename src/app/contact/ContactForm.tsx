@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { band, contact } from "@/content";
 
 interface FormState {
@@ -36,6 +36,13 @@ export function ContactForm() {
   const [status, setStatus] = useState<
     "idle" | "sending" | "sent" | "error" | "mailto"
   >("idle");
+  const resultRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (status === "sent" || status === "mailto") {
+      resultRef.current?.focus();
+    }
+  }, [status]);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -107,7 +114,7 @@ export function ContactForm() {
 
   if (status === "sent") {
     return (
-      <div className="text-center py-12">
+      <div ref={resultRef} tabIndex={-1} className="text-center py-12 outline-none">
         <svg
           className="w-16 h-16 mx-auto mb-4 text-accent"
           fill="none"
@@ -141,7 +148,7 @@ export function ContactForm() {
 
   if (status === "mailto") {
     return (
-      <div className="text-center py-12">
+      <div ref={resultRef} tabIndex={-1} className="text-center py-12 outline-none">
         <svg
           className="w-16 h-16 mx-auto mb-4 text-accent"
           fill="none"

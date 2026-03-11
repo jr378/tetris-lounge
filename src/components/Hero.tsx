@@ -14,6 +14,8 @@ interface HeroProps {
   imageAlt?: string;
   /** Render a smaller image (e.g. for the home hero) */
   imageSmall?: boolean;
+  /** Apply subtle teal haze background treatment */
+  haze?: boolean;
 }
 
 export function Hero({
@@ -28,12 +30,14 @@ export function Hero({
   imageSrc,
   imageAlt,
   imageSmall,
+  haze,
 }: HeroProps) {
   const isHome = variant === "home";
+  const hazeClass = haze ? "haze-teal-light" : isHome ? "haze-teal" : "";
 
   return (
     <section
-      className="hero-grain relative overflow-hidden bg-surface2"
+      className={`hero-grain relative overflow-hidden bg-surface2 ${hazeClass}`}
       style={{
         background: "linear-gradient(180deg, var(--color-surface2) 0%, var(--color-cream) 100%)",
       }}

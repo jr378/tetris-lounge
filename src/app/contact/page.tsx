@@ -18,6 +18,7 @@ export default function ContactPage() {
         subtitle={contact.hero.subtitle}
         title={contact.hero.title}
         description={contact.hero.description}
+        haze
       />
 
       <Section>

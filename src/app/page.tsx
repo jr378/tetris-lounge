@@ -208,8 +208,8 @@ export default function Home() {
       </section>
 
       {/* ── Final CTA ── */}
-      <section className="bg-cream py-16 sm:py-24 border-t border-border">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+      <section className="haze-teal relative overflow-hidden bg-cream py-16 sm:py-24 border-t border-border">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center relative z-10">
           <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-4 text-text">
             {home.cta.heading}
           </h2>

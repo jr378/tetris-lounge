@@ -44,24 +44,24 @@ export default function EpkPage() {
         </h2>
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {/* Tetris Lounge */}
-          <div className="p-6 rounded-xl border border-border-on-ink bg-ink/50">
+          <div className="p-6 rounded-xl border border-border bg-surface">
             <p className="text-accent font-[family-name:var(--font-display)] text-xs uppercase tracking-[0.2em] mb-2">
               {epk.tetris.tagline}
             </p>
             <h3 className="font-[family-name:var(--font-display)] text-2xl font-bold mb-3">
               Tetris Lounge
             </h3>
-            <p className="text-muted-on-ink text-sm leading-relaxed mb-4">
+            <p className="text-muted text-sm leading-relaxed mb-4">
               {epk.tetris.description}
             </p>
-            <p className="text-text-on-ink text-xs font-semibold uppercase tracking-wider mb-2">
+            <p className="text-text text-xs font-semibold uppercase tracking-wider mb-2">
               Great for
             </p>
             <ul className="space-y-1">
               {epk.tetris.greatFor.map((item) => (
                 <li
                   key={item}
-                  className="flex items-center gap-2 text-muted-on-ink text-sm"
+                  className="flex items-center gap-2 text-muted text-sm"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
                   {item}
@@ -71,24 +71,24 @@ export default function EpkPage() {
           </div>
 
           {/* Nowhere Men */}
-          <div className="p-6 rounded-xl border border-border-on-ink bg-ink/50">
+          <div className="p-6 rounded-xl border border-border bg-surface">
             <p className="text-accent font-[family-name:var(--font-display)] text-xs uppercase tracking-[0.2em] mb-2">
               {epk.nowhere.tagline}
             </p>
             <h3 className="font-[family-name:var(--font-display)] text-2xl font-bold mb-3">
               Nowhere Men
             </h3>
-            <p className="text-muted-on-ink text-sm leading-relaxed mb-4">
+            <p className="text-muted text-sm leading-relaxed mb-4">
               {epk.nowhere.description}
             </p>
-            <p className="text-text-on-ink text-xs font-semibold uppercase tracking-wider mb-2">
+            <p className="text-text text-xs font-semibold uppercase tracking-wider mb-2">
               Great for
             </p>
             <ul className="space-y-1">
               {epk.nowhere.greatFor.map((item) => (
                 <li
                   key={item}
-                  className="flex items-center gap-2 text-muted-on-ink text-sm"
+                  className="flex items-center gap-2 text-muted text-sm"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
                   {item}
@@ -160,8 +160,8 @@ export default function EpkPage() {
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
           {band.members.map((m) => (
             <div key={m.name} className="text-center">
-              <p className="font-semibold text-text-on-ink">{m.name}</p>
-              <p className="text-muted-on-ink text-sm">{m.role}</p>
+              <p className="font-semibold text-text">{m.name}</p>
+              <p className="text-muted text-sm">{m.role}</p>
             </div>
           ))}
         </div>
@@ -198,7 +198,7 @@ export default function EpkPage() {
           <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-4">
             {epk.cta.heading}
           </h2>
-          <p className="text-muted-on-ink text-lg max-w-xl mx-auto mb-8">
+          <p className="text-muted text-lg max-w-xl mx-auto mb-8">
             {epk.cta.description}
           </p>
           <CTAButton href="/contact">{epk.cta.buttonText}</CTAButton>

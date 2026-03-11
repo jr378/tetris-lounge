@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description: seo.ogDescription,
   },
   other: {
-    "theme-color": "#121417",
+    "theme-color": "#F5ECDC",
   },
 };
 

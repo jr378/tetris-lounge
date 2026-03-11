@@ -37,7 +37,7 @@ export function Nav() {
 
   return (
     <nav
-      className="sticky top-0 z-40 bg-ink/90 backdrop-blur-sm border-b border-border-on-ink/50"
+      className="sticky top-0 z-40 bg-cream/95 backdrop-blur-sm border-b border-border"
       aria-label="Main navigation"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -57,7 +57,7 @@ export function Nav() {
               priority
               sizes="36px"
             />
-            <span className="text-muted-on-ink/50 text-sm font-light">/</span>
+            <span className="text-muted/50 text-sm font-light">/</span>
             <Image
               src="/images/nowhere-men/NoWhere Men Logo.jpg"
               alt="Nowhere Men"
@@ -80,8 +80,8 @@ export function Nav() {
                   href={link.href}
                   className={`relative px-3 py-2 text-sm font-medium transition-colors ${
                     isActive
-                      ? "text-text-on-ink"
-                      : "text-text-on-ink/70 hover:text-text-on-ink"
+                      ? "text-text"
+                      : "text-muted hover:text-text"
                   }`}
                   aria-current={isActive ? "page" : undefined}
                 >
@@ -99,7 +99,7 @@ export function Nav() {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden text-text-on-ink/80 hover:text-text-on-ink p-2"
+            className="md:hidden text-text/80 hover:text-text p-2"
             onClick={() => setOpen(!open)}
             aria-expanded={open}
             aria-controls="mobile-menu"
@@ -133,7 +133,7 @@ export function Nav() {
 
       {/* Mobile menu */}
       {open && (
-        <div id="mobile-menu" className="md:hidden border-t border-border-on-ink">
+        <div id="mobile-menu" className="md:hidden border-t border-border bg-cream">
           <div className="px-4 py-3 space-y-1">
             {nav.links.map((link) => {
               const isActive = pathname === link.href;
@@ -143,8 +143,8 @@ export function Nav() {
                   href={link.href}
                   className={`relative block px-3 py-2 text-sm font-medium transition-colors border-l-2 ${
                     isActive
-                      ? "text-text-on-ink border-accent"
-                      : "text-text-on-ink/70 hover:text-text-on-ink border-transparent"
+                      ? "text-text border-accent"
+                      : "text-muted hover:text-text border-transparent"
                   }`}
                   aria-current={isActive ? "page" : undefined}
                   onClick={closeMenu}

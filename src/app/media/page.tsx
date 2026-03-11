@@ -37,7 +37,7 @@ export default function MediaPage() {
         <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-2">
           {media.tetrisVideos.heading}
         </h2>
-        <p className="text-muted-on-ink mb-8">
+        <p className="text-muted mb-8">
           {media.tetrisVideos.description}
         </p>
         <VideoGallery

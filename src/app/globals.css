@@ -2,10 +2,11 @@
 
 @theme {
   /* ── Core ── */
-  --color-ink: #121417;
-  --color-ink2: #1b1f24;
+  --color-ink: #1b1f24;
+  --color-ink2: #232a2f;
   --color-cream: #f5ecdc;
   --color-surface: #fbf4e8;
+  --color-surface2: #f7efdf;
 
   /* ── Accent (Teal) ── */
   --color-accent: #2d6f73;
@@ -14,12 +15,12 @@
 
   /* ── Text ── */
   --color-text: #1a2430;
-  --color-muted: #6b7785;
+  --color-muted: #556270;
   --color-text-on-ink: #f3efe6;
   --color-muted-on-ink: rgba(243, 239, 230, 0.85);
 
   /* ── Borders ── */
-  --color-border: rgba(18, 20, 23, 0.14);
+  --color-border: rgba(18, 20, 23, 0.12);
   --color-border-on-ink: rgba(243, 239, 230, 0.14);
 
   /* ── Typography ── */

@@ -27,11 +27,7 @@ function VideoFacade({ video, dark }: { video: Video; dark: boolean }) {
             allowFullScreen
           />
         </div>
-        <p
-          className={`mt-2 text-sm font-medium ${
-            dark ? "text-text-on-ink/80" : "text-text"
-          }`}
-        >
+        <p className="mt-2 text-sm font-medium text-text">
           {video.title}
         </p>
       </div>
@@ -68,11 +64,7 @@ function VideoFacade({ video, dark }: { video: Video; dark: boolean }) {
           </div>
         </div>
       </button>
-      <p
-        className={`mt-2 text-sm font-medium ${
-          dark ? "text-text-on-ink/80" : "text-text"
-        }`}
-      >
+      <p className="mt-2 text-sm font-medium text-text">
         {video.title}
       </p>
     </div>

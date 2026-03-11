@@ -31,6 +31,8 @@ export default function NowhereManPage() {
         ctaHref="/contact"
         logoSrc="/images/nowhere-men/NoWhere Men Logo.jpg"
         logoAlt="The Nowhere Men logo"
+        imageSrc="/images/nowhere-men/nowhere-men-band-2025.jpg"
+        imageAlt="The band standing together in front of a brick wall"
       />
 
       {/* Positioning */}
@@ -55,7 +57,7 @@ export default function NowhereManPage() {
           </h2>
           <DownloadPdfButton href="/print/nowhere-men" dark />
         </div>
-        <p className="text-muted-on-ink mb-8">
+        <p className="text-muted mb-8">
           {songs.length} {nowhereMen.setlist.description}
         </p>
         <SongList songs={songs} dark />
@@ -78,7 +80,7 @@ export default function NowhereManPage() {
           <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-4">
             {nowhereMen.cta.heading}
           </h2>
-          <p className="text-muted-on-ink text-lg max-w-xl mx-auto mb-8">
+          <p className="text-muted text-lg max-w-xl mx-auto mb-8">
             {nowhereMen.cta.description}
           </p>
           <CTAButton href="/contact">

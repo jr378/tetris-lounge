@@ -43,17 +43,15 @@ export function SongList({ songs, dark = false }: SongListProps) {
     });
   }, [songs, search, sortBy]);
 
-  // Colors that adapt to dark/light background
-  const titleColor = dark ? "text-text-on-ink" : "text-text";
-  const artistColor = dark ? "text-muted-on-ink" : "text-muted";
-  const notesColor = dark ? "text-text-on-ink/40" : "text-muted/70";
-  const countColor = dark ? "text-text-on-ink/50" : "text-muted";
-  const emptyColor = dark ? "text-text-on-ink/50" : "text-muted";
-  const borderColor = dark ? "border-border-on-ink" : "border-border";
-  const inputBg = dark
-    ? "bg-white/10 text-text-on-ink placeholder:text-text-on-ink/40 border-border-on-ink"
-    : "bg-cream text-text placeholder:text-muted/60 border-border";
-  const inactiveBtnBg = dark ? "hover:bg-white/5" : "hover:bg-ink/5";
+  // Colors — dark sections now use a light (surface2) background, so no branching needed
+  const titleColor = "text-text";
+  const artistColor = "text-muted";
+  const notesColor = "text-muted/70";
+  const countColor = "text-muted";
+  const emptyColor = "text-muted";
+  const borderColor = "border-border";
+  const inputBg = "bg-cream text-text placeholder:text-muted/60 border-border";
+  const inactiveBtnBg = "hover:bg-ink/5";
 
   return (
     <div>
@@ -61,7 +59,7 @@ export function SongList({ songs, dark = false }: SongListProps) {
       <div className="flex flex-col sm:flex-row gap-3 mb-6">
         <div className="relative flex-1">
           <svg
-            className={`absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 ${dark ? "text-text-on-ink/40" : "text-muted"}`}
+            className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={2}

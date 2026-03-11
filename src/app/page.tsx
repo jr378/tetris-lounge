@@ -6,7 +6,7 @@ import { home } from "@/content";
 export default function Home() {
   return (
     <>
-      {/* Hero (dark) */}
+      {/* Hero with band photo */}
       <Hero
         variant="home"
         subtitle={home.hero.subtitle}
@@ -14,6 +14,8 @@ export default function Home() {
         description={home.hero.description}
         ctaText={home.hero.ctaText}
         ctaHref="/contact"
+        imageSrc="/images/nowhere-men/nowhere-men-band-2025.jpg"
+        imageAlt="The band standing together in front of a brick wall"
       />
 
       {/* ── Two Acts ── */}
@@ -51,8 +53,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── What We Play — Program Notes (light) ── */}
-      <section className="bg-cream py-16 sm:py-24 border-t border-border">
+      {/* ── What We Play — Program Notes ── */}
+      <section className="bg-surface2 py-16 sm:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
             <p className="text-accent font-[family-name:var(--font-display)] text-xs uppercase tracking-[0.25em] mb-3">
@@ -68,7 +70,6 @@ export default function Home() {
 
           <div className="max-w-3xl mx-auto">
             <div className="grid sm:grid-cols-2 gap-0">
-              {/* Tetris Lounge column */}
               <div className="sm:pr-8 sm:border-r sm:border-border pb-8 sm:pb-0">
                 <div className="flex items-center gap-3 mb-4">
                   <span className="w-6 h-px bg-accent" aria-hidden="true" />
@@ -81,10 +82,8 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Mobile divider */}
               <hr className="sm:hidden border-border my-0" />
 
-              {/* Nowhere Men column */}
               <div className="sm:pl-8 pt-8 sm:pt-0">
                 <div className="flex items-center gap-3 mb-4">
                   <span className="w-6 h-px bg-accent" aria-hidden="true" />
@@ -102,7 +101,7 @@ export default function Home() {
       </section>
 
       {/* ── What People Are Saying ── */}
-      <section className="bg-cream py-16 sm:py-24 border-t border-border">
+      <section className="bg-cream py-16 sm:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10">
             <p className="text-accent font-[family-name:var(--font-display)] text-xs uppercase tracking-[0.25em] mb-3">
@@ -141,7 +140,7 @@ export default function Home() {
       </section>
 
       {/* ── On Stage CTA ── */}
-      <section className="bg-cream py-16 sm:py-24 border-t border-border">
+      <section className="bg-surface2 py-16 sm:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-accent font-[family-name:var(--font-display)] text-xs uppercase tracking-[0.25em] mb-3">
             On Stage
@@ -156,13 +155,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Final CTA (dark band) ── */}
-      <section className="bg-ink py-16 sm:py-24">
+      {/* ── Final CTA ── */}
+      <section className="bg-cream py-16 sm:py-24 border-t border-border">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-4 text-text-on-ink">
+          <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-4 text-text">
             {home.cta.heading}
           </h2>
-          <p className="text-muted-on-ink text-lg max-w-xl mx-auto mb-8">
+          <p className="text-muted text-lg max-w-xl mx-auto mb-8">
             {home.cta.description}
           </p>
           <CTAButton href="/contact">{home.cta.primaryCta}</CTAButton>

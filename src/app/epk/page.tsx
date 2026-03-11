@@ -5,7 +5,9 @@ import { Section } from "@/components/Section";
 import { CTAButton } from "@/components/CTAButton";
 import { Gallery } from "@/components/Gallery";
 import { EpkVideo } from "@/components/EpkVideo";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { epk, band, tetrisLounge, nowhereMen } from "@/content";
+import testimonials from "@/data/testimonials";
 import tetrisSongs from "@/data/songlists.tetris.json";
 import nowhereSongs from "@/data/songlists.nowhere.json";
 
@@ -189,6 +191,16 @@ export default function EpkPage() {
         <EpkVideo
           youtubeId="qKSFjA6J4ak"
           title="Nowhere Men — While My Guitar Gently Weeps"
+        />
+      </Section>
+
+      {/* Testimonials / Endorsements */}
+      <Section>
+        <TestimonialsSection
+          testimonials={testimonials.filter((t) => t.featured)}
+          heading="Testimonials"
+          label="Endorsements"
+          columns={2}
         />
       </Section>
 

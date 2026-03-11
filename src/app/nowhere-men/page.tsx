@@ -4,7 +4,9 @@ import { Section } from "@/components/Section";
 import { SongList } from "@/components/SongList";
 import { Gallery } from "@/components/Gallery";
 import { CTAButton } from "@/components/CTAButton";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 import songs from "@/data/songlists.nowhere.json";
+import testimonials from "@/data/testimonials";
 import { ActCrossLink } from "@/components/ActCrossLink";
 import { DownloadPdfButton } from "@/components/DownloadPdfButton";
 import { nowhereMen } from "@/content";
@@ -47,6 +49,18 @@ export default function NowhereManPage() {
             ))}
           </div>
         </div>
+      </Section>
+
+      {/* Testimonial */}
+      <Section dark>
+        <TestimonialsSection
+          testimonials={testimonials.filter(
+            (t) => t.act === "nowhere-men" || t.act === "both"
+          )}
+          heading="What People Are Saying"
+          label="Endorsements"
+          columns={2}
+        />
       </Section>
 
       {/* Song List */}

@@ -84,12 +84,12 @@ export default function NowhereManPage() {
           <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold">
             {nowhereMen.setlist.heading}
           </h2>
-          <DownloadPdfButton href="/print/nowhere-men" dark />
+          <DownloadPdfButton href="/print/nowhere-men" />
         </div>
         <p className="text-muted mb-8">
           {songs.length} {nowhereMen.setlist.description}
         </p>
-        <SongList songs={songs} dark />
+        <SongList songs={songs} />
       </Section>
 
       {/* Gallery */}

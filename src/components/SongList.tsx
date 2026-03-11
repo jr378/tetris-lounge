@@ -10,12 +10,11 @@ interface Song {
 
 interface SongListProps {
   songs: Song[];
-  dark?: boolean;
 }
 
 type SortMode = "title" | "artist";
 
-export function SongList({ songs, dark = false }: SongListProps) {
+export function SongList({ songs }: SongListProps) {
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState<SortMode>("title");
 

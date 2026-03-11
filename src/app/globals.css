@@ -23,9 +23,6 @@
   --color-border: rgba(18, 20, 23, 0.12);
   --color-border-on-ink: rgba(243, 239, 230, 0.14);
 
-  /* ── Typography ── */
-  --font-display: "Outfit", sans-serif;
-  --font-body: "Inter", sans-serif;
 }
 
 html {
@@ -127,4 +124,35 @@ button:disabled,
   pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   z-index: 1;
+}
+
+/* ── Teal haze — subtle atmospheric teal glow ── */
+.haze-teal {
+  position: relative;
+}
+.haze-teal::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 15% 20%, rgba(45, 111, 115, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 85% 75%, rgba(45, 111, 115, 0.04) 0%, transparent 65%),
+    linear-gradient(180deg, rgba(45, 111, 115, 0.025) 0%, transparent 50%);
+}
+
+/* Lighter variant for secondary sections (page headers) */
+.haze-teal-light {
+  position: relative;
+}
+.haze-teal-light::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 55% at 20% 25%, rgba(45, 111, 115, 0.04) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 45% at 80% 70%, rgba(45, 111, 115, 0.025) 0%, transparent 60%);
 }

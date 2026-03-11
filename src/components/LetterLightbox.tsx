@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 
 interface LetterLightboxProps {
@@ -11,21 +11,56 @@ interface LetterLightboxProps {
 }
 
 export function LetterLightbox({ src, alt, open, onClose }: LetterLightboxProps) {
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
+
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") {
+        onClose();
+        return;
+      }
+
+      // Focus trap: cycle through focusable elements within the dialog
+      if (e.key === "Tab" && dialogRef.current) {
+        const focusable = dialogRef.current.querySelectorAll<HTMLElement>(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            e.preventDefault();
+            last?.focus();
+          }
+        } else {
+          if (document.activeElement === last) {
+            e.preventDefault();
+            first?.focus();
+          }
+        }
+      }
     },
     [onClose]
   );
 
   useEffect(() => {
     if (open) {
+      previousFocusRef.current = document.activeElement as HTMLElement;
       document.addEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "hidden";
+      // Move focus into the dialog
+      requestAnimationFrame(() => {
+        const closeBtn = dialogRef.current?.querySelector<HTMLElement>("button");
+        closeBtn?.focus();
+      });
     }
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "";
+      // Restore focus to the element that opened the dialog
+      previousFocusRef.current?.focus();
     };
   }, [open, handleKeyDown]);
 
@@ -40,6 +75,7 @@ export function LetterLightbox({ src, alt, open, onClose }: LetterLightboxProps)
       aria-label="Full testimonial letter"
     >
       <div
+        ref={dialogRef}
         className="relative max-w-2xl w-full max-h-[90vh] overflow-auto rounded-xl bg-white shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >

@@ -1,11 +1,6 @@
 import songsData from "@/data/songlists.tetris.json";
 import { PrintButton } from "@/components/PrintButton";
-
-interface Song {
-  title: string;
-  artist: string;
-  notes?: string;
-}
+import type { Song } from "@/data/types";
 
 export default function PrintTetrisLounge() {
   const songs = songsData as Song[];

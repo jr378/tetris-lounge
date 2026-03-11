@@ -11,11 +11,7 @@ export function DownloadPdfButton({ href, dark = false }: DownloadPdfButtonProps
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-        dark
-          ? "border border-border-on-ink text-text-on-ink/80 hover:text-text-on-ink hover:bg-text-on-ink/[0.06]"
-          : "border border-border text-text/80 hover:text-text hover:bg-ink/[0.04]"
-      }`}
+      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors border border-border text-text/80 hover:text-text hover:bg-ink/[0.04]"
     >
       <svg
         className="w-4 h-4"

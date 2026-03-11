@@ -23,7 +23,7 @@ export function EpkVideo({
             className="w-full h-full"
           />
         </div>
-        <p className="text-center text-muted-on-ink text-sm mt-4">{title}</p>
+        <p className="text-center text-muted text-sm mt-4">{title}</p>
       </div>
     );
   }
@@ -56,7 +56,7 @@ export function EpkVideo({
           </div>
         </div>
       </button>
-      <p className="text-center text-muted-on-ink text-sm mt-4">{title}</p>
+      <p className="text-center text-muted text-sm mt-4">{title}</p>
     </div>
   );
 }

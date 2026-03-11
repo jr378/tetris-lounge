@@ -3,7 +3,7 @@ import { band, footer } from "@/content";
 
 export function Footer() {
   return (
-    <footer className="bg-ink text-muted-on-ink mt-auto" role="contentinfo">
+    <footer className="bg-ink2 text-muted-on-ink mt-auto" role="contentinfo">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}

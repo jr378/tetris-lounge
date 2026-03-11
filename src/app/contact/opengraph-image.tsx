@@ -15,7 +15,7 @@ export default function OgImage() {
           justifyContent: "center",
           width: "100%",
           height: "100%",
-          background: "linear-gradient(180deg, #121417 0%, #1B1F24 100%)",
+          background: "linear-gradient(180deg, #FBF4E8 0%, #F5ECDC 100%)",
           padding: "60px 80px",
           fontFamily: "sans-serif",
         }}
@@ -32,7 +32,7 @@ export default function OgImage() {
           style={{
             fontSize: 56,
             fontWeight: 800,
-            color: "#F3EFE6",
+            color: "#1A2430",
             lineHeight: 1.1,
             marginBottom: 16,
           }}
@@ -42,7 +42,7 @@ export default function OgImage() {
         <div
           style={{
             fontSize: 26,
-            color: "rgba(243,239,230,0.78)",
+            color: "#556270",
             marginBottom: 8,
           }}
         >
@@ -51,7 +51,7 @@ export default function OgImage() {
         <div
           style={{
             fontSize: 20,
-            color: "rgba(243,239,230,0.5)",
+            color: "rgba(26,36,48,0.5)",
             marginTop: "auto",
           }}
         >

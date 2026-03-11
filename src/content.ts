@@ -272,6 +272,7 @@ export const nowhereMen = {
   gallery: {
     heading: "Gallery",
     images: [
+      "/images/nowhere-men/nowhere-men-band-2025.jpg",
       "/images/nowhere-men/Nowhere Men Fender's Alley.jpg",
       "/images/nowhere-men/Fender's Alley 2.jpg",
     ],

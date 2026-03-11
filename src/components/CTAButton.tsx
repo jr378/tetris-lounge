@@ -14,7 +14,7 @@ export function CTAButton({
   return (
     <Link
       href={href}
-      className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm tracking-wide transition-all duration-200 bg-accent hover:bg-accent-hover text-text-on-ink border border-white/[0.12] shadow-sm hover:shadow-md hover:-translate-y-px focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-ink ${className}`}
+      className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm tracking-wide transition-all duration-200 bg-accent hover:bg-accent-hover text-text-on-ink shadow-sm hover:shadow-md hover:-translate-y-px focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-cream ${className}`}
     >
       {children}
       <svg

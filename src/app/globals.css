@@ -6,7 +6,7 @@
   --color-ink2: #232a2f;
   --color-cream: #f5ecdc;
   --color-surface: #fbf4e8;
-  --color-surface2: #f7efdf;
+  --color-surface2: #f9f2e4;
 
   /* ── Accent (Teal) ── */
   --color-accent: #2d6f73;
@@ -36,6 +36,45 @@ body {
   font-family: var(--font-body);
   background-color: var(--color-cream);
   color: var(--color-text);
+  line-height: 1.7;
+}
+
+/* ── Polish: card hovers, link underlines, button disabled ── */
+
+/* Card lift on hover */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* Subtle link underline animation */
+.link-underline {
+  position: relative;
+  text-decoration: none;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.2s ease;
+}
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* Button disabled state */
+button:disabled,
+.btn-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 /* Skip to content link */

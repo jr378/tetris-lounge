@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 70" fill="none">
+  <!-- Fenders Alley diamond logo (simplified recreation of their branding) -->
+  <g transform="translate(35,35)">
+    <!-- Outer diamond -->
+    <polygon points="0,-30 30,0 0,30 -30,0" stroke="#1B3A6B" stroke-width="2.5" fill="none"/>
+    <!-- Inner diamond -->
+    <polygon points="0,-24 24,0 0,24 -24,0" stroke="#1B3A6B" stroke-width="1.5" fill="none"/>
+    <!-- Text inside diamond -->
+    <text x="0" y="-4" text-anchor="middle" font-family="'Arial Black', sans-serif" font-weight="900" font-size="10" fill="#1B3A6B">FENDERS</text>
+    <text x="0" y="9" text-anchor="middle" font-family="'Arial Black', sans-serif" font-weight="900" font-size="10" fill="#1B3A6B">ALLEY</text>
+  </g>
+  <!-- Location -->
+  <text x="75" y="30" font-family="sans-serif" font-weight="600" font-size="10" fill="#1B3A6B">Cornelia, GA</text>
+</svg>

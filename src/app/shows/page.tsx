@@ -8,7 +8,7 @@ import { shows } from "@/content";
 export const metadata: Metadata = {
   title: shows.meta.title,
   description: shows.meta.description,
-  robots: { index: false, follow: false },
+  alternates: { canonical: "/shows" },
 };
 
 interface Show {

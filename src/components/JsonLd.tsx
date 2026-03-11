@@ -15,6 +15,10 @@ export function JsonLd() {
     genre: band.genres,
     email: band.email,
     image: "https://tetrislounge.com/images/tetris-lounge/Tetris Lounge Logo.webp",
+    location: {
+      "@type": "Place",
+      name: "Atlanta, GA",
+    },
     ...(sameAs.length > 0 && { sameAs }),
     member: band.members.map((m) => ({
       "@type": "Person",

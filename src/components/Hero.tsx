@@ -12,6 +12,8 @@ interface HeroProps {
   logoAlt?: string;
   imageSrc?: string;
   imageAlt?: string;
+  /** Render a smaller image (e.g. for the home hero) */
+  imageSmall?: boolean;
 }
 
 export function Hero({
@@ -25,6 +27,7 @@ export function Hero({
   logoAlt,
   imageSrc,
   imageAlt,
+  imageSmall,
 }: HeroProps) {
   const isHome = variant === "home";
 
@@ -88,15 +91,15 @@ export function Hero({
         {imageSrc && (
           <div className={`rounded-2xl overflow-hidden border border-border shadow-sm ${
             !isHome ? "mt-8 max-w-3xl" : ""
-          }`}>
+          } ${imageSmall ? "max-w-sm lg:max-w-md" : ""}`}>
             <Image
               src={imageSrc}
               alt={imageAlt || "Band photo"}
-              width={720}
-              height={480}
+              width={imageSmall ? 420 : 720}
+              height={imageSmall ? 280 : 480}
               className="w-full h-auto object-cover"
               priority
-              sizes={isHome ? "(max-width: 1024px) 100vw, 50vw" : "(max-width: 768px) 100vw, 768px"}
+              sizes={imageSmall ? "(max-width: 1024px) 320px, 420px" : isHome ? "(max-width: 1024px) 100vw, 50vw" : "(max-width: 768px) 100vw, 768px"}
             />
           </div>
         )}

@@ -1,11 +1,17 @@
+import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { ActCard } from "@/components/ActCard";
 import { CTAButton } from "@/components/CTAButton";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { VenueLogos } from "@/components/VenueLogos";
 import { home } from "@/content";
 import testimonials from "@/data/testimonials";
+import setlists from "@/data/setlists";
 
 export default function Home() {
+  const nowhereSetlist = setlists.find((s) => s.act === "nowhere-men");
+  const tetrisSetlist = setlists.find((s) => s.act === "tetris-lounge");
+
   return (
     <>
       {/* Hero with band photo */}
@@ -18,6 +24,7 @@ export default function Home() {
         ctaHref="/contact"
         imageSrc="/images/nowhere-men/nowhere-men-band-2025.jpg"
         imageAlt="The band standing together in front of a brick wall"
+        imageSmall
       />
 
       {/* ── Two Acts ── */}
@@ -55,8 +62,18 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Played At ── */}
+      <section className="bg-surface2 py-12 sm:py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <p className="text-accent font-[family-name:var(--font-display)] text-xs uppercase tracking-[0.25em] mb-6 text-center">
+            Played At
+          </p>
+          <VenueLogos />
+        </div>
+      </section>
+
       {/* ── What We Play — Program Notes ── */}
-      <section className="bg-surface2 py-16 sm:py-24">
+      <section className="bg-cream py-16 sm:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
             <p className="text-accent font-[family-name:var(--font-display)] text-xs uppercase tracking-[0.25em] mb-3">
@@ -98,6 +115,68 @@ export default function Home() {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Sample Setlists teaser ── */}
+      <section className="bg-surface2 py-16 sm:py-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-10">
+            <p className="text-accent font-[family-name:var(--font-display)] text-xs uppercase tracking-[0.25em] mb-3">
+              From the Stage
+            </p>
+            <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold text-text">
+              Sample Setlists
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {/* Tetris Lounge card */}
+            {tetrisSetlist && (
+              <Link
+                href="/tetris-lounge#sample-setlists"
+                className="block rounded-xl border border-border bg-surface p-6 card-hover"
+              >
+                <p className="text-accent font-[family-name:var(--font-display)] text-xs uppercase tracking-[0.2em] mb-1">
+                  Classic Rock Covers
+                </p>
+                <h3 className="font-[family-name:var(--font-display)] text-xl font-bold text-text mb-2">
+                  Tetris Lounge
+                </h3>
+                <p className="text-muted text-sm mb-3">
+                  {tetrisSetlist.venue} · {tetrisSetlist.location}
+                </p>
+                <p className="text-muted text-xs">
+                  {tetrisSetlist.songs.slice(0, 5).join(" · ")} …
+                </p>
+                <span className="inline-block mt-3 text-sm text-accent font-medium">
+                  View setlists →
+                </span>
+              </Link>
+            )}
+            {/* Nowhere Men card */}
+            {nowhereSetlist && (
+              <Link
+                href="/nowhere-men#sample-setlists"
+                className="block rounded-xl border border-border bg-surface p-6 card-hover"
+              >
+                <p className="text-accent font-[family-name:var(--font-display)] text-xs uppercase tracking-[0.2em] mb-1">
+                  Beatles Tribute
+                </p>
+                <h3 className="font-[family-name:var(--font-display)] text-xl font-bold text-text mb-2">
+                  Nowhere Men
+                </h3>
+                <p className="text-muted text-sm mb-3">
+                  {nowhereSetlist.venue} · {nowhereSetlist.location}
+                </p>
+                <p className="text-muted text-xs">
+                  {nowhereSetlist.songs.slice(0, 5).join(" · ")} …
+                </p>
+                <span className="inline-block mt-3 text-sm text-accent font-medium">
+                  View setlist →
+                </span>
+              </Link>
+            )}
           </div>
         </div>
       </section>

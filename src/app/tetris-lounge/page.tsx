@@ -36,6 +36,8 @@ export default function TetrisLoungePage() {
         ctaHref="/contact"
         logoSrc="/images/tetris-lounge/Tetris Lounge Logo.webp"
         logoAlt="Tetris Lounge logo"
+        imageSrc="/images/tetris-lounge/Band in Steely Dan jackets.png"
+        imageAlt="Tetris Lounge band photo"
       />
 
       {/* Positioning */}

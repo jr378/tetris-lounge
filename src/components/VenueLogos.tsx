@@ -34,7 +34,7 @@ export function VenueLogos() {
             href={v.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+            className="flex items-center h-12 sm:h-14 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
             title={v.name}
           >
             <Image
@@ -42,7 +42,7 @@ export function VenueLogos() {
               alt={v.name}
               width={v.width}
               height={v.height}
-              className="h-10 sm:h-12 w-auto"
+              className="h-full w-auto object-contain"
             />
           </a>
         ))}

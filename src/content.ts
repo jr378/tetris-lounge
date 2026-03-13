@@ -171,7 +171,7 @@ export const tetrisLounge = {
   },
 
   setlist: {
-    heading: "The Setlist",
+    heading: "Our Songs",
     // Note: the song count is auto-inserted from the data file
     description: "songs and counting. Search by title or artist.",
   },
@@ -279,7 +279,7 @@ export const nowhereMen = {
   },
 
   setlist: {
-    heading: "The Setlist",
+    heading: "Our Songs",
     // Note: the song count is auto-inserted from the data file
     description: "songs from across the Beatles catalog. Search by title.",
   },

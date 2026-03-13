@@ -1,0 +1,494 @@
+TETRIS LOUNGE / NOWHERE MEN — COMPLETE WEBSITE TEXT
+====================================================
+Document for review and feedback. All user-facing text on the website is listed below, organized by page and section.
+
+
+════════════════════════════════════════════════════
+NAVIGATION BAR
+════════════════════════════════════════════════════
+
+MENU LINKS:
+  • Home
+  • Tetris Lounge
+  • Nowhere Men
+  • Shows
+  • Media
+
+CTA BUTTON (top right):
+  Book Us
+
+
+════════════════════════════════════════════════════
+HOME PAGE
+════════════════════════════════════════════════════
+
+--- Hero Section ---
+
+SUBTITLE: Two Acts, One Band
+TITLE: Tetris Lounge / Nowhere Men
+DESCRIPTION: From timeless rock with Tetris Lounge to epic Beatles anthems with the Nowhere Men, we bring two distinct live experiences to your stage.
+BUTTON: Check Availability
+[Hero image: Band photo — black & white, casual clothes, brick wall]
+
+────────────────────────────────────────
+
+--- Two Shows. One Band. ---
+
+HEADING: Two Shows. One Band.
+DESCRIPTION: Whether you want a night of soulful classic rock or an immersive Beatles experience, we can deliver both.
+
+  Tetris Lounge Card:
+    TAGLINE: Classic Rock Covers
+    DESCRIPTION: The best of the 60s, 70s, and 80s. From Steely Dan to Led Zeppelin, Talking Heads to Prince, Tetris Lounge offers a deep setlist that keeps the crowd moving.
+    LINK TEXT: Explore
+
+  Nowhere Men Card:
+    TAGLINE: Beatles Tribute
+    DESCRIPTION: High-fidelity Beatles covers performed with precision, including later-era songs the Beatles themselves never performed live.
+    LINK TEXT: Explore
+
+────────────────────────────────────────
+
+--- Played At ---
+
+SECTION LABEL: Played At
+[Displays venue logos: Halfway Crooks Beer, Inman Park Festival, Fenders Alley]
+DISCLAIMER: Logos are trademarks of their respective owners.
+
+────────────────────────────────────────
+
+--- What We Play (Program Notes) ---
+
+SECTION LABEL: Program Notes
+HEADING: What We Play
+DESCRIPTION: Over 100 songs across both acts, carefully arranged and rehearsed.
+
+  Tetris Lounge:
+    HEADING: Tetris Lounge
+    DESCRIPTION: Rock, soul, funk, new wave, and more. Artists include Neil Young, Steely Dan, Talking Heads, Prince, The Doors, Sly & The Family Stone, Led Zeppelin, and more.
+
+  Nowhere Men:
+    HEADING: Nowhere Men
+    DESCRIPTION: The full Beatles catalog, from early hits like I Want To Hold Your Hand to psychedelic Sgt. Pepper's and Abbey Road deep cuts.
+
+────────────────────────────────────────
+
+--- Sample Setlists ---
+
+SECTION LABEL: From the Stage
+HEADING: Sample Setlists
+
+  Tetris Lounge Card:
+    TAGLINE: Classic Rock Covers
+    TITLE: Tetris Lounge
+    LINK TEXT: View setlists →
+
+  Nowhere Men Card:
+    TAGLINE: Beatles Tribute
+    TITLE: Nowhere Men
+    LINK TEXT: View setlist →
+
+────────────────────────────────────────
+
+--- What People Are Saying (Testimonials) ---
+
+HEADING: What People Are Saying
+
+  "Our entire venue was sold out for this show with standing room only. The Nowhere Men had our audience completely engaged from their first song until the encore."
+  — Robert Fortin, Talent Buyer, Fenders Alley, Cornelia, GA (May 16, 2023)
+
+  "These guys studied the intricate details of The Beatles recordings, and they did an amazing job delivering a true Beatles fan experience."
+  — Robert Fortin, Talent Buyer, Fenders Alley, Cornelia, GA
+
+  "An extremely professional, highly entertaining performance. I received numerous positive comments from our customers on how much they enjoyed the show."
+  — Robert Fortin, Talent Buyer, Fenders Alley, Cornelia, GA
+
+────────────────────────────────────────
+
+--- On Stage ---
+
+SECTION LABEL: On Stage
+HEADING: On Stage
+DESCRIPTION: See the band in action.
+BUTTON: Videos
+
+────────────────────────────────────────
+
+--- Final CTA ---
+
+HEADING: Ready to Book?
+DESCRIPTION: Whether it's a private event, festival, or venue night, we'll bring the right show to your stage.
+BUTTON: Check Availability
+
+
+════════════════════════════════════════════════════
+TETRIS LOUNGE PAGE
+════════════════════════════════════════════════════
+
+CROSS-LINK BANNER: Looking for the other show?
+
+--- Hero Section ---
+
+SUBTITLE: Classic Rock Covers
+TITLE: Tetris Lounge
+DESCRIPTION: The 60s, 70s, and 80s — performed live with energy and respect for the originals. Rock, soul, funk, new wave, and everything in between.
+BUTTON: Book Tetris Lounge
+[Hero image: Band in Steely Dan jackets — sport coats, black & white, brick wall]
+
+────────────────────────────────────────
+
+--- Classic Rock, Performed Live ---
+
+HEADING: Classic Rock, Performed Live
+
+PARAGRAPH 1: From Steely Dan to Led Zeppelin, Talking Heads to Prince — Tetris Lounge delivers a curated setlist that spans the best of the 60s, 70s, and 80s. Every song is arranged with energy and respect for the originals.
+
+PARAGRAPH 2: Whether it's a laid-back evening or a high-energy party, the band brings rock, soul, funk, new wave, and everything in between — tailored to your event and your crowd.
+
+FEATURE BULLETS:
+  • Deep, curated setlist
+  • Rock, soul, funk & new wave
+  • Songs from the 60s, 70s & 80s
+  • High-energy live performances
+  • Tailored sets for any event
+  • Tight, versatile musicianship
+
+────────────────────────────────────────
+
+--- Sample Setlists ---
+
+HEADING: Sample Setlists
+[Displays sample setlist cards from data]
+
+────────────────────────────────────────
+
+--- Our Songs ---
+
+HEADING: Our Songs
+DESCRIPTION: [count] songs and counting. Search by title or artist.
+SEARCH PLACEHOLDER: Search songs or artists…
+SORT BUTTONS: A–Z Title | By Artist
+EMPTY STATE: No songs found. Try a different search.
+BUTTON: Download PDF
+
+────────────────────────────────────────
+
+--- Photos ---
+
+HEADING: Photos
+[Gallery of band performance photos]
+
+────────────────────────────────────────
+
+--- Book Tetris Lounge (CTA) ---
+
+HEADING: Book Tetris Lounge
+DESCRIPTION: Bring the classics to your next event. Get in touch and let's find the right setlist for your party.
+BUTTON: Check Availability
+
+
+════════════════════════════════════════════════════
+NOWHERE MEN PAGE
+════════════════════════════════════════════════════
+
+CROSS-LINK BANNER: Looking for the other show?
+
+--- Hero Section ---
+
+SUBTITLE: High-Fidelity Beatles Tribute
+TITLE: Nowhere Men
+DESCRIPTION: Faithful, carefully arranged covers of the Beatles catalog — from the early hits through the studio masterpieces. Including later-era songs the Beatles themselves never performed live.
+BUTTON: Book Nowhere Men
+[Hero image: Band in colorful Sgt. Pepper-style jackets, brick wall]
+
+────────────────────────────────────────
+
+--- The Beatles, Performed Live ---
+
+HEADING: The Beatles, Performed Live
+
+PARAGRAPH 1: The Beatles stopped touring in 1966 — which means some of their greatest music was never performed on stage. The Nowhere Men bring those songs to life alongside the beloved early hits, delivering the full breadth of the catalog in a single show.
+
+PARAGRAPH 2: From "Love Me Do" to "A Day In The Life", from the energy of "Back In The U.S.S.R." to the beauty of "Here Comes The Sun" — every song is performed with care, tight harmonies, and attention to the arrangements that made them timeless.
+
+FEATURE BULLETS:
+  • High-fidelity arrangements
+  • Full-catalog coverage
+  • Later-era songs performed live
+  • Abbey Road B-side medley
+  • Tight vocal harmonies
+  • Perfect for themed events
+
+────────────────────────────────────────
+
+--- What People Are Saying (Testimonials) ---
+
+HEADING: What People Are Saying
+[Same testimonials as home page, filtered to Nowhere Men]
+
+────────────────────────────────────────
+
+--- Sample Setlists ---
+
+HEADING: Sample Setlists
+[Displays sample setlist cards from data]
+
+────────────────────────────────────────
+
+--- Our Songs ---
+
+HEADING: Our Songs
+DESCRIPTION: [count] songs from across the Beatles catalog. Search by title.
+SEARCH PLACEHOLDER: Search songs or artists…
+BUTTON: Download PDF
+
+────────────────────────────────────────
+
+--- Gallery ---
+
+HEADING: Gallery
+[Grid of band performance photos]
+
+────────────────────────────────────────
+
+--- Book Nowhere Men (CTA) ---
+
+HEADING: Book Nowhere Men
+DESCRIPTION: Bring the Beatles experience to your next event. Get in touch and let's make it happen.
+BUTTON: Check Availability
+
+
+════════════════════════════════════════════════════
+SHOWS PAGE
+════════════════════════════════════════════════════
+
+--- Hero Section ---
+
+SUBTITLE: Live Dates
+TITLE: Shows
+DESCRIPTION: Catch us live. Public shows are listed below — for private events, get in touch.
+
+────────────────────────────────────────
+
+--- Empty State (when no shows listed) ---
+
+HEADING: No Public Dates Posted
+DESCRIPTION: We're always playing — just not always publicly listed. Contact us for availability.
+BUTTON: Check Availability
+
+
+════════════════════════════════════════════════════
+MEDIA PAGE
+════════════════════════════════════════════════════
+
+--- Hero Section ---
+
+SUBTITLE: Video
+TITLE: Media
+DESCRIPTION: See the band in action.
+
+────────────────────────────────────────
+
+--- Tetris Lounge Videos ---
+
+HEADING: Tetris Lounge Videos
+DESCRIPTION: Performance clips and highlights.
+VIDEO TITLES:
+  • Take Me To The River
+  • One Of These Nights
+
+────────────────────────────────────────
+
+--- Nowhere Men Videos ---
+
+HEADING: Nowhere Men Videos
+DESCRIPTION: Beatles tribute performances.
+VIDEO TITLES:
+  • Golden Slumbers
+  • While My Guitar Gently Weeps
+  • Got To Get You Into My Life
+  • Nowhere Man
+  • The End
+
+[Empty state text: "Videos coming soon"]
+
+
+════════════════════════════════════════════════════
+CONTACT / BOOKING PAGE
+════════════════════════════════════════════════════
+
+--- Hero Section ---
+
+SUBTITLE: Get in Touch
+TITLE: Book the Band
+DESCRIPTION: Interested in Tetris Lounge, Nowhere Men, or both? Fill out the form below and we'll get back to you.
+
+────────────────────────────────────────
+
+--- A Great Fit For ---
+
+HEADING: A great fit for:
+  • Private parties & celebrations
+  • Fundraisers & benefits
+  • Outdoor festivals & concerts
+  • Bars & restaurants
+  • Corporate events
+
+────────────────────────────────────────
+
+--- Booking Form ---
+
+FIELD          | LABEL                  | PLACEHOLDER / OPTIONS
+---------------|------------------------|----------------------------------------------
+Name           | Name                   | "Your name"
+Email          | Email                  | "your@email.com"
+Phone          | Phone                  | "(optional)"
+Event Type     | Event Type             | Select… / Venue / Private Party / Wedding / Corporate / Fundraiser / Other
+Event Date     | Event Date             | (date picker)
+Start Time     | Start Time             | (time picker)
+Set Length      | Expected Set Length     | Not sure / 60 min / 90 min / 2 hours
+Attendance     | Expected Attendance    | Select… / Under 50 / 50–100 / 100–250 / 250+
+Location       | Location               | "Venue or city"
+Which Act      | Which act?             | Either / Both / Tetris Lounge / Nowhere Men / Both acts
+Message        | Message                | "Tell us about your event — any details that will help us prepare."
+
+HELP TEXT: Tell us a little about your event — we'll follow up with availability and next steps.
+SUBMIT BUTTON: Send Inquiry
+SENDING STATE: Sending…
+PRIVACY NOTE: Your information is used only to respond to your inquiry.
+
+────────────────────────────────────────
+
+--- Form Success State ---
+
+HEADING: Inquiry Received
+MESSAGE: Thanks for reaching out. We'll be in touch.
+LINK: Send another inquiry
+
+--- Form Fallback State (email client) ---
+
+HEADING: Opening Your Email Client
+MESSAGE: Your email app should have opened with the inquiry details pre-filled. If it didn't, you can email us directly at thenowheremenatl@gmail.com
+LINK: Try the form again
+
+--- Form Error State ---
+
+MESSAGE: Something went wrong. Please try again, or email us directly at thenowheremenatl@gmail.com
+
+
+════════════════════════════════════════════════════
+ELECTRONIC PRESS KIT (EPK) PAGE
+════════════════════════════════════════════════════
+
+--- Hero Section ---
+
+SUBTITLE: Press Kit
+TITLE: Electronic Press Kit
+DESCRIPTION: Two acts. One band.
+
+────────────────────────────────────────
+
+--- Tetris Lounge Section ---
+
+TAGLINE: Classic Rock Covers
+DESCRIPTION: Tetris Lounge delivers a deep, curated setlist spanning the best of the 60s, 70s, and 80s — from Steely Dan and Led Zeppelin to Talking Heads and Prince. Every set is tailored to the event.
+GREAT FOR:
+  • Venue nights & bar gigs
+  • Outdoor festivals
+  • Private parties & celebrations
+  • Corporate events
+
+────────────────────────────────────────
+
+--- Nowhere Men Section ---
+
+TAGLINE: High-Fidelity Beatles Tribute
+DESCRIPTION: Nowhere Men performs faithful, carefully arranged Beatles covers spanning the full catalog — including later-era songs the Beatles themselves never performed live. Tight harmonies, studio-quality arrangements.
+GREAT FOR:
+  • Themed events & tribute nights
+  • Fundraisers & benefits
+  • Weddings & receptions
+  • Concert series
+
+────────────────────────────────────────
+
+--- Book the Band (CTA) ---
+
+HEADING: Book the Band
+DESCRIPTION: Interested in bringing Tetris Lounge, Nowhere Men, or both to your next event? Get in touch.
+BUTTON: Check Availability
+
+
+════════════════════════════════════════════════════
+FOOTER (all pages)
+════════════════════════════════════════════════════
+
+DESCRIPTION: Two acts, one band. Classic rock covers and a high-fidelity Beatles tribute.
+
+--- The Band ---
+
+HEADING: The Band
+  John Boyden — Drums
+  Dave Deckebach — Keyboard
+  Jim Emshoff — Keyboard
+  Kelly Ferguson — Guitar & Saxophone
+  David Kinard — Bass
+  Jack Reed — Guitar
+
+--- Quick Links ---
+
+HEADING: Quick Links
+  • Book Us
+  • Press Kit
+  • Video
+
+--- Follow Us ---
+
+HEADING: Follow Us
+  • Tetris Lounge on Facebook
+  • Nowhere Men on Facebook
+
+COPYRIGHT: © 2026 Tetris Lounge / Nowhere Men. All rights reserved.
+
+
+════════════════════════════════════════════════════
+404 PAGE
+════════════════════════════════════════════════════
+
+HEADING: Page Not Found
+DESCRIPTION: Looks like this page took an unexpected solo. Let's get you back to the main stage.
+BUTTON: Back to Home
+
+
+════════════════════════════════════════════════════
+SEO / META DESCRIPTIONS (not visible on pages)
+════════════════════════════════════════════════════
+
+SITE TITLE: Tetris Lounge / Nowhere Men | Atlanta Cover Band + Beatles Tribute
+SITE DESCRIPTION: Tetris Lounge delivers classic rock covers from the 60s, 70s, and 80s. Nowhere Men is a high-fidelity Beatles tribute featuring songs the Beatles never played live. Two acts, one incredible band based in Atlanta, GA.
+
+────────────────────────────────────────
+
+Tetris Lounge Page Meta:
+  TITLE: Tetris Lounge | Classic Rock Covers (60s–80s)
+  DESCRIPTION: Tetris Lounge plays classic rock covers spanning the 60s, 70s, and 80s — from Steely Dan and Led Zeppelin to Talking Heads and Prince. Browse our full setlist and book us for your next event.
+
+Nowhere Men Page Meta:
+  TITLE: Nowhere Men | Beatles Tribute
+  DESCRIPTION: Nowhere Men is a high-fidelity Beatles tribute act performing faithful covers of the full Beatles catalog — including later-era songs the Beatles themselves never performed live. Browse our setlist and book the experience.
+
+Shows Page Meta:
+  TITLE: Shows
+  DESCRIPTION: See upcoming shows and public dates for Tetris Lounge and Nowhere Men. Contact us to book the band for your next event.
+
+Media Page Meta:
+  TITLE: Media
+  DESCRIPTION: Videos of Tetris Lounge and Nowhere Men. See the band in action and get a feel for the live experience.
+
+Contact Page Meta:
+  TITLE: Contact & Booking
+  DESCRIPTION: Book Tetris Lounge or Nowhere Men for your next event. Fill out our booking form and we'll be in touch.
+
+EPK Page Meta:
+  TITLE: Electronic Press Kit
+  DESCRIPTION: Press kit for Tetris Lounge and Nowhere Men. Two acts, one band — classic rock covers and a high-fidelity Beatles tribute available for booking.

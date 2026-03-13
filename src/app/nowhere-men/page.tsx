@@ -38,6 +38,8 @@ export default function NowhereManPage() {
         ctaHref="/contact"
         logoSrc="/images/nowhere-men/NoWhere Men Logo.jpg"
         logoAlt="The Nowhere Men logo"
+        imageSrc="/images/nowhere-men/Band in Beatles Jackets.png"
+        imageAlt="Nowhere Men band in Beatles jackets"
       />
 
       {/* Positioning */}

@@ -2,18 +2,18 @@ import Image from "next/image";
 
 const venues = [
   {
-    name: "Inman Park Festival",
-    logo: "/logos/inman-park-festival.svg",
-    url: "https://inmanparkfestival.org",
-    width: 180,
-    height: 50,
-  },
-  {
     name: "Halfway Crooks Beer",
     logo: "/logos/halfway-crooks.svg",
     url: "https://halfwaycrooks.com",
     width: 180,
     height: 50,
+  },
+  {
+    name: "Inman Park Festival",
+    logo: "/logos/inman-park-festival.png",
+    url: "https://inmanparkfestival.org",
+    width: 180,
+    height: 100,
   },
   {
     name: "Fenders Alley",

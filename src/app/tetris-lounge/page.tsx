@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: tetrisLounge.meta.ogTitle,
     description: tetrisLounge.meta.ogDescription,
+    images: [{ url: "/images/tetris-lounge/band-steely-dan-jackets.webp", width: 720, height: 480, alt: "Tetris Lounge band" }],
   },
 };
 
@@ -36,8 +37,8 @@ export default function TetrisLoungePage() {
         ctaHref="/contact"
         logoSrc="/images/tetris-lounge/Tetris Lounge Logo.webp"
         logoAlt="Tetris Lounge logo"
-        imageSrc="/images/tetris-lounge/Band in Steely Dan jackets.png"
-        imageAlt="Tetris Lounge band photo"
+        imageSrc="/images/tetris-lounge/band-steely-dan-jackets.webp"
+        imageAlt="The six members of Tetris Lounge in sport coats against a brick wall"
       />
 
       {/* Positioning */}

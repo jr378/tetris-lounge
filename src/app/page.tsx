@@ -24,7 +24,6 @@ export default function Home() {
         ctaHref="/contact"
         imageSrc="/images/nowhere-men/nowhere-men-band-2025.jpg"
         imageAlt="The band standing together in front of a brick wall"
-        imageSmall
       />
 
       {/* ── Two Acts ── */}

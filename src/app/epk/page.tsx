@@ -18,6 +18,10 @@ export const metadata: Metadata = {
   title: epk.meta.title,
   description: epk.meta.description,
   alternates: { canonical: "/epk" },
+  openGraph: {
+    title: epk.meta.ogTitle,
+    description: epk.meta.ogDescription,
+  },
 };
 
 const SAMPLE_COUNT = 15;

@@ -20,6 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: nowhereMen.meta.ogTitle,
     description: nowhereMen.meta.ogDescription,
+    images: [{ url: "/images/nowhere-men/band-beatles-jackets.webp", width: 720, height: 480, alt: "Nowhere Men band" }],
   },
 };
 
@@ -38,8 +39,8 @@ export default function NowhereManPage() {
         ctaHref="/contact"
         logoSrc="/images/nowhere-men/NoWhere Men Logo.jpg"
         logoAlt="The Nowhere Men logo"
-        imageSrc="/images/nowhere-men/Band in Beatles Jackets.png"
-        imageAlt="Nowhere Men band in Beatles jackets"
+        imageSrc="/images/nowhere-men/band-beatles-jackets.webp"
+        imageAlt="The six members of Nowhere Men in colorful Sgt. Pepper-style jackets"
       />
 
       {/* Positioning */}

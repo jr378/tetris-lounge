@@ -403,6 +403,9 @@ export const epk = {
     title: "Electronic Press Kit",
     description:
       "Press kit for Tetris Lounge and Nowhere Men. Two acts, one band — classic rock covers and a high-fidelity Beatles tribute available for booking.",
+    ogTitle: "Electronic Press Kit — Tetris Lounge / Nowhere Men",
+    ogDescription:
+      "Classic rock covers and a high-fidelity Beatles tribute. Two acts, one band available for booking.",
   },
 
   hero: {

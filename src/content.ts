@@ -50,6 +50,7 @@ export const nav = {
     { href: "/nowhere-men", label: "Nowhere Men" },
     { href: "/shows", label: "Shows" },
     { href: "/media", label: "Media" },
+    { href: "/dashboard", label: "Reading" },
   ],
 };
 

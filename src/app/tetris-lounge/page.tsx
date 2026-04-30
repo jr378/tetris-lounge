@@ -9,6 +9,7 @@ import songs from "@/data/songlists.tetris.json";
 import setlists from "@/data/setlists";
 import { ActCrossLink } from "@/components/ActCrossLink";
 import { DownloadPdfButton } from "@/components/DownloadPdfButton";
+import { RichText } from "@/components/RichText";
 import { tetrisLounge } from "@/content";
 
 export const metadata: Metadata = {
@@ -49,7 +50,9 @@ export default function TetrisLoungePage() {
           </h2>
           <div className="space-y-4 text-muted leading-relaxed">
             {tetrisLounge.positioning.paragraphs.map((p, i) => (
-              <p key={i} dangerouslySetInnerHTML={{ __html: p }} />
+              <p key={i}>
+                <RichText text={p} />
+              </p>
             ))}
           </div>
         </div>

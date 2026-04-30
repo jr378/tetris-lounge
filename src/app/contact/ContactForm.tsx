@@ -15,6 +15,7 @@ interface FormState {
   location: string;
   act: string;
   message: string;
+  website: string; // honeypot — must remain empty
 }
 
 const initialState: FormState = {
@@ -29,7 +30,10 @@ const initialState: FormState = {
   location: "",
   act: "",
   message: "",
+  website: "",
 };
+
+const MESSAGE_MAX = 5000;
 
 export function ContactForm() {
   const [form, setForm] = useState<FormState>(initialState);
@@ -37,6 +41,7 @@ export function ContactForm() {
     "idle" | "sending" | "sent" | "error" | "mailto"
   >("idle");
   const resultRef = useRef<HTMLDivElement>(null);
+  const formStartedAt = useRef<number>(Date.now());
 
   useEffect(() => {
     if (status === "sent" || status === "mailto") {
@@ -84,7 +89,7 @@ export function ContactForm() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, formStartedAt: formStartedAt.current }),
       });
 
       if (res.ok) {
@@ -380,17 +385,52 @@ export function ContactForm() {
         </div>
       </div>
 
+      {/* Honeypot — hidden from real users, bots fill it in */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          left: "-9999px",
+          width: 1,
+          height: 1,
+          overflow: "hidden",
+        }}
+      >
+        <label htmlFor="website">Website (leave blank)</label>
+        <input
+          type="text"
+          id="website"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+          value={form.website}
+          onChange={handleChange}
+        />
+      </div>
+
       {/* Message (required) */}
       <div>
-        <label htmlFor="message" className={labelClasses}>
-          Message <span className="text-accent">*</span>
-        </label>
+        <div className="flex items-baseline justify-between mb-1.5">
+          <label htmlFor="message" className={labelClasses + " mb-0"}>
+            Message <span className="text-accent">*</span>
+          </label>
+          <span
+            className={`text-xs tabular-nums ${
+              form.message.length > MESSAGE_MAX * 0.9
+                ? "text-accent"
+                : "text-muted/60"
+            }`}
+            aria-live="polite"
+          >
+            {form.message.length.toLocaleString()} / {MESSAGE_MAX.toLocaleString()}
+          </span>
+        </div>
         <textarea
           id="message"
           name="message"
           required
           rows={4}
-          maxLength={5000}
+          maxLength={MESSAGE_MAX}
           value={form.message}
           onChange={handleChange}
           className={inputClasses}

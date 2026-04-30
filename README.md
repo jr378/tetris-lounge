@@ -116,15 +116,34 @@ To add YouTube or Vimeo videos to the Media page:
 </div>
 ```
 
+## Environment Variables
+
+Copy `.env.example` to `.env.local` and fill in the values you need:
+
+```bash
+cp .env.example .env.local
+```
+
+| Variable            | Required | Description                                                      |
+| ------------------- | -------- | ---------------------------------------------------------------- |
+| `RESEND_API_KEY`    | for live email | Resend API key. If unset, the form falls back to `mailto:`. |
+| `RESEND_FROM_EMAIL` | recommended | Verified sender, e.g. `Tetris Lounge <noreply@yourdomain.com>`. |
+| `CONTACT_TO_EMAIL`  | optional | Inbox that receives submissions. Defaults to `jackreed16@gmail.com`. |
+
 ## Contact Form
 
-The contact form submits to `/api/contact`, which currently logs submissions to the server console. To connect to an email service:
+The contact form submits to `/api/contact`, which delivers booking inquiries via [Resend](https://resend.com). If `RESEND_API_KEY` is not set, the form gracefully falls back to a `mailto:` link in the visitor's email client.
 
-1. Install your preferred email package (e.g., `resend`, `@sendgrid/mail`, `nodemailer`)
-2. Set your API keys as environment variables
-3. Update `/src/app/api/contact/route.ts` with your send logic
+### Spam protection
 
-If the API route is unavailable, the form falls back to a `mailto:` link.
+The route applies four layers of filtering before sending:
+
+1. **Honeypot field** — a hidden `website` input. If filled, the submission is silently dropped.
+2. **Time-to-fill** — submissions arriving within 3 seconds of page load are rejected.
+3. **URL-flood** — messages with more than 3 links are dropped.
+4. **Per-IP rate limit** — max 5 successful sends per 15-minute window.
+
+All spam paths return `200` so bots don't learn what tripped them.
 
 ## Deployment
 

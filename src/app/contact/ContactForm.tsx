@@ -15,7 +15,7 @@ interface FormState {
   location: string;
   act: string;
   message: string;
-  website: string; // honeypot — must remain empty
+  _gotcha: string; // Formspree honeypot — must remain empty
 }
 
 const initialState: FormState = {
@@ -30,10 +30,13 @@ const initialState: FormState = {
   location: "",
   act: "",
   message: "",
-  website: "",
+  _gotcha: "",
 };
 
 const MESSAGE_MAX = 5000;
+const MIN_FORM_FILL_MS = 3000;
+const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID || "mqenkkyv";
+const FORMSPREE_ENDPOINT = `https://formspree.io/f/${FORMSPREE_ID}`;
 
 export function ContactForm() {
   const [form, setForm] = useState<FormState>(initialState);
@@ -85,11 +88,39 @@ export function ContactForm() {
     e.preventDefault();
     setStatus("sending");
 
+    // Client-side timing gate: bots blast forms faster than humans can fill them.
+    // Silently fall back to mailto so any human who somehow trips this still has a path.
+    if (Date.now() - formStartedAt.current < MIN_FORM_FILL_MS) {
+      window.location.href = buildMailto();
+      setStatus("mailto");
+      return;
+    }
+
+    const payload = {
+      name: form.name,
+      email: form.email,
+      phone: form.phone,
+      eventType: form.eventType,
+      eventDate: form.eventDate,
+      startTime: form.startTime,
+      setLength: form.setLength,
+      attendance: form.attendance,
+      location: form.location,
+      act: form.act,
+      message: form.message,
+      _gotcha: form._gotcha,
+      _subject: `Booking Inquiry — ${form.act || band.name}`,
+      _replyto: form.email,
+    };
+
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, formStartedAt: formStartedAt.current }),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
       });
 
       if (res.ok) {
@@ -97,16 +128,9 @@ export function ContactForm() {
         return;
       }
 
-      // If email service isn't configured (503), fall back to mailto
-      if (res.status === 503) {
-        window.location.href = buildMailto();
-        setStatus("mailto");
-        return;
-      }
-
       setStatus("error");
     } catch {
-      // Network error — fall back to mailto
+      // Network error — fall back to mailto so the inquiry isn't lost.
       window.location.href = buildMailto();
       setStatus("mailto");
     }
@@ -142,6 +166,7 @@ export function ContactForm() {
           onClick={() => {
             setForm(initialState);
             setStatus("idle");
+            formStartedAt.current = Date.now();
           }}
           className="text-accent hover:text-accent-hover font-medium text-sm transition-colors"
         >
@@ -185,6 +210,7 @@ export function ContactForm() {
           onClick={() => {
             setForm(initialState);
             setStatus("idle");
+            formStartedAt.current = Date.now();
           }}
           className="text-accent hover:text-accent-hover font-medium text-sm transition-colors"
         >
@@ -385,7 +411,7 @@ export function ContactForm() {
         </div>
       </div>
 
-      {/* Honeypot — hidden from real users, bots fill it in */}
+      {/* Honeypot — Formspree silently drops submissions where _gotcha is filled */}
       <div
         aria-hidden="true"
         style={{
@@ -396,14 +422,14 @@ export function ContactForm() {
           overflow: "hidden",
         }}
       >
-        <label htmlFor="website">Website (leave blank)</label>
+        <label htmlFor="_gotcha">Website (leave blank)</label>
         <input
           type="text"
-          id="website"
-          name="website"
+          id="_gotcha"
+          name="_gotcha"
           tabIndex={-1}
           autoComplete="off"
-          value={form.website}
+          value={form._gotcha}
           onChange={handleChange}
         />
       </div>

@@ -118,32 +118,28 @@ To add YouTube or Vimeo videos to the Media page:
 
 ## Environment Variables
 
-Copy `.env.example` to `.env.local` and fill in the values you need:
+Copy `.env.example` to `.env.local` only if you need to override defaults:
 
 ```bash
 cp .env.example .env.local
 ```
 
-| Variable            | Required | Description                                                      |
-| ------------------- | -------- | ---------------------------------------------------------------- |
-| `RESEND_API_KEY`    | for live email | Resend API key. If unset, the form falls back to `mailto:`. |
-| `RESEND_FROM_EMAIL` | recommended | Verified sender, e.g. `Tetris Lounge <noreply@yourdomain.com>`. |
-| `CONTACT_TO_EMAIL`  | optional | Inbox that receives submissions. Defaults to `jackreed16@gmail.com`. |
+| Variable                   | Required | Description                                                      |
+| -------------------------- | -------- | ---------------------------------------------------------------- |
+| `NEXT_PUBLIC_FORMSPREE_ID` | optional | Formspree form ID. Defaults to the production form (`mqenkkyv`). Override for staging/forks. |
 
 ## Contact Form
 
-The contact form submits to `/api/contact`, which delivers booking inquiries via [Resend](https://resend.com). If `RESEND_API_KEY` is not set, the form gracefully falls back to a `mailto:` link in the visitor's email client.
+The contact form posts directly to [Formspree](https://formspree.io), which delivers booking inquiries to the configured inbox. No API keys or domain verification required — the form ID is the only configuration.
+
+To change the destination inbox, log in to Formspree and update the recipient on the form's settings page. To point at an entirely different form, set `NEXT_PUBLIC_FORMSPREE_ID`.
 
 ### Spam protection
 
-The route applies four layers of filtering before sending:
-
-1. **Honeypot field** — a hidden `website` input. If filled, the submission is silently dropped.
-2. **Time-to-fill** — submissions arriving within 3 seconds of page load are rejected.
-3. **URL-flood** — messages with more than 3 links are dropped.
-4. **Per-IP rate limit** — max 5 successful sends per 15-minute window.
-
-All spam paths return `200` so bots don't learn what tripped them.
+1. **Formspree's built-in filtering** — Akismet plus their own heuristics.
+2. **Honeypot field** — a hidden `_gotcha` input. Formspree silently drops submissions where it's filled.
+3. **Time-to-fill** — client-side gate: forms submitted within 3 seconds of page load fall back to `mailto:` (real users hit "send" later than that).
+4. **Network failure fallback** — if Formspree is unreachable, the form opens a pre-filled `mailto:` so the inquiry isn't lost.
 
 ## Deployment
 

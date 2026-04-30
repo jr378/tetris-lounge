@@ -156,3 +156,44 @@ button:disabled,
     radial-gradient(ellipse 60% 55% at 20% 25%, rgba(45, 111, 115, 0.04) 0%, transparent 55%),
     radial-gradient(ellipse 45% 45% at 80% 70%, rgba(45, 111, 115, 0.025) 0%, transparent 60%);
 }
+
+/* ── Print: optimize setlist and EPK printouts ── */
+@media print {
+  @page {
+    margin: 0.5in;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  /* Strip chrome that doesn't belong on paper. */
+  nav,
+  footer,
+  .no-print,
+  [data-print-hide] {
+    display: none !important;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Avoid awkward page breaks inside list items, headings, or cards. */
+  h1, h2, h3, h4,
+  li,
+  .avoid-break {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Disable decorative backgrounds and shadows for ink savings. */
+  .haze-teal::after,
+  .haze-teal-light::after,
+  .hero-grain::before {
+    display: none !important;
+  }
+}

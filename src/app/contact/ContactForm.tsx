@@ -15,6 +15,7 @@ interface FormState {
   location: string;
   act: string;
   message: string;
+  _gotcha: string; // Formspree honeypot — must remain empty
 }
 
 const initialState: FormState = {
@@ -29,7 +30,13 @@ const initialState: FormState = {
   location: "",
   act: "",
   message: "",
+  _gotcha: "",
 };
+
+const MESSAGE_MAX = 5000;
+const MIN_FORM_FILL_MS = 3000;
+const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID || "mqenkkyv";
+const FORMSPREE_ENDPOINT = `https://formspree.io/f/${FORMSPREE_ID}`;
 
 export function ContactForm() {
   const [form, setForm] = useState<FormState>(initialState);
@@ -37,6 +44,7 @@ export function ContactForm() {
     "idle" | "sending" | "sent" | "error" | "mailto"
   >("idle");
   const resultRef = useRef<HTMLDivElement>(null);
+  const formStartedAt = useRef<number>(Date.now());
 
   useEffect(() => {
     if (status === "sent" || status === "mailto") {
@@ -80,11 +88,39 @@ export function ContactForm() {
     e.preventDefault();
     setStatus("sending");
 
+    // Client-side timing gate: bots blast forms faster than humans can fill them.
+    // Silently fall back to mailto so any human who somehow trips this still has a path.
+    if (Date.now() - formStartedAt.current < MIN_FORM_FILL_MS) {
+      window.location.href = buildMailto();
+      setStatus("mailto");
+      return;
+    }
+
+    const payload = {
+      name: form.name,
+      email: form.email,
+      phone: form.phone,
+      eventType: form.eventType,
+      eventDate: form.eventDate,
+      startTime: form.startTime,
+      setLength: form.setLength,
+      attendance: form.attendance,
+      location: form.location,
+      act: form.act,
+      message: form.message,
+      _gotcha: form._gotcha,
+      _subject: `Booking Inquiry — ${form.act || band.name}`,
+      _replyto: form.email,
+    };
+
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
       });
 
       if (res.ok) {
@@ -92,16 +128,9 @@ export function ContactForm() {
         return;
       }
 
-      // If email service isn't configured (503), fall back to mailto
-      if (res.status === 503) {
-        window.location.href = buildMailto();
-        setStatus("mailto");
-        return;
-      }
-
       setStatus("error");
     } catch {
-      // Network error — fall back to mailto
+      // Network error — fall back to mailto so the inquiry isn't lost.
       window.location.href = buildMailto();
       setStatus("mailto");
     }
@@ -137,6 +166,7 @@ export function ContactForm() {
           onClick={() => {
             setForm(initialState);
             setStatus("idle");
+            formStartedAt.current = Date.now();
           }}
           className="text-accent hover:text-accent-hover font-medium text-sm transition-colors"
         >
@@ -180,6 +210,7 @@ export function ContactForm() {
           onClick={() => {
             setForm(initialState);
             setStatus("idle");
+            formStartedAt.current = Date.now();
           }}
           className="text-accent hover:text-accent-hover font-medium text-sm transition-colors"
         >
@@ -380,17 +411,52 @@ export function ContactForm() {
         </div>
       </div>
 
+      {/* Honeypot — Formspree silently drops submissions where _gotcha is filled */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          left: "-9999px",
+          width: 1,
+          height: 1,
+          overflow: "hidden",
+        }}
+      >
+        <label htmlFor="_gotcha">Website (leave blank)</label>
+        <input
+          type="text"
+          id="_gotcha"
+          name="_gotcha"
+          tabIndex={-1}
+          autoComplete="off"
+          value={form._gotcha}
+          onChange={handleChange}
+        />
+      </div>
+
       {/* Message (required) */}
       <div>
-        <label htmlFor="message" className={labelClasses}>
-          Message <span className="text-accent">*</span>
-        </label>
+        <div className="flex items-baseline justify-between mb-1.5">
+          <label htmlFor="message" className={labelClasses + " mb-0"}>
+            Message <span className="text-accent">*</span>
+          </label>
+          <span
+            className={`text-xs tabular-nums ${
+              form.message.length > MESSAGE_MAX * 0.9
+                ? "text-accent"
+                : "text-muted/60"
+            }`}
+            aria-live="polite"
+          >
+            {form.message.length.toLocaleString()} / {MESSAGE_MAX.toLocaleString()}
+          </span>
+        </div>
         <textarea
           id="message"
           name="message"
           required
           rows={4}
-          maxLength={5000}
+          maxLength={MESSAGE_MAX}
           value={form.message}
           onChange={handleChange}
           className={inputClasses}

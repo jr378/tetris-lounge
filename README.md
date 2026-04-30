@@ -116,15 +116,30 @@ To add YouTube or Vimeo videos to the Media page:
 </div>
 ```
 
+## Environment Variables
+
+Copy `.env.example` to `.env.local` only if you need to override defaults:
+
+```bash
+cp .env.example .env.local
+```
+
+| Variable                   | Required | Description                                                      |
+| -------------------------- | -------- | ---------------------------------------------------------------- |
+| `NEXT_PUBLIC_FORMSPREE_ID` | optional | Formspree form ID. Defaults to the production form (`mqenkkyv`). Override for staging/forks. |
+
 ## Contact Form
 
-The contact form submits to `/api/contact`, which currently logs submissions to the server console. To connect to an email service:
+The contact form posts directly to [Formspree](https://formspree.io), which delivers booking inquiries to the configured inbox. No API keys or domain verification required — the form ID is the only configuration.
 
-1. Install your preferred email package (e.g., `resend`, `@sendgrid/mail`, `nodemailer`)
-2. Set your API keys as environment variables
-3. Update `/src/app/api/contact/route.ts` with your send logic
+To change the destination inbox, log in to Formspree and update the recipient on the form's settings page. To point at an entirely different form, set `NEXT_PUBLIC_FORMSPREE_ID`.
 
-If the API route is unavailable, the form falls back to a `mailto:` link.
+### Spam protection
+
+1. **Formspree's built-in filtering** — Akismet plus their own heuristics.
+2. **Honeypot field** — a hidden `_gotcha` input. Formspree silently drops submissions where it's filled.
+3. **Time-to-fill** — client-side gate: forms submitted within 3 seconds of page load fall back to `mailto:` (real users hit "send" later than that).
+4. **Network failure fallback** — if Formspree is unreachable, the form opens a pre-filled `mailto:` so the inquiry isn't lost.
 
 ## Deployment
 

@@ -1,54 +1,55 @@
 import Image from "next/image";
 
-const venues = [
+const posters = [
   {
-    name: "Halfway Crooks Beer",
-    logo: "/logos/halfway-crooks.svg",
-    url: "https://halfwaycrooks.com",
-    width: 180,
-    height: 50,
-  },
-  {
-    name: "Inman Park Festival",
-    logo: "/logos/inman-park-festival.png",
+    name: "Nowhere Men at Inman Park Festival",
+    image: "/images/Nowhere Men at IPF poster.png",
     url: "https://inmanparkfestival.org",
-    width: 180,
-    height: 100,
+    width: 1054,
+    height: 1492,
   },
   {
-    name: "Fenders Alley",
-    logo: "/logos/fenders-alley.svg",
+    name: "Tetris Lounge at Halfway Crooks Beer",
+    image: "/images/Halfway Crooks poster.png",
+    url: "https://halfwaycrooks.com",
+    width: 1053,
+    height: 1494,
+  },
+  {
+    name: "Tetris Lounge at Fenders Alley",
+    image: "/images/Fenders Poster.png",
     url: "https://www.facebook.com/fendersalley",
-    width: 140,
-    height: 50,
+    width: 1144,
+    height: 1526,
   },
 ];
 
 export function VenueLogos() {
   return (
     <div>
-      <div className="grid grid-cols-3 items-center justify-items-center gap-6 sm:gap-14 max-w-3xl mx-auto">
-        {venues.map((v) => (
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto">
+        {posters.map((p) => (
           <a
-            key={v.name}
-            href={v.url}
+            key={p.name}
+            href={p.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-            title={v.name}
+            className="block rounded-xl overflow-hidden border border-border bg-surface shadow-sm hover:shadow-md hover:-translate-y-px transition-all duration-300"
+            title={p.name}
           >
             <Image
-              src={v.logo}
-              alt={v.name}
-              width={v.width}
-              height={v.height}
-              className="h-10 sm:h-12 w-auto"
+              src={p.image}
+              alt={p.name}
+              width={p.width}
+              height={p.height}
+              className="w-full h-auto"
+              sizes="(max-width: 640px) 90vw, 360px"
             />
           </a>
         ))}
       </div>
       <p className="text-center text-muted/40 text-[10px] mt-6">
-        Logos are trademarks of their respective owners.
+        Posters are property of their respective venues and festivals.
       </p>
     </div>
   );

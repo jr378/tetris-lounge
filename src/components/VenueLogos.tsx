@@ -14,6 +14,7 @@ const venues = [
     url: "https://inmanparkfestival.org",
     width: 180,
     height: 100,
+    offsetClass: "-translate-x-3 sm:-translate-x-5",
   },
   {
     name: "Fenders Alley",
@@ -34,7 +35,9 @@ export function VenueLogos() {
             href={v.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+            className={`grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 ${
+              "offsetClass" in v ? v.offsetClass : ""
+            }`}
             title={v.name}
           >
             <Image

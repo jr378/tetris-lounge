@@ -5,6 +5,7 @@ import { useState } from "react";
 interface Video {
   youtubeId: string;
   title: string;
+  poster?: string;
 }
 
 interface VideoGalleryProps {
@@ -42,10 +43,15 @@ function VideoFacade({ video }: { video: Video }) {
         aria-label={`Play ${video.title}`}
       >
         <img
-          src={`https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg`}
+          src={video.poster ?? `https://i.ytimg.com/vi/${video.youtubeId}/maxresdefault.jpg`}
           alt={video.title}
           className="w-full h-full object-cover"
           loading="lazy"
+          onError={(e) => {
+            const img = e.currentTarget;
+            const fallback = `https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg`;
+            if (img.src !== fallback) img.src = fallback;
+          }}
         />
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors" />

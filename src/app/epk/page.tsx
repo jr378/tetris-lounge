@@ -54,6 +54,27 @@ export default function EpkPage() {
         <div className="flex flex-wrap gap-4 justify-center">
           <CTAButton href="/contact">Check Availability</CTAButton>
           <CTAButton href="/media">Media</CTAButton>
+          <a
+            href="/images/nowhere-men/nowhere-men-band-2025.jpg"
+            download="tetris-lounge-press-photo.jpg"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm tracking-wide transition-all duration-200 border border-border bg-surface hover:bg-surface2 text-text shadow-sm hover:shadow-md hover:-translate-y-px focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-cream"
+          >
+            Download Press Photo
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+              />
+            </svg>
+          </a>
         </div>
       </Section>
 

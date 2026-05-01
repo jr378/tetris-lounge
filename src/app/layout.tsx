@@ -32,6 +32,20 @@ export const metadata: Metadata = {
     siteName: band.name,
     title: seo.siteTitle,
     description: seo.ogDescription,
+    images: [
+      {
+        url: "/images/nowhere-men/nowhere-men-band-2025.jpg",
+        width: 1440,
+        height: 960,
+        alt: "The band standing together in front of a brick wall",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: seo.siteTitle,
+    description: seo.ogDescription,
+    images: ["/images/nowhere-men/nowhere-men-band-2025.jpg"],
   },
   themeColor: "#F5ECDC",
 };

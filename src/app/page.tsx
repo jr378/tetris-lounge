@@ -71,53 +71,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── What We Play — Program Notes ── */}
-      <section className="bg-cream py-16 sm:py-24">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12">
-            <p className="text-accent font-[family-name:var(--font-display)] text-xs uppercase tracking-[0.25em] mb-3">
-              Program Notes
-            </p>
-            <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold text-text mb-4">
-              {home.whatWePlay.heading}
-            </h2>
-            <p className="text-muted text-lg max-w-2xl mx-auto">
-              {home.whatWePlay.description}
-            </p>
-          </div>
-
-          <div className="max-w-3xl mx-auto">
-            <div className="grid sm:grid-cols-2 gap-0">
-              <div className="sm:pr-8 sm:border-r sm:border-border pb-8 sm:pb-0">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="w-6 h-px bg-accent" aria-hidden="true" />
-                  <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold text-text">
-                    {home.whatWePlay.tetris.heading}
-                  </h3>
-                </div>
-                <p className="text-muted text-sm leading-relaxed pl-9">
-                  {home.whatWePlay.tetris.description}
-                </p>
-              </div>
-
-              <hr className="sm:hidden border-border my-0" />
-
-              <div className="sm:pl-8 pt-8 sm:pt-0">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="w-6 h-px bg-accent" aria-hidden="true" />
-                  <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold text-text">
-                    {home.whatWePlay.nowhere.heading}
-                  </h3>
-                </div>
-                <p className="text-muted text-sm leading-relaxed pl-9">
-                  {home.whatWePlay.nowhere.description}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ── Sample Setlists teaser ── */}
       <section className="bg-surface2 py-16 sm:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">

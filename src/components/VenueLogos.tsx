@@ -15,12 +15,19 @@ const posters = [
     width: 1053,
     height: 1494,
   },
+  {
+    name: "Tetris Lounge at Fenders Alley",
+    image: "/images/Fenders Poster.png",
+    url: "https://www.facebook.com/fendersalley",
+    width: 1144,
+    height: 1526,
+  },
 ];
 
 export function VenueLogos() {
   return (
     <div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 max-w-3xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto">
         {posters.map((p) => (
           <a
             key={p.name}

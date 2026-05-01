@@ -27,7 +27,7 @@ const venues = [
 export function VenueLogos() {
   return (
     <div>
-      <div className="flex flex-wrap items-center justify-center gap-10 sm:gap-14">
+      <div className="grid grid-cols-3 items-center justify-items-center gap-6 sm:gap-14 max-w-3xl mx-auto">
         {venues.map((v) => (
           <a
             key={v.name}

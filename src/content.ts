@@ -322,7 +322,7 @@ export const media = {
   meta: {
     title: "Media",
     description:
-      "Videos of Tetris Lounge and Nowhere Men. See the band in action and get a feel for the live experience.",
+      "Videos of Nowhere Men. See the band in action and get a feel for the live experience.",
   },
 
   hero: {

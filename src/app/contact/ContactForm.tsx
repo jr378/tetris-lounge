@@ -299,9 +299,9 @@ export function ContactForm() {
             <option value="">Select...</option>
             <option value="Venue">Venue</option>
             <option value="Private Party">Private Party</option>
+            <option value="Fundraiser">Fundraiser</option>
             <option value="Wedding">Wedding</option>
             <option value="Corporate">Corporate</option>
-            <option value="Fundraiser">Fundraiser</option>
             <option value="Other">Other</option>
           </select>
         </div>
@@ -353,7 +353,7 @@ export function ContactForm() {
             <option value="">Not sure</option>
             <option value="60 min">60 min</option>
             <option value="90 min">90 min</option>
-            <option value="2 hours">2 hours</option>
+            <option value="2+ hours">2+ hours</option>
           </select>
         </div>
         <div>

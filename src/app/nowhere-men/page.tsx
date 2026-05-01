@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: nowhereMen.meta.ogTitle,
     description: nowhereMen.meta.ogDescription,
-    images: [{ url: "/images/nowhere-men/band-beatles-jackets.webp", width: 720, height: 480, alt: "Nowhere Men band" }],
+    images: [{ url: "/images/nowhere-men/band-beatles-jackets.webp", width: 1536, height: 1024, alt: "Nowhere Men band" }],
   },
 };
 

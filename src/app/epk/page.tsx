@@ -21,6 +21,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: epk.meta.ogTitle,
     description: epk.meta.ogDescription,
+    images: [
+      {
+        url: "/images/nowhere-men/nowhere-men-band-2025.jpg",
+        width: 1440,
+        height: 960,
+        alt: "The band standing together in front of a brick wall",
+      },
+    ],
   },
 };
 

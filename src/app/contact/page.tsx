@@ -8,6 +8,18 @@ export const metadata: Metadata = {
   title: contact.meta.title,
   description: contact.meta.description,
   alternates: { canonical: "/contact" },
+  openGraph: {
+    title: contact.meta.title,
+    description: contact.meta.description,
+    images: [
+      {
+        url: "/images/nowhere-men/nowhere-men-band-2025.jpg",
+        width: 1440,
+        height: 960,
+        alt: "The band standing together in front of a brick wall",
+      },
+    ],
+  },
 };
 
 export default function ContactPage() {
@@ -24,6 +36,9 @@ export default function ContactPage() {
       <Section>
         {/* Contact Form */}
         <div className="max-w-2xl mx-auto">
+          <p className="text-accent font-[family-name:var(--font-display)] text-xs uppercase tracking-[0.25em] mb-6 text-center">
+            Atlanta-based · festivals, clubs, non-profits
+          </p>
           <ContactForm />
         </div>
 

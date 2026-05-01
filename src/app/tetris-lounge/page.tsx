@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: tetrisLounge.meta.ogTitle,
     description: tetrisLounge.meta.ogDescription,
-    images: [{ url: "/images/tetris-lounge/band-steely-dan-jackets.webp", width: 720, height: 480, alt: "Tetris Lounge band" }],
+    images: [{ url: "/images/tetris-lounge/band-steely-dan-jackets.webp", width: 1536, height: 1024, alt: "Tetris Lounge band" }],
   },
 };
 

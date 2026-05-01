@@ -3,6 +3,7 @@ import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { FloatingBookingCTA } from "@/components/FloatingBookingCTA";
 import { JsonLd } from "@/components/JsonLd";
 import { band, seo } from "@/content";
 
@@ -70,6 +71,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <FloatingBookingCTA />
       </body>
     </html>
   );

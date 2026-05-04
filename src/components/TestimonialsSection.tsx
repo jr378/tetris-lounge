@@ -11,6 +11,8 @@ interface TestimonialsSectionProps {
   label?: string;
   /** Max columns (default 3) */
   columns?: 2 | 3;
+  /** Use the shorter pull-quote variant when one is provided */
+  useShortQuote?: boolean;
 }
 
 export function TestimonialsSection({
@@ -18,6 +20,7 @@ export function TestimonialsSection({
   heading = "What People Are Saying",
   label = "Reviews",
   columns = 3,
+  useShortQuote = false,
 }: TestimonialsSectionProps) {
   // Put featured testimonials first
   const sorted = [...testimonials].sort(
@@ -47,14 +50,17 @@ export function TestimonialsSection({
       </h2>
 
       <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
-        {sorted.map((t, i) => (
-          <div key={t.id} className={`w-full ${colClass}`}>
-            <TestimonialCard
-              testimonial={t}
-              rotate={rotations[i % rotations.length]}
-            />
-          </div>
-        ))}
+        {sorted.map((t, i) => {
+          const displayed: Testimonial =
+            useShortQuote && t.quoteShort ? { ...t, quote: t.quoteShort } : t;
+          // Skip the playful rotation when there's only one card to keep it centered.
+          const rotate = sorted.length === 1 ? 0 : rotations[i % rotations.length];
+          return (
+            <div key={t.id} className={`w-full ${colClass}`}>
+              <TestimonialCard testimonial={displayed} rotate={rotate} />
+            </div>
+          );
+        })}
       </div>
     </div>
   );

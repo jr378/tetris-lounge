@@ -103,20 +103,6 @@ export const home = {
 
   testimonials: {
     heading: "What People Are Saying",
-    items: [
-      {
-        quote: "These guys absolutely killed it at our event. The energy was incredible from start to finish.",
-        name: "Private Event Host",
-      },
-      {
-        quote: "Best Beatles tribute I've heard. The harmonies and arrangements are spot-on — you'd think you were hearing the real thing.",
-        name: "Venue Manager",
-      },
-      {
-        quote: "We've had them back three times now. The crowd loves them every single time.",
-        name: "Festival Organizer",
-      },
-    ],
   },
 
   onStage: {
@@ -174,14 +160,6 @@ export const tetrisLounge = {
     heading: "Our Songs",
     // Note: the song count is auto-inserted from the data file
     description: "songs and counting. Search by title or artist.",
-  },
-
-  photos: {
-    heading: "Photos",
-    images: [
-      "/images/tetris-lounge/Tetris Lounge Downtown 2.jpg",
-      "/images/tetris-lounge/TL pool party.jpg"
-    ],
   },
 
   cta: {
@@ -267,15 +245,6 @@ export const nowhereMen = {
       src: "/images/nowhere-men/Nowhere Men Fender's Alley.jpg",
       alt: "Nowhere Men performing at Fender's Alley",
     },
-  },
-
-  gallery: {
-    heading: "Gallery",
-    images: [
-      "/images/nowhere-men/nowhere-men-band-2025.jpg",
-      "/images/nowhere-men/Nowhere Men Fender's Alley.jpg",
-      "/images/nowhere-men/Fender's Alley 2.jpg",
-    ],
   },
 
   setlist: {

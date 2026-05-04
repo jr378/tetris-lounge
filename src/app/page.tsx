@@ -139,6 +139,7 @@ export default function Home() {
           <TestimonialsSection
             testimonials={testimonials}
             heading={home.testimonials.heading}
+            useShortQuote
           />
         </div>
       </section>

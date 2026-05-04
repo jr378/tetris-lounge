@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { Section } from "@/components/Section";
 import { SongList } from "@/components/SongList";
-import { Gallery } from "@/components/Gallery";
 import { CTAButton } from "@/components/CTAButton";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { SampleSetlist } from "@/components/SampleSetlist";
@@ -98,19 +97,8 @@ export default function NowhereManPage() {
         <SongList songs={songs} />
       </Section>
 
-      {/* Gallery */}
-      <Section>
-        <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-8">
-          {nowhereMen.gallery.heading}
-        </h2>
-        <Gallery
-          images={nowhereMen.gallery.images}
-          alt="Nowhere Men"
-        />
-      </Section>
-
       {/* CTA */}
-      <Section dark>
+      <Section>
         <div className="text-center">
           <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-4">
             {nowhereMen.cta.heading}

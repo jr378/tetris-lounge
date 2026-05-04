@@ -26,6 +26,15 @@ export function TestimonialsSection({
 
   const rotations = [-0.3, 0, 0.3, -0.2, 0.2];
 
+  // Cap columns at the number of testimonials so 1–2 items still center nicely.
+  const effectiveColumns = Math.min(columns, sorted.length || 1) as 1 | 2 | 3;
+  const colClass =
+    effectiveColumns === 1
+      ? "md:basis-[28rem] md:max-w-[28rem]"
+      : effectiveColumns === 2
+        ? "md:basis-[calc(50%-1rem)] md:max-w-[calc(50%-1rem)]"
+        : "md:basis-[calc(33.333%-1.334rem)] md:max-w-[calc(33.333%-1.334rem)]";
+
   return (
     <div className="text-center mb-10">
       {label && (
@@ -37,17 +46,14 @@ export function TestimonialsSection({
         {heading}
       </h2>
 
-      <div
-        className={`grid gap-8 max-w-4xl mx-auto ${
-          columns === 2 ? "md:grid-cols-2" : "md:grid-cols-3"
-        }`}
-      >
+      <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
         {sorted.map((t, i) => (
-          <TestimonialCard
-            key={t.id}
-            testimonial={t}
-            rotate={rotations[i % rotations.length]}
-          />
+          <div key={t.id} className={`w-full ${colClass}`}>
+            <TestimonialCard
+              testimonial={t}
+              rotate={rotations[i % rotations.length]}
+            />
+          </div>
         ))}
       </div>
     </div>

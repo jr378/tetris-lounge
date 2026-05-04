@@ -12,8 +12,6 @@ export interface Testimonial {
   label?: string;
   /** Whether this is a featured/verified testimonial with a full letter */
   featured?: boolean;
-  /** When true, truncate the quote and let the user click to expand it */
-  expandable?: boolean;
 }
 
 const testimonials: Testimonial[] = [
@@ -30,7 +28,6 @@ const testimonials: Testimonial[] = [
     fullImagePath: "/testimonials/fenders-alley-robert-fortin-2023-05-16.png",
     label: "Venue Endorsement",
     featured: true,
-    expandable: true,
   },
   {
     id: "private-party-brad-r",
@@ -40,7 +37,6 @@ const testimonials: Testimonial[] = [
     sourceName: "Brad R.",
     sourceTitle: "Private Party Host",
     label: "Private Party",
-    expandable: true,
   },
 ];
 

@@ -3,12 +3,11 @@ import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { Section } from "@/components/Section";
 import { CTAButton } from "@/components/CTAButton";
-import { Gallery } from "@/components/Gallery";
 import { EpkVideo } from "@/components/EpkVideo";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { VenueLogos } from "@/components/VenueLogos";
 import { SampleSetlist } from "@/components/SampleSetlist";
-import { epk, band, tetrisLounge, nowhereMen } from "@/content";
+import { epk, band } from "@/content";
 import testimonials from "@/data/testimonials";
 import setlists from "@/data/setlists";
 import tetrisSongs from "@/data/songlists.tetris.json";
@@ -247,22 +246,8 @@ export default function EpkPage() {
         </div>
       </Section>
 
-      {/* Photos */}
-      <Section>
-        <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-8 text-center">
-          Photos
-        </h2>
-        <Gallery
-          images={[
-            ...tetrisLounge.photos.images,
-            ...nowhereMen.gallery.images,
-          ]}
-          alt="Tetris Lounge / Nowhere Men"
-        />
-      </Section>
-
       {/* Video */}
-      <Section dark>
+      <Section>
         <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-8 text-center">
           See Us Live
         </h2>
@@ -273,7 +258,7 @@ export default function EpkPage() {
       </Section>
 
       {/* Testimonials / Endorsements */}
-      <Section>
+      <Section dark>
         <TestimonialsSection
           testimonials={testimonials.filter((t) => t.featured)}
           heading="Testimonials"
@@ -283,7 +268,7 @@ export default function EpkPage() {
       </Section>
 
       {/* Booking CTA */}
-      <Section dark>
+      <Section>
         <div className="text-center">
           <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-4">
             {epk.cta.heading}

@@ -11,7 +11,9 @@ interface TestimonialCardProps {
 
 export function TestimonialCard({ testimonial, rotate = 0 }: TestimonialCardProps) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [expanded, setExpanded] = useState(false);
   const t = testimonial;
+  const isExpandable = !!t.expandable;
 
   return (
     <>
@@ -38,9 +40,38 @@ export function TestimonialCard({ testimonial, rotate = 0 }: TestimonialCardProp
           &ldquo;
         </span>
 
-        <p className="relative text-text text-sm leading-relaxed mb-4 italic">
+        <p
+          className={`relative text-text text-sm leading-relaxed mb-4 italic ${
+            isExpandable && !expanded ? "line-clamp-4" : ""
+          }`}
+        >
           &ldquo;{t.quote}&rdquo;
         </p>
+
+        {isExpandable && (
+          <button
+            type="button"
+            onClick={() => setExpanded((v) => !v)}
+            aria-expanded={expanded}
+            className="-mt-2 mb-3 inline-flex items-center gap-1 text-xs font-medium text-accent hover:text-accent-hover transition-colors"
+          >
+            {expanded ? "Show less" : "Read more"}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className={`transition-transform ${expanded ? "rotate-180" : ""}`}
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+        )}
 
         <hr className="border-border mb-3" />
 

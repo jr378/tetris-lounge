@@ -11,6 +11,8 @@ interface TestimonialsSectionProps {
   label?: string;
   /** Max columns (default 3) */
   columns?: 2 | 3;
+  /** Use the shorter pull-quote variant when one is provided */
+  useShortQuote?: boolean;
 }
 
 export function TestimonialsSection({
@@ -18,6 +20,7 @@ export function TestimonialsSection({
   heading = "What People Are Saying",
   label = "Reviews",
   columns = 3,
+  useShortQuote = false,
 }: TestimonialsSectionProps) {
   // Put featured testimonials first
   const sorted = [...testimonials].sort(
@@ -25,6 +28,15 @@ export function TestimonialsSection({
   );
 
   const rotations = [-0.3, 0, 0.3, -0.2, 0.2];
+
+  // Cap columns at the number of testimonials so 1–2 items still center nicely.
+  const effectiveColumns = Math.min(columns, sorted.length || 1) as 1 | 2 | 3;
+  const colClass =
+    effectiveColumns === 1
+      ? "md:basis-[28rem] md:max-w-[28rem]"
+      : effectiveColumns === 2
+        ? "md:basis-[calc(50%-1rem)] md:max-w-[calc(50%-1rem)]"
+        : "md:basis-[calc(33.333%-1.334rem)] md:max-w-[calc(33.333%-1.334rem)]";
 
   return (
     <div className="text-center mb-10">
@@ -37,18 +49,18 @@ export function TestimonialsSection({
         {heading}
       </h2>
 
-      <div
-        className={`grid gap-8 max-w-4xl mx-auto ${
-          columns === 2 ? "md:grid-cols-2" : "md:grid-cols-3"
-        }`}
-      >
-        {sorted.map((t, i) => (
-          <TestimonialCard
-            key={t.id}
-            testimonial={t}
-            rotate={rotations[i % rotations.length]}
-          />
-        ))}
+      <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
+        {sorted.map((t, i) => {
+          const displayed: Testimonial =
+            useShortQuote && t.quoteShort ? { ...t, quote: t.quoteShort } : t;
+          // Skip the playful rotation when there's only one card to keep it centered.
+          const rotate = sorted.length === 1 ? 0 : rotations[i % rotations.length];
+          return (
+            <div key={t.id} className={`w-full ${colClass}`}>
+              <TestimonialCard testimonial={displayed} rotate={rotate} />
+            </div>
+          );
+        })}
       </div>
     </div>
   );

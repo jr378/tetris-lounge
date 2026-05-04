@@ -94,14 +94,17 @@ HEADING: Sample Setlists
 
 HEADING: What People Are Saying
 
+  [Nowhere Men — Venue Endorsement]
   "Our entire venue was sold out for this show with standing room only. The Nowhere Men had our audience completely engaged from their first song until the encore."
   — Robert Fortin, Talent Buyer, Fenders Alley, Cornelia, GA (May 16, 2023)
+  [Read full letter — opens scanned letter image]
 
-  "These guys studied the intricate details of The Beatles recordings, and they did an amazing job delivering a true Beatles fan experience."
-  — Robert Fortin, Talent Buyer, Fenders Alley, Cornelia, GA
+  [Tetris Lounge — Private Party]
+  "The Tetris Lounge played at our house for a client party and I could have not been more impressed. Who says you need a large venue to have a kickin' show?!"
+  — Brad R., Private Party Host, Atlanta, GA (June 2022)
 
-  "An extremely professional, highly entertaining performance. I received numerous positive comments from our customers on how much they enjoyed the show."
-  — Robert Fortin, Talent Buyer, Fenders Alley, Cornelia, GA
+  Note: Home page shows shorter pull-quotes. The Tetris Lounge and Nowhere Men
+  pages display each act's full review.
 
 ────────────────────────────────────────
 
@@ -173,10 +176,10 @@ BUTTON: Download PDF
 
 ────────────────────────────────────────
 
---- Photos ---
+--- What People Are Saying (Testimonials) ---
 
-HEADING: Photos
-[Gallery of band performance photos]
+HEADING: What People Are Saying
+[Filtered to Tetris Lounge reviews — currently shows the Brad R. review]
 
 ────────────────────────────────────────
 
@@ -224,7 +227,7 @@ FEATURE BULLETS:
 --- What People Are Saying (Testimonials) ---
 
 HEADING: What People Are Saying
-[Same testimonials as home page, filtered to Nowhere Men]
+[Filtered to Nowhere Men reviews — currently shows the Robert Fortin review]
 
 ────────────────────────────────────────
 
@@ -241,13 +244,6 @@ HEADING: Our Songs
 DESCRIPTION: [count] songs from across the Beatles catalog. Search by title.
 SEARCH PLACEHOLDER: Search songs or artists…
 BUTTON: Download PDF
-
-────────────────────────────────────────
-
---- Gallery ---
-
-HEADING: Gallery
-[Grid of band performance photos]
 
 ────────────────────────────────────────
 

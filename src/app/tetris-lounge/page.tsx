@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { Section } from "@/components/Section";
 import { SongList } from "@/components/SongList";
-import { Gallery } from "@/components/Gallery";
 import { CTAButton } from "@/components/CTAButton";
 import { SampleSetlist } from "@/components/SampleSetlist";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 import songs from "@/data/songlists.tetris.json";
 import setlists from "@/data/setlists";
+import testimonials from "@/data/testimonials";
 import { ActCrossLink } from "@/components/ActCrossLink";
 import { DownloadPdfButton } from "@/components/DownloadPdfButton";
 import { RichText } from "@/components/RichText";
@@ -84,14 +85,15 @@ export default function TetrisLoungePage() {
         <SongList songs={songs} />
       </Section>
 
-      {/* Photos */}
+      {/* Testimonial */}
       <Section dark>
-        <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-bold mb-8">
-          {tetrisLounge.photos.heading}
-        </h2>
-        <Gallery
-          images={tetrisLounge.photos.images}
-          alt="Tetris Lounge"
+        <TestimonialsSection
+          testimonials={testimonials.filter(
+            (t) => t.act === "tetris-lounge" || t.act === "both"
+          )}
+          heading="What People Are Saying"
+          label="Reviews"
+          columns={2}
         />
       </Section>
 

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
-import { Section } from "@/components/Section";
 import { ContactForm } from "./ContactForm";
 import { contact } from "@/content";
 
@@ -33,30 +32,32 @@ export default function ContactPage() {
         haze
       />
 
-      <Section>
-        {/* Contact Form */}
-        <div className="max-w-2xl mx-auto">
-          <p className="text-accent font-[family-name:var(--font-display)] text-xs uppercase tracking-[0.25em] mb-6 text-center">
-            Atlanta-based · festivals, clubs, non-profits
-          </p>
-          <ContactForm />
-        </div>
+      <section className="bg-cream text-text pt-8 pb-16 sm:pt-10 sm:pb-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          {/* Contact Form */}
+          <div className="max-w-2xl mx-auto">
+            <p className="text-accent font-[family-name:var(--font-display)] text-xs uppercase tracking-[0.25em] mb-6 text-center">
+              Atlanta-based · festivals, clubs, non-profits
+            </p>
+            <ContactForm />
+          </div>
 
-        {/* Great Fit For */}
-        <div className="max-w-3xl mx-auto mt-16">
-          <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl font-bold mb-6">
-            {contact.greatFit.heading}
-          </h2>
-          <div className="grid sm:grid-cols-2 gap-4">
-            {contact.greatFit.items.map((item) => (
-              <div key={item} className="flex items-center gap-3">
-                <span className="w-2 h-2 rounded-full bg-accent shrink-0" />
-                <span className="text-text">{item}</span>
-              </div>
-            ))}
+          {/* Great Fit For */}
+          <div className="max-w-3xl mx-auto mt-16">
+            <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl font-bold mb-6">
+              {contact.greatFit.heading}
+            </h2>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {contact.greatFit.items.map((item) => (
+                <div key={item} className="flex items-center gap-3">
+                  <span className="w-2 h-2 rounded-full bg-accent shrink-0" />
+                  <span className="text-text">{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </Section>
+      </section>
     </>
   );
 }

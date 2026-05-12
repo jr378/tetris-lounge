@@ -34,6 +34,18 @@ const testimonials: Testimonial[] = [
     featured: true,
   },
   {
+    id: "inman-park-festival-bradley-cole-smith",
+    act: "nowhere-men",
+    quote:
+      "IPF takes pride in providing the best music experiences for our festival guests. Everyone loves the Beatles and the Nowhere Men do an excellent job of recreating their music from all albums and eras. Tight and faithful renderings pleased the packed crowd - which led us to invite them back for a second successful year. We would be happy to book them again - we highly recommend them.",
+    quoteShort:
+      "The Nowhere Men do an excellent job of recreating their music from all albums and eras. Tight and faithful renderings pleased the packed crowd - which led us to invite them back for a second successful year.",
+    sourceName: "Bradley Cole Smith",
+    sourceTitle: "Musician and Co-Chair, Music Committee",
+    sourceOrg: "Inman Park Festival",
+    label: "Nowhere Men — Festival Endorsement",
+  },
+  {
     id: "private-party-brad-r",
     act: "tetris-lounge",
     quote:

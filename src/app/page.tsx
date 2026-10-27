@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { ActCard } from "@/components/ActCard";
@@ -7,10 +8,17 @@ import { VenueLogos } from "@/components/VenueLogos";
 import { home } from "@/content";
 import testimonials from "@/data/testimonials";
 import setlists from "@/data/setlists";
+import showData from "@/data/shows.json";
+import type { Show } from "@/data/types";
 
 export default function Home() {
   const nowhereSetlist = setlists.find((s) => s.act === "nowhere-men");
   const tetrisSetlist = setlists.find((s) => s.act === "tetris-lounge");
+  // Soonest upcoming show with a bill; checked at build time
+  const startOfToday = new Date().setHours(0, 0, 0, 0);
+  const nextShow = (showData as Show[])
+    .filter((s) => s.poster && Date.parse(s.date) >= startOfToday)
+    .sort((a, b) => Date.parse(a.date) - Date.parse(b.date))[0];
 
   return (
     <>
@@ -25,6 +33,35 @@ export default function Home() {
         imageSrc="/images/nowhere-men/nowhere-men-band-2025.jpg"
         imageAlt="The band standing together in front of a brick wall"
       />
+
+      {/* ── Next Show ── */}
+      {nextShow?.poster && (
+        <section className="bg-surface2 py-12 sm:py-16">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6">
+            <p className="text-accent font-[family-name:var(--font-display)] text-xs uppercase tracking-[0.25em] mb-6 text-center">
+              Next Show
+            </p>
+            <Link
+              href="/shows"
+              className="block max-w-3xl mx-auto rounded-xl overflow-hidden border border-border bg-surface shadow-sm hover:shadow-md hover:-translate-y-px transition-all duration-300"
+            >
+              <Image
+                src={nextShow.poster.src}
+                alt={`Show bill: ${nextShow.act ?? nextShow.venue} at ${nextShow.venue}, ${nextShow.date}`}
+                width={nextShow.poster.width}
+                height={nextShow.poster.height}
+                className="w-full h-auto"
+                sizes="(max-width: 768px) 100vw, 768px"
+              />
+            </Link>
+            <p className="text-center text-muted mt-4">
+              {nextShow.date}
+              {nextShow.time && ` · ${nextShow.time}`} · {nextShow.venue},{" "}
+              {nextShow.location}
+            </p>
+          </div>
+        </section>
+      )}
 
       {/* ── Two Acts ── */}
       <section className="bg-cream py-16 sm:py-24">

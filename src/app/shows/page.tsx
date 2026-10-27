@@ -5,23 +5,13 @@ import { Section } from "@/components/Section";
 import { CTAButton } from "@/components/CTAButton";
 import showData from "@/data/shows.json";
 import { shows } from "@/content";
+import type { Show } from "@/data/types";
 
 export const metadata: Metadata = {
   title: shows.meta.title,
   description: shows.meta.description,
   alternates: { canonical: "/shows" },
 };
-
-interface Show {
-  date: string;
-  venue: string;
-  location: string;
-  act?: string;
-  time?: string;
-  ticketUrl?: string;
-  notes?: string;
-  poster?: { src: string; width: number; height: number };
-}
 
 export default function ShowsPage() {
   // Soonest date first; dates use the "March 15, 2025" format from the README

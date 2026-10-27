@@ -90,12 +90,17 @@ Edit `/src/data/shows.json` with entries in this format:
     "act": "Tetris Lounge",
     "time": "8:00 PM",
     "ticketUrl": "https://example.com/tickets",
-    "notes": "Optional notes"
+    "notes": "Optional notes",
+    "poster": {
+      "src": "/images/show-bill.jpg",
+      "width": 2528,
+      "height": 1696
+    }
   }
 ]
 ```
 
-Only `date`, `venue`, and `location` are required. All other fields are optional.
+Only `date`, `venue`, and `location` are required. All other fields are optional. `poster` shows the show bill above the listing; put the image in `/public/images/` and give its pixel size.
 
 ## Adding Videos
 

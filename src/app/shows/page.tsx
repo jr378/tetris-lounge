@@ -24,7 +24,10 @@ interface Show {
 }
 
 export default function ShowsPage() {
-  const typedShows = showData as Show[];
+  // Soonest date first; dates use the "March 15, 2025" format from the README
+  const typedShows = [...(showData as Show[])].sort(
+    (a, b) => Date.parse(a.date) - Date.parse(b.date)
+  );
 
   return (
     <>

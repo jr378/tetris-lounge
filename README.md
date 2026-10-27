@@ -100,7 +100,7 @@ Edit `/src/data/shows.json` with entries in this format:
 ]
 ```
 
-Only `date`, `venue`, and `location` are required. All other fields are optional. `poster` shows the show bill above the listing; put the image in `/public/images/` and give its pixel size.
+Shows are sorted by date automatically (soonest first), so entries can go in any order. Only `date`, `venue`, and `location` are required. All other fields are optional. `poster` shows the show bill above the listing; put the image in `/public/images/` and give its pixel size.
 
 ## Adding Videos
 

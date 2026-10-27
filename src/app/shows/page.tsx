@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Hero } from "@/components/Hero";
 import { Section } from "@/components/Section";
 import { CTAButton } from "@/components/CTAButton";
@@ -19,10 +20,14 @@ interface Show {
   time?: string;
   ticketUrl?: string;
   notes?: string;
+  poster?: { src: string; width: number; height: number };
 }
 
 export default function ShowsPage() {
-  const typedShows = showData as Show[];
+  // Soonest date first; dates use the "March 15, 2025" format from the README
+  const typedShows = [...(showData as Show[])].sort(
+    (a, b) => Date.parse(a.date) - Date.parse(b.date)
+  );
 
   return (
     <>
@@ -64,56 +69,68 @@ export default function ShowsPage() {
               {typedShows.map((show) => (
                 <article
                   key={`${show.date}-${show.venue}`}
-                  className="flex flex-col sm:flex-row sm:items-center gap-4 p-6 rounded-xl border border-border bg-surface hover:shadow-md hover:border-ink/[0.22] transition-all"
+                  className="rounded-xl overflow-hidden border border-border bg-surface hover:shadow-md hover:border-ink/[0.22] transition-all"
                 >
-                  <div className="shrink-0 text-center sm:text-left sm:w-24">
-                    <time dateTime={show.date} className="font-[family-name:var(--font-display)] text-lg font-bold text-text">
-                      {show.date}
-                    </time>
-                    {show.time && (
-                      <p className="text-xs text-muted">{show.time}</p>
-                    )}
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-semibold text-text">
-                      {show.venue}
-                    </h3>
-                    <p className="text-muted text-sm">{show.location}</p>
-                    {show.act && (
-                      <span className="inline-block mt-1 text-xs px-2 py-0.5 rounded-full bg-accent-soft text-accent">
-                        {show.act}
-                      </span>
-                    )}
-                    {show.notes && (
-                      <p className="text-muted/70 text-xs mt-1">
-                        {show.notes}
-                      </p>
-                    )}
-                  </div>
-                  {show.ticketUrl && (
-                    <a
-                      href={show.ticketUrl}
-                      className="inline-flex items-center gap-1 text-sm font-medium text-accent hover:text-accent-hover transition-colors"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Tickets
-                      <svg
-                        className="w-3.5 h-3.5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={2}
-                        stroke="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-                        />
-                      </svg>
-                    </a>
+                  {show.poster && (
+                    <Image
+                      src={show.poster.src}
+                      alt={`Show bill: ${show.act ?? show.venue} at ${show.venue}, ${show.date}`}
+                      width={show.poster.width}
+                      height={show.poster.height}
+                      className="w-full h-auto"
+                      sizes="(max-width: 768px) 100vw, 768px"
+                    />
                   )}
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-4 p-6">
+                    <div className="shrink-0 text-center sm:text-left sm:w-24">
+                      <time dateTime={show.date} className="font-[family-name:var(--font-display)] text-lg font-bold text-text">
+                        {show.date}
+                      </time>
+                      {show.time && (
+                        <p className="text-xs text-muted">{show.time}</p>
+                      )}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-text">
+                        {show.venue}
+                      </h3>
+                      <p className="text-muted text-sm">{show.location}</p>
+                      {show.act && (
+                        <span className="inline-block mt-1 text-xs px-2 py-0.5 rounded-full bg-accent-soft text-accent">
+                          {show.act}
+                        </span>
+                      )}
+                      {show.notes && (
+                        <p className="text-muted/70 text-xs mt-1">
+                          {show.notes}
+                        </p>
+                      )}
+                    </div>
+                    {show.ticketUrl && (
+                      <a
+                        href={show.ticketUrl}
+                        className="inline-flex items-center gap-1 text-sm font-medium text-accent hover:text-accent-hover transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Tickets
+                        <svg
+                          className="w-3.5 h-3.5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth={2}
+                          stroke="currentColor"
+                          aria-hidden="true"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+                          />
+                        </svg>
+                      </a>
+                    )}
+                  </div>
                 </article>
               ))}
             </div>

@@ -1,1 +1,25 @@
-[]
+[
+  {
+    "date": "October 30, 2026",
+    "venue": "Wild Heaven Brewery",
+    "location": "Avondale Estates, GA",
+    "act": "Nowhere Men & Tetris Lounge",
+    "time": "6:00 PM",
+    "notes": "Playing the best of the Beatles, Steely Dan, Talking Heads, Tom Petty, the Eagles, and more",
+    "poster": {
+      "src": "/images/Nowhere Men Oct 30 Show Bill.jpeg",
+      "width": 2528,
+      "height": 1696
+    }
+  },
+  {
+    "date": "January 23, 2027",
+    "venue": "Private Party",
+    "location": "Atlanta, GA"
+  },
+  {
+    "date": "January 29, 2027",
+    "venue": "Private Party",
+    "location": "Atlanta, GA"
+  }
+]
